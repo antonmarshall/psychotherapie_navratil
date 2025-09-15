@@ -1,0 +1,20 @@
+ index.html                                 |   6 [32m+[m[31m-[m
+ public/behandlung_2.png                    | Bin [31m1868382[m -> [32m2166270[m bytes
+ public/diagnostik_2.png                    | Bin [31m2887111[m -> [32m3035415[m bytes
+ public/favicon.ico                         | Bin [31m7645[m -> [32m62793[m bytes
+ public/neuropsychologie.png                | Bin [31m1233402[m -> [32m1301737[m bytes
+ public/systemischepsychologie.png          | Bin [31m1284554[m -> [32m1159796[m bytes
+ public/tiefenpsychologie.png               | Bin [31m1246160[m -> [32m323678[m bytes
+ public/verhaltenstherapie.png              | Bin [31m1213842[m -> [32m1066242[m bytes
+ src/components/ContactSection.tsx          |  18 [32m+[m[31m-[m
+ src/components/Footer.tsx                  |   2 [32m+[m[31m-[m
+ src/components/HeroSection.tsx             |   2 [32m+[m[31m-[m
+ src/components/MethodsSection.tsx          |  52 [32m++[m[31m--[m
+ src/components/Navigation.tsx              | 451 [32m+++++++++++++++++++++++++[m[31m----[m
+ src/components/PracticeGallery.tsx         |  25 [32m+[m[31m-[m
+ src/components/ServicesSection.tsx         |   2 [32m+[m[31m-[m
+ src/components/TreatmentConceptSection.tsx |  20 [32m+[m[31m-[m
+ src/components/TreatmentSpectrum.tsx       | 209 [32m+++++++++[m[31m----[m
+ src/components/WelcomeSection.tsx          |   2 [32m+[m[31m-[m
+ tailwind.config.ts                         |  28 [32m+[m[31m-[m
+ 19 files changed, 631 insertions(+), 186 deletions(-)
