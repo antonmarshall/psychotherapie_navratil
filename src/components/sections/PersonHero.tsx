@@ -52,7 +52,7 @@ const PersonHero = () => {
             <div className="text-center lg:text-left">
               <div className="mb-8">
                 <img 
-                  src="/profil.jpg" 
+                  src="./profil.jpg" 
                   alt="Dipl.-Psych. Christiane Navratil"
                   className="w-64 h-64 mx-auto lg:mx-0 rounded-full object-cover shadow-xl"
                 />

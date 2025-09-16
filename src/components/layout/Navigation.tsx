@@ -249,7 +249,7 @@ const Navigation = () => {
     <nav
       className="sticky top-0 z-50 w-full border-b border-accent2 shadow-sm"
       style={{
-        backgroundImage: "url('/navigator_background.png')",
+        backgroundImage: "url('./navigator_background.png')",
         backgroundSize: "100% 100%",
         backgroundPosition: "center center",
         backgroundRepeat: "no-repeat"

@@ -3,28 +3,28 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 const ServicesSection = () => {
   const services = [
     {
-      image: "/diagnostik_2.png",
+      image: "./diagnostik_2.png",
       title: "Diagnostik",
       description: "Umfassende psychologische Untersuchung zur genauen Erfassung Ihrer individuellen Situation",
       bgColor: "bg-primary-light",
       borderColor: "border-primary"
     },
     {
-      image: "/beratung_2.png",
+      image: "./beratung_2.png",
       title: "Beratung", 
       description: "Professionelle Begleitung für Familien, Eltern und Kinder bei Entwicklungsfragen",
       bgColor: "bg-accent2-light",
       borderColor: "border-accent2"
     },
     {
-      image: "/behandlung_2.png",
+      image: "./behandlung_2.png",
       title: "Behandlung",
       description: "Evidenzbasierte Psychotherapie für Kinder, Jugendliche und Familien",
       bgColor: "bg-accent-light",
       borderColor: "border-accent"
     },
     {
-      image: "/berufliche_wiedereingliederung.png",
+      image: "./berufliche_wiedereingliederung.png",
       title: "Berufliche Wiedereingliederung",
       description: "Unterstützung bei der Rückkehr ins Berufsleben nach psychischen Belastungen oder Erkrankungen",
       bgColor: "bg-primary",

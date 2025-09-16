@@ -8,25 +8,25 @@ const PracticeGallery = () => {
       id: 1,
       title: "Wartezimmer",
       description: "Gemütlicher Wartebereich für Familien",
-      image: "/wartezimmer.png"
+      image: "./wartezimmer.png"
     },
     {
       id: 2,
       title: "Therapieraum",
       description: "Ruhiger Raum für Gespräche und Therapie",
-      image: "/therapieraum.png"
+      image: "./therapieraum.png"
     },
     {
       id: 3,
       title: "Eingangsbereich",
       description: "Willkommener Empfangsbereich der Praxis",
-      image: "/Eingangsbereich.png"
+      image: "./Eingangsbereich.png"
     },
     {
       id: 4,
       title: "Praxis von außen",
       description: "Die Praxis in der Hüffer-Straße 22 in Münster",
-      image: "/praxis_von_außen.png"
+      image: "./praxis_von_außen.png"
     }
   ];
 
