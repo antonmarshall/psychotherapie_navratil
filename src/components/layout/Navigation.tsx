@@ -247,7 +247,7 @@ const Navigation = () => {
 
   return (
     <nav
-      className="sticky top-0 z-50 w-full border-b border-accent2 shadow-sm"
+      className="sticky top-0 z-50 w-full border-b border-accent2 shadow-sm pointer-events-auto"
       style={{
         backgroundImage: `url(${import.meta.env.BASE_URL}navigator_background.png)`,
         backgroundSize: "100% 100%",
@@ -255,9 +255,9 @@ const Navigation = () => {
         backgroundRepeat: "no-repeat"
       }}
     >
-      {/* Semi-transparent Overlay für bessere Lesbarkeit - außerhalb des containers */}
-      <div className="absolute inset-0 bg-white/5"></div>
-      <div className="w-full px-4 sm:px-6 flex items-center justify-between h-16 relative z-10">
+      {/* Semi-transparent Overlay für bessere Lesbarkeit - darf keine Klicks abfangen */}
+      <div className="absolute inset-0 bg-white/5 pointer-events-none"></div>
+      <div className="w-full px-4 sm:px-6 flex items-center justify-between h-16 relative z-10 pointer-events-auto">
         <div className="relative z-20 flex items-center justify-between w-full h-16">
           {/* Logo */}
           <div className="flex items-center cursor-pointer select-none" onClick={() => scrollToSection('willkommen')}>
@@ -411,7 +411,7 @@ const Navigation = () => {
           </div>
           
           {/* Mobile Menu Button */}
-          <button className="md:hidden p-2" onClick={() => setIsOpen(!isOpen)} aria-label="Menü öffnen/schließen">
+          <button className="md:hidden p-2 pointer-events-auto z-50" onClick={() => setIsOpen(!isOpen)} aria-label="Menü öffnen/schließen">
             {isOpen ? <X className="w-7 h-7 text-gray-800" /> : <Menu className="w-7 h-7 text-gray-800" />}
           </button>
         </div>
@@ -419,7 +419,7 @@ const Navigation = () => {
       
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-white border-t border-gray-200">
+        <div className="md:hidden bg-white border-t border-gray-200 relative z-50 pointer-events-auto">
           <div className="py-6 px-6 shadow-lg animate-fade-in flex flex-col gap-4">
             <button onClick={() => scrollToSection('person')} className="text-left text-gray-800 hover:text-yellow-700 text-lg font-medium px-2 py-2 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400 transition-colors">
               Über mich
