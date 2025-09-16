@@ -5,7 +5,7 @@ const HeroSection = () => {
     <section
       className="relative min-h-[60vh] flex items-center justify-center"
       style={{
-        backgroundImage: "url('./hero_hintergrund.png')",
+        backgroundImage: `url(${import.meta.env.BASE_URL}hero_hintergrund.png)`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat"
@@ -16,7 +16,7 @@ const HeroSection = () => {
         <div className="bg-[#fff8ed]/90 rounded-3xl shadow-xl p-8 md:p-12 max-w-2xl mx-auto flex flex-col items-start gap-6 mt-16 mb-12 relative">
           {/* Profilbild */}
           <img
-            src="./profil.jpg"
+            src={import.meta.env.BASE_URL + 'profil.jpg'}
             alt="Dipl.-Psych. Christiane Navratil"
             className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover mb-2 shadow-md border-4 border-white absolute left-1/2 -translate-x-1/2 -top-16"
             style={{marginTop: 0}}

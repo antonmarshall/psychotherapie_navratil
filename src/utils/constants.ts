@@ -37,7 +37,7 @@ export const SEO_DEFAULT = {
   title: "Psychotherapie Praxis - Professionelle Hilfe in Musterstadt",
   description: "Professionelle Psychotherapie in Musterstadt. Verhaltenstherapie, Systemische Therapie und mehr. Termine verfügbar.",
   keywords: ["Psychotherapie", "Musterstadt", "Verhaltenstherapie", "Systemische Therapie", "Psychologe"],
-  image: "./profil.jpg"
+  image: import.meta.env.BASE_URL + 'profil.jpg'
 } as const;
 
 // Animation constants

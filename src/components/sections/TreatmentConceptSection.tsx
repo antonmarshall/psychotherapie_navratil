@@ -5,7 +5,7 @@ const concepts = [
   {
     key: "verhaltenstherapie",
     title: "Verhaltenstherapie",
-    icon: "./verhaltenstherapie.png",
+    icon: import.meta.env.BASE_URL + 'verhaltenstherapie.png',
     color: "bg-primary-light border-primary",
     iconAlt: "Symbol Verhaltenstherapie",
     description: (
@@ -15,7 +15,7 @@ const concepts = [
   {
     key: "systemische-therapie",
     title: "Systemische Therapie",
-    icon: "./systemischepsychologie.png",
+    icon: import.meta.env.BASE_URL + 'systemischepsychologie.png',
     color: "bg-accent2-light border-accent2",
     iconAlt: "Symbol Systemische Therapie",
     description: (
@@ -25,7 +25,7 @@ const concepts = [
   {
     key: "tiefenpsychologisch",
     title: "Tiefenpsychologisch fundierte Psychotherapie",
-    icon: "./tiefenpsychologie.png",
+    icon: import.meta.env.BASE_URL + 'tiefenpsychologie.png',
     color: "bg-accent-light border-accent",
     iconAlt: "Symbol Tiefenpsychologisch fundierte Psychotherapie",
     description: (
@@ -35,7 +35,7 @@ const concepts = [
   {
     key: "neuropsychologisch",
     title: "Neuropsychologische Therapie",
-    icon: "./neuropsychologie.png",
+    icon: import.meta.env.BASE_URL + 'neuropsychologie.png',
     color: "bg-secondary-light border-secondary",
     iconAlt: "Symbol Neuropsychologische Therapie",
     description: (
