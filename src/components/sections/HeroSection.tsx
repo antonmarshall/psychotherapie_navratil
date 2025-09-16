@@ -12,7 +12,7 @@ const HeroSection = () => {
       }}
     >
       {/* Weißer Kasten mit Inhalt */}
-      <div className="relative z-10 w-full px-4 sm:px-6 flex flex-col items-center justify-center">
+      <div className="relative z-10 container mx-auto px-6 flex flex-col items-center justify-center">
         <div className="bg-[#fff8ed]/90 rounded-3xl shadow-xl p-8 md:p-12 max-w-2xl mx-auto flex flex-col items-start gap-6 mt-16 mb-12 relative">
           {/* Profilbild */}
           <img
@@ -23,11 +23,11 @@ const HeroSection = () => {
           />
           <div className="mt-20 w-full">
             {/* Headline */}
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#222222] mb-2 text-left md:text-left leading-tight">
+            <h1 className="text-4xl md:text-5xl font-bold text-[#222222] mb-2 text-left md:text-left">
               Praxis für Psychotherapie – Christiane Navratil
           </h1>
             {/* Subline */}
-            <p className="text-base sm:text-lg text-gray-500 mb-4 max-w-md text-left md:text-left">
+            <p className="text-lg text-gray-500 mb-4 max-w-md text-left md:text-left">
               für Kinder, Jugendliche & Erwachsene
             </p>
             {/* Buttons */}

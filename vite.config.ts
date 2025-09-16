@@ -5,7 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: mode === 'production' ? '/navratil-web-revive/' : '/',
+  base: mode === 'production' ? '/psychotherapie_navratil/' : '/',
   server: {
     host: "::",
     port: 8080,
