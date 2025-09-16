@@ -103,6 +103,10 @@ All colors MUST be HSL.
     @apply bg-[#fff8ed] text-[#222222];
   }
 
+  html, body {
+    @apply overflow-x-hidden;
+  }
+
   a {
     @apply text-link hover:text-link-hover transition-colors;
   }

@@ -1,5 +1,5 @@
 import { Brain, Users, Layers, Activity } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 const concepts = [
   {
@@ -56,6 +56,15 @@ const nodePositions = [
 
 const TreatmentConceptSection = () => {
   const [hovered, setHovered] = useState<string | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setHovered(null);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, []);
 
   return (
     <section id="behandlungskonzept" className="py-20 bg-[#fff8ed]">
@@ -173,7 +182,7 @@ const TreatmentConceptSection = () => {
 
         {/* Mobile (hybrid: SVG lines + HTML buttons with tap tooltips) */}
         <div className="block md:hidden max-w-[700px] w-full mx-auto">
-          <div className="relative w-full" style={{ aspectRatio: `${svgWidth}/${svgHeight}` }} onClick={() => setHovered(null)}>
+          <div ref={containerRef} className="relative w-full overflow-hidden" style={{ aspectRatio: `${svgWidth}/${svgHeight}` }} onClick={() => setHovered(null)}>
             {/* SVG for lines only */}
             <svg
               width={svgWidth}
@@ -198,13 +207,32 @@ const TreatmentConceptSection = () => {
               const sizePct = ((circleRadius * 2) / svgWidth) * 100;
               const show = hovered === concept.key;
               const tooltipAbove = idx < 2;
+              const handleToggle = () => {
+                setHovered(prev => prev === concept.key ? null : concept.key);
+                const isDesktop = window.matchMedia('(min-width: 768px)').matches;
+                if (isDesktop) return;
+                // ensure tooltip target is visible under sticky header
+                setTimeout(() => {
+                  const container = containerRef.current;
+                  if (!container) return;
+                  const navEl = document.querySelector('nav') as HTMLElement | null;
+                  const navH = navEl ? navEl.getBoundingClientRect().height : 64;
+                  const rect = container.getBoundingClientRect();
+                  const yRatio = y / svgWidth * (svgWidth / svgHeight); // normalize to container height via ratios
+                  const centerY = rect.top + window.scrollY + (y / svgHeight) * rect.height;
+                  const targetY = tooltipAbove
+                    ? centerY - (circleRadius + 32) - navH
+                    : centerY + (circleRadius + 12) - navH;
+                  window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
+                }, 0);
+              };
               return (
                 <div key={`m-${concept.key}`} className="absolute" style={{ left: `${leftPct}%`, top: `${topPct}%`, transform: 'translate(-50%, -50%)' }}>
                   <button
                     type="button"
                     aria-label={concept.title}
                     aria-expanded={show}
-                    onClick={(e) => { e.stopPropagation(); setHovered(prev => prev === concept.key ? null : concept.key); }}
+                    onClick={(e) => { e.stopPropagation(); handleToggle(); }}
                     className={`rounded-full border-4 shadow-md overflow-hidden bg-white aspect-square ${concept.color}`}
                     style={{ width: `${sizePct}%` }}
                   >
@@ -213,13 +241,20 @@ const TreatmentConceptSection = () => {
 
                   {show && (
                     <div
-                      className="absolute z-20 bg-white/95 border border-gray-200 rounded-2xl shadow-xl p-4 text-gray-800 text-sm w-[240px]"
+                      className="absolute z-20 bg-white/95 border border-gray-200 rounded-2xl shadow-xl p-4 text-gray-800 text-sm"
                       style={{
                         left: '50%',
                         transform: 'translateX(-50%)',
-                        top: tooltipAbove ? `-${circleRadius + 32}px` : 'calc(100% + 12px)'
+                        top: tooltipAbove ? `-${circleRadius + 32}px` : 'calc(100% + 12px)',
+                        maxWidth: 'calc(100% - 16px)'
                       }}
                     >
+                      <button
+                        type="button"
+                        aria-label="Schließen"
+                        className="absolute right-2 top-2 text-gray-400 hover:text-gray-600"
+                        onClick={(e) => { e.stopPropagation(); setHovered(null); }}
+                      >×</button>
                       <div className="font-semibold text-base mb-1 text-gray-900 text-center">{concept.title}</div>
                       <div className="text-gray-700 text-center">{concept.description}</div>
                     </div>
