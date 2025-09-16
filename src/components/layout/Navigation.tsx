@@ -195,11 +195,16 @@ const Navigation = () => {
   const scrollToSection = (sectionId: string) => {
     const el = document.getElementById(sectionId);
     if (el) {
-      const headerOffsetPx = MENU_HEIGHT + 12; // small buffer so the heading is clearly visible
-      const rect = el.getBoundingClientRect();
-      const absoluteTop = rect.top + window.scrollY;
-      const targetY = Math.max(0, absoluteTop - headerOffsetPx);
-      window.scrollTo({ top: targetY, behavior: 'smooth' });
+      const isDesktop = window.matchMedia('(min-width: 768px)').matches; // Tailwind md breakpoint
+      if (isDesktop) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        const headerOffsetPx = MENU_HEIGHT + 12; // small buffer so the heading is clearly visible
+        const rect = el.getBoundingClientRect();
+        const absoluteTop = rect.top + window.scrollY;
+        const targetY = Math.max(0, absoluteTop - headerOffsetPx);
+        window.scrollTo({ top: targetY, behavior: 'smooth' });
+      }
     }
     setIsOpen(false);
     setTreatmentDropdownOpen(false);
