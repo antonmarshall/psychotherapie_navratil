@@ -199,10 +199,13 @@ const Navigation = () => {
       if (isDesktop) {
         el.scrollIntoView({ behavior: 'smooth', block: 'start' });
       } else {
-        const headerOffsetPx = MENU_HEIGHT + 12; // small buffer so the heading is clearly visible
+        // Mobile: use actual navbar height + tiny buffer so title sits just below header
+        const navEl = document.querySelector('nav') as HTMLElement | null;
+        const headerHeight = navEl ? navEl.getBoundingClientRect().height : MENU_HEIGHT;
+        const smallBuffer = 6; // very small buffer as requested
         const rect = el.getBoundingClientRect();
         const absoluteTop = rect.top + window.scrollY;
-        const targetY = Math.max(0, absoluteTop - headerOffsetPx);
+        const targetY = Math.max(0, absoluteTop - (headerHeight + smallBuffer));
         window.scrollTo({ top: targetY, behavior: 'smooth' });
       }
     }
