@@ -166,7 +166,7 @@ const Impressum = () => {
             </CardHeader>
             <CardContent>
               <p className="text-gray-700 mb-4">
-                Informationen zum Datenschutz finden Sie in unserer <a href="/datenschutz" className="text-[#F6A81A] hover:underline">Datenschutzerklärung</a>.
+                Informationen zum Datenschutz finden Sie in unserer <a href="/psychotherapie_navratil/datenschutz" className="text-[#F6A81A] hover:underline">Datenschutzerklärung</a>.
               </p>
             </CardContent>
           </Card>

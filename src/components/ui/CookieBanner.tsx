@@ -81,7 +81,7 @@ const CookieBanner = ({ onAccept, onDecline }: CookieBannerProps) => {
           <div className="mt-4 pt-4 border-t border-gray-200">
             <p className="text-xs text-muted-foreground text-center">
               Weitere Informationen finden Sie in meinen{' '}
-              <a href="/datenschutz" className="text-link hover:text-link-hover underline">
+              <a href="/psychotherapie_navratil/datenschutz" className="text-link hover:text-link-hover underline">
                 Datenschutzbestimmungen
               </a>
               .

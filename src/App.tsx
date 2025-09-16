@@ -17,7 +17,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter basename="/psychotherapie_navratil">
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/lebenslauf" element={<Lebenslauf />} />

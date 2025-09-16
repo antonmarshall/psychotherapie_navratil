@@ -98,10 +98,10 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Rechtliches</h3>
             <div className="space-y-3 mb-6">
-              <a href="/impressum" className="text-gray-300 hover:text-[#F6A81A] transition-colors block">
+              <a href="/psychotherapie_navratil/impressum" className="text-gray-300 hover:text-[#F6A81A] transition-colors block">
                 Impressum
               </a>
-              <a href="/datenschutz" className="text-gray-300 hover:text-[#F6A81A] transition-colors block">
+              <a href="/psychotherapie_navratil/datenschutz" className="text-gray-300 hover:text-[#F6A81A] transition-colors block">
                 Datenschutz
               </a>
             </div>
