@@ -1,61 +1,37 @@
-import { Brain, Users, Layers, Activity } from "lucide-react";
-import { useState } from "react";
+import { useMemo } from "react";
 
-const concepts = [
-  {
-    key: "verhaltenstherapie",
-    title: "Verhaltenstherapie",
-    icon: import.meta.env.BASE_URL + 'verhaltenstherapie.png',
-    color: "bg-primary-light border-primary",
-    iconAlt: "Symbol Verhaltenstherapie",
-    description: (
-      <>Die Verhaltenstherapie hilft, ungünstige Denk- und Verhaltensmuster zu erkennen und gezielt zu verändern. Sie ist wissenschaftlich sehr gut belegt und praxisnah.</>
-    )
-  },
-  {
-    key: "systemische-therapie",
-    title: "Systemische Therapie",
-    icon: import.meta.env.BASE_URL + 'systemischepsychologie.png',
-    color: "bg-accent2-light border-accent2",
-    iconAlt: "Symbol Systemische Therapie",
-    description: (
-      <>Die Systemische Therapie betrachtet Probleme im Zusammenhang mit Beziehungen und dem sozialen Umfeld. Sie stärkt Ressourcen und fördert neue Sichtweisen im System (z.B. Familie).</>
-    )
-  },
-  {
-    key: "tiefenpsychologisch",
-    title: "Tiefenpsychologisch fundierte Psychotherapie",
-    icon: import.meta.env.BASE_URL + 'tiefenpsychologie.png',
-    color: "bg-accent-light border-accent",
-    iconAlt: "Symbol Tiefenpsychologisch fundierte Psychotherapie",
-    description: (
-      <>Hier stehen unbewusste Konflikte und biografische Erfahrungen im Mittelpunkt. Ziel ist es, innere Muster zu verstehen und zu verändern.</>
-    )
-  },
-  {
-    key: "neuropsychologisch",
-    title: "Neuropsychologische Therapie",
-    icon: import.meta.env.BASE_URL + 'neuropsychologie.png',
-    color: "bg-secondary-light border-secondary",
-    iconAlt: "Symbol Neuropsychologische Therapie",
-    description: (
-      <>Die Neuropsychologie verbindet psychische Prozesse mit den Funktionen des Gehirns. Sie hilft z.B. bei Aufmerksamkeits-, Gedächtnis- oder Sprachstörungen nach Erkrankungen oder Unfällen.</>
-    )
-  }
+const SVG_W = 700;
+const SVG_H = 520;
+
+type Node = {
+  key: string;
+  title: string;
+  img: string;
+  x: number;
+  y: number;
+  stroke: string;
+};
+
+const nodes: Node[] = [
+  { key: 'vt',  title: 'Verhaltenstherapie',                            img: import.meta.env.BASE_URL + 'verhaltenstherapie.png',    x: 180, y: 140, stroke: '#F6A81A' },
+  { key: 'sys', title: 'Systemische Therapie',                           img: import.meta.env.BASE_URL + 'systemischepsychologie.png', x: 520, y: 140, stroke: '#4A6A7B' },
+  { key: 'tief',title: 'Tiefenpsychologisch\nfundierte Psychotherapie', img: import.meta.env.BASE_URL + 'tiefenpsychologie.png',      x: 520, y: 370, stroke: '#7B4F6A' },
+  { key: 'neuro',title:'Neuropsychologische\nTherapie',                 img: import.meta.env.BASE_URL + 'neuropsychologie.png',       x: 180, y: 370, stroke: '#E4572E' },
 ];
 
-const circleRadius = 60;
-const svgWidth = 700;
-const svgHeight = 520;
-const nodePositions = [
-  { x: 180, y: 140 }, // Verhaltenstherapie (links oben)
-  { x: 520, y: 140 }, // Systemische Therapie (rechts oben)
-  { x: 520, y: 370 }, // Tiefenpsychologisch (rechts unten)
-  { x: 180, y: 370 }  // Neuropsychologisch (links unten)
+const lines: Array<[string, string, string, number]> = [
+  ['vt','sys','#F6A81A',6],
+  ['sys','tief','#4A6A7B',6],
+  ['tief','neuro','#7B4F6A',6],
+  ['neuro','vt','#E4572E',6],
+  ['vt','tief','#7B4F6A22',3],
+  ['sys','neuro','#4A6A7B22',3],
 ];
+
+const R = 60; // original design radius, scales with viewBox
 
 const TreatmentConceptSection = () => {
-  const [hovered, setHovered] = useState<string | null>(null);
+  const nodeMap = useMemo(() => Object.fromEntries(nodes.map(n => [n.key, n])), []);
 
   return (
     <section id="behandlungskonzept" className="py-20 bg-[#fff8ed]">
@@ -66,112 +42,72 @@ const TreatmentConceptSection = () => {
             Mein psychotherapeutisches Behandlungskonzept basiert auf vier wissenschaftlich anerkannten Verfahren:
           </p>
         </div>
-        <div className="relative max-w-[700px] w-full mx-auto h-[520px]">
-          {/* SVG-Linien */}
+
+        <div className="max-w-[700px] w-full mx-auto">
           <svg
-            width={svgWidth}
-            height={svgHeight}
-            viewBox={`0 0 ${svgWidth} ${svgHeight}`}
-            className="absolute left-0 top-0 w-full h-full pointer-events-none"
+            viewBox={`0 0 ${SVG_W} ${SVG_H}`}
+            className="w-full h-auto"
+            preserveAspectRatio="xMidYMid meet"
           >
-            {/* Quadrat/Polygon */}
-            <line x1={nodePositions[0].x} y1={nodePositions[0].y} x2={nodePositions[1].x} y2={nodePositions[1].y} stroke="#F6A81A" strokeWidth="6" />
-            <line x1={nodePositions[1].x} y1={nodePositions[1].y} x2={nodePositions[2].x} y2={nodePositions[2].y} stroke="#4A6A7B" strokeWidth="6" />
-            <line x1={nodePositions[2].x} y1={nodePositions[2].y} x2={nodePositions[3].x} y2={nodePositions[3].y} stroke="#7B4F6A" strokeWidth="6" />
-            <line x1={nodePositions[3].x} y1={nodePositions[3].y} x2={nodePositions[0].x} y2={nodePositions[0].y} stroke="#E4572E" strokeWidth="6" />
-            {/* Diagonalen */}
-            <line x1={nodePositions[0].x} y1={nodePositions[0].y} x2={nodePositions[2].x} y2={nodePositions[2].y} stroke="#7B4F6A22" strokeWidth="3" />
-            <line x1={nodePositions[1].x} y1={nodePositions[1].y} x2={nodePositions[3].x} y2={nodePositions[3].y} stroke="#4A6A7B22" strokeWidth="3" />
+            <defs>
+              {nodes.map(n => (
+                <clipPath id={`clip-${n.key}`} key={`clip-${n.key}`}>
+                  <circle cx={n.x} cy={n.y} r={R - 6} />
+                </clipPath>
+              ))}
+            </defs>
+
+            {lines.map(([a,b,color,width]) => (
+              <line
+                key={`${a}-${b}`}
+                x1={nodeMap[a].x}
+                y1={nodeMap[a].y}
+                x2={nodeMap[b].x}
+                y2={nodeMap[b].y}
+                stroke={color}
+                strokeWidth={width}
+              />
+            ))}
+
+            {nodes.map(n => (
+              <g key={n.key}>
+                <circle cx={n.x} cy={n.y} r={R} fill="#ffffff" stroke={n.stroke} strokeWidth={6} />
+                <image
+                  href={n.img}
+                  x={n.x - (R - 6)}
+                  y={n.y - (R - 6)}
+                  width={(R - 6) * 2}
+                  height={(R - 6) * 2}
+                  clipPath={`url(#clip-${n.key})`}
+                  preserveAspectRatio="xMidYMid slice"
+                />
+              </g>
+            ))}
+
+            {nodes.map(n => (
+              <text
+                key={`${n.key}-label`}
+                x={n.x}
+                y={n.y < SVG_H/2 ? n.y - (R + 24) : n.y + (R + 40)}
+                textAnchor="middle"
+                fill="#1f2937"
+                fontWeight={600}
+                fontSize={20}
+              >
+                {n.title.split('\n').map((line, i) => (
+                  <tspan x={n.x} dy={i === 0 ? 0 : 24} key={i}>{line}</tspan>
+                ))}
+              </text>
+            ))}
           </svg>
-          {/* Knoten, Labels, Tooltips als absolut positionierte Divs */}
-          {concepts.map((concept, idx) => {
-            const { x, y } = nodePositions[idx];
-            const IconSrc = concept.icon;
-            const IconAlt = concept.iconAlt;
-            // Label-Position: oben für 0/1, unten für 2/3
-            const labelStyle = {
-              left: x,
-              width: 200,
-              transform: 'translateX(-50%)',
-              position: 'absolute',
-              zIndex: 3,
-              top: idx < 2 ? y - circleRadius - 38 : y + circleRadius + 12
-            };
-            // Tooltip-Position: individuell je nach Kreis
-            let tooltipStyle: React.CSSProperties = {
-              position: 'absolute',
-              width: 260,
-              zIndex: 10,
-            };
-            if (idx === 0) {
-              // Oben links: links neben dem Kreis, leicht nach oben
-              tooltipStyle.left = x - circleRadius - 280;
-              tooltipStyle.top = y - 30;
-            } else if (idx === 1) {
-              // Oben rechts: rechts neben dem Kreis, leicht nach oben
-              tooltipStyle.left = x + circleRadius + 20;
-              tooltipStyle.top = y - 30;
-            } else if (idx === 2) {
-              // Unten rechts: rechts neben dem Kreis, leicht nach oben
-              tooltipStyle.left = x + circleRadius + 20;
-              tooltipStyle.top = y - 30;
-            } else {
-              // Unten links: links neben dem Kreis, leicht nach oben
-              tooltipStyle.left = x - circleRadius - 280;
-              tooltipStyle.top = y - 30;
-            }
-            return (
-              <div key={concept.key}>
-                {/* Label */}
-                <div style={labelStyle} className="font-semibold text-base text-gray-800 text-center leading-tight select-none pointer-events-none">
-                  {concept.title}
-                </div>
-                {/* Gemeinsamer Wrapper für Hover-Events */}
-                <div
-                  onMouseEnter={() => setHovered(concept.key)}
-                  onMouseLeave={() => setHovered(null)}
-                  style={{ position: 'static' }}
-                >
-                  {/* Kreis (absolut positioniert) */}
-                  <div
-                    style={{
-                      position: 'absolute',
-                      left: x - circleRadius,
-                      top: y - circleRadius,
-                      width: circleRadius * 2,
-                      height: circleRadius * 2,
-                      borderRadius: '50%',
-                      boxShadow: '0 4px 24px 0 rgba(0,0,0,0.08)',
-                      borderWidth: 4,
-                      borderStyle: 'solid',
-                      cursor: 'pointer',
-                      background: 'white',
-                      zIndex: 5,
-                      overflow: 'hidden',
-                    }}
-                    className={`${concept.color} transition-transform duration-200 hover:scale-105`}
-                  >
-                    <img
-                      src={IconSrc}
-                      alt={IconAlt}
-                      className="w-full h-full object-cover rounded-full"
-                    />
-                  </div>
-                  {/* Tooltip (absolut zum Container) */}
-                  {hovered === concept.key && (
-                    <div style={tooltipStyle} className="bg-white/95 border border-gray-200 rounded-2xl shadow-xl p-6 text-gray-800 text-base text-left animate-fade-in">
-                      <div className="font-semibold mb-2 text-xl">{concept.title}</div>
-                      <div>{concept.description}</div>
-                    </div>
-                  )}
-                </div>
-              </div>
-            );
-          })}
+
+          <p className="sr-only">
+            Visualisierung der vier Verfahren: Verhaltenstherapie, Systemische Therapie, Tiefenpsychologisch fundierte Psychotherapie und Neuropsychologische Therapie.
+          </p>
         </div>
       </div>
     </section>
   );
 };
 
-export default TreatmentConceptSection; 
+export default TreatmentConceptSection;
