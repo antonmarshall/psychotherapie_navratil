@@ -27,7 +27,7 @@ const Footer = () => {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <Heart className="w-6 h-6 text-[#F6A81A]" />
-              <h3 className="text-xl font-semibold">Praxis Navratil</h3>
+              <h3 className="text-xl font-semibold">Praxis Navrátil</h3>
             </div>
             <p className="text-gray-300 mb-6">
               Professionelle psychologische Unterstützung für Kinder, Jugendliche und Familien in Münster.
@@ -139,7 +139,7 @@ const Footer = () => {
         {/* Copyright */}
         <div className="mt-8 pt-8 border-t border-gray-700 text-center">
           <p className="text-gray-400 text-sm">
-            &copy; {new Date().getFullYear()} Dipl.-Psych. Christiane Navratil. Alle Rechte vorbehalten.
+            &copy; {new Date().getFullYear()} Dipl.-Psych. Christiane Navrátil. Alle Rechte vorbehalten.
           </p>
           <p className="text-gray-500 text-xs mt-2">
             Kinder- und Jugendlichen-Psychotherapeutin • Hüffer-Str. 22, 48149 Münster

@@ -48,7 +48,7 @@ const Impressum = () => {
               <div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-3">Diensteanbieter</h3>
                 <div className="space-y-2 text-gray-700">
-                  <p><strong>Dipl.-Psych. Christiane Navratil</strong></p>
+                  <p><strong>Dipl.-Psych. Christiane Navrátil</strong></p>
                   <p>Kinder- und Jugendlichen-Psychotherapeutin</p>
                   <p>Hüffer-Str. 22</p>
                   <p>48149 Münster</p>

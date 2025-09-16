@@ -194,7 +194,8 @@ const TreatmentConceptSection = () => {
               const { x, y } = nodePositions[idx];
               const leftPct = (x / svgWidth) * 100;
               const topPct = (y / svgHeight) * 100;
-              const sizePct = (circleRadius * 2 / svgWidth) * 100;
+              // exact diameter ratio from original design width
+              const sizePct = ((circleRadius * 2) / svgWidth) * 100;
               const show = hovered === concept.key;
               const tooltipAbove = idx < 2;
               return (
@@ -204,8 +205,8 @@ const TreatmentConceptSection = () => {
                     aria-label={concept.title}
                     aria-expanded={show}
                     onClick={(e) => { e.stopPropagation(); setHovered(prev => prev === concept.key ? null : concept.key); }}
-                    className={`rounded-full border-4 shadow-md overflow-hidden bg-white ${concept.color}`}
-                    style={{ width: `${sizePct}%`, height: `${sizePct}%` }}
+                    className={`rounded-full border-4 shadow-md overflow-hidden bg-white aspect-square ${concept.color}`}
+                    style={{ width: `${sizePct}%` }}
                   >
                     <img src={concept.icon} alt={concept.iconAlt} className="w-full h-full object-cover" />
                   </button>

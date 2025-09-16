@@ -45,7 +45,7 @@ const ContactSection = () => {
               <CardContent className="space-y-6">
                 <div>
                   <h3 className="font-semibold text-lg text-gray-800 mb-4">
-                    Dipl.-Psych. Christiane Navratil
+                    Dipl.-Psych. Christiane Navrátil
                   </h3>
                   
                   <div className="space-y-4">

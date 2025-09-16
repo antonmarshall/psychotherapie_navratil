@@ -46,7 +46,7 @@ const Datenschutz = () => {
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="space-y-2 text-gray-700">
-                <p><strong>Dipl.-Psych. Christiane Navratil</strong></p>
+                <p><strong>Dipl.-Psych. Christiane Navrátil</strong></p>
                 <p>Kinder- und Jugendlichen-Psychotherapeutin</p>
                 <p>Hüffer-Str. 22</p>
                 <p>48149 Münster</p>
@@ -258,7 +258,7 @@ const Datenschutz = () => {
                 Bei Fragen zur Erhebung, Verarbeitung oder Nutzung Ihrer personenbezogenen Daten wenden Sie sich bitte an:
               </p>
               <div className="space-y-2 text-gray-700">
-                <p><strong>Dipl.-Psych. Christiane Navratil</strong></p>
+                <p><strong>Dipl.-Psych. Christiane Navrátil</strong></p>
                 <p>Hüffer-Str. 22, 48149 Münster</p>
                 <p>E-Mail: christianenavratil@web.de</p>
                 <p>Telefon: (0176) 96 34 60 95</p>

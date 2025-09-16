@@ -58,7 +58,7 @@ const Timeline = () => {
             Zu meiner Person
           </h2>
           <h3 className="text-xl text-rose-700 font-semibold mb-4">
-            Dipl.-Psych. Christiane Navratil
+            Dipl.-Psych. Christiane Navrátil
           </h3>
         </div>
 

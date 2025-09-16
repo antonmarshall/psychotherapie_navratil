@@ -53,12 +53,12 @@ const PersonHero = () => {
               <div className="mb-8">
                 <img 
                   src={import.meta.env.BASE_URL + 'profil.jpg'} 
-                  alt="Dipl.-Psych. Christiane Navratil"
+                  alt="Dipl.-Psych. Christiane Navrátil"
                   className="w-64 h-64 mx-auto lg:mx-0 rounded-full object-cover shadow-xl"
                 />
               </div>
               <h2 className="text-3xl font-bold text-gray-900 mb-2">
-                Dipl.-Psych. Christiane Navratil
+                Dipl.-Psych. Christiane Navrátil
               </h2>
               <p className="text-lg text-gray-600 mb-4">
                 Kinder- und Jugendlichen-Psychotherapeutin

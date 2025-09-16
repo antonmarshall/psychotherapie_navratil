@@ -202,7 +202,7 @@ const Navigation = () => {
         // Mobile: use actual navbar height + tiny buffer so title sits just below header
         const navEl = document.querySelector('nav') as HTMLElement | null;
         const headerHeight = navEl ? navEl.getBoundingClientRect().height : MENU_HEIGHT;
-        const smallBuffer = 6; // very small buffer as requested
+        const smallBuffer = 0; // no extra buffer
         const rect = el.getBoundingClientRect();
         const absoluteTop = rect.top + window.scrollY;
         const targetY = Math.max(0, absoluteTop - (headerHeight + smallBuffer));
@@ -277,7 +277,7 @@ const Navigation = () => {
           {/* Logo */}
           <div className="flex items-center cursor-pointer select-none" onClick={() => scrollToSection('willkommen')}>
             <span className="text-white font-semibold text-xl tracking-wide">
-              Praxis <span className="text-primary">Navratil</span>
+              Praxis <span className="text-primary">Navrátil</span>
             </span>
           </div>
           {/* Desktop Menu */}

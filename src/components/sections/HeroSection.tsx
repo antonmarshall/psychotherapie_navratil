@@ -17,14 +17,14 @@ const HeroSection = () => {
           {/* Profilbild */}
           <img
             src={import.meta.env.BASE_URL + 'profil.jpg'}
-            alt="Dipl.-Psych. Christiane Navratil"
+            alt="Dipl.-Psych. Christiane Navrátil"
             className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover mb-2 shadow-md border-4 border-white absolute left-1/2 -translate-x-1/2 -top-16"
             style={{marginTop: 0}}
           />
           <div className="mt-20 w-full">
             {/* Headline */}
             <h1 className="text-4xl md:text-5xl font-bold text-[#222222] mb-2 text-left md:text-left">
-              Praxis für Psychotherapie – Christiane Navratil
+              Praxis für Psychotherapie – Christiane Navrátil
           </h1>
             {/* Subline */}
             <p className="text-lg text-gray-500 mb-4 max-w-md text-left md:text-left">
