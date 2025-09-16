@@ -66,7 +66,8 @@ const TreatmentConceptSection = () => {
             Mein psychotherapeutisches Behandlungskonzept basiert auf vier wissenschaftlich anerkannten Verfahren:
           </p>
         </div>
-        <div className="relative max-w-[700px] w-full mx-auto h-[520px]">
+        {/* Desktop (interactive original) */}
+        <div className="relative max-w-[700px] w-full mx-auto h-[520px] hidden md:block">
           {/* SVG-Linien */}
           <svg
             width={svgWidth}
@@ -168,6 +169,83 @@ const TreatmentConceptSection = () => {
               </div>
             );
           })}
+        </div>
+
+        {/* Mobile (responsive single SVG) */}
+        <div className="block md:hidden max-w-[700px] w-full mx-auto">
+          {(() => {
+            const SVG_W = 700;
+            const SVG_H = 520;
+            const R = circleRadius;
+            const nodes = [
+              { key: 'vt',   title: 'Verhaltenstherapie',                            img: concepts[0].icon, x: nodePositions[0].x, y: nodePositions[0].y, stroke: '#F6A81A' },
+              { key: 'sys',  title: 'Systemische Therapie',                           img: concepts[1].icon, x: nodePositions[1].x, y: nodePositions[1].y, stroke: '#4A6A7B' },
+              { key: 'tief', title: 'Tiefenpsychologisch\nfundierte Psychotherapie', img: concepts[2].icon, x: nodePositions[2].x, y: nodePositions[2].y, stroke: '#7B4F6A' },
+              { key: 'neuro',title: 'Neuropsychologische\nTherapie',                 img: concepts[3].icon, x: nodePositions[3].x, y: nodePositions[3].y, stroke: '#E4572E' },
+            ];
+            const lines: Array<[number, number, string, number]> = [
+              [0,1,'#F6A81A',6],
+              [1,2,'#4A6A7B',6],
+              [2,3,'#7B4F6A',6],
+              [3,0,'#E4572E',6],
+              [0,2,'#7B4F6A22',3],
+              [1,3,'#4A6A7B22',3],
+            ];
+            return (
+              <svg viewBox={`0 0 ${SVG_W} ${SVG_H}`} className="w-full h-auto" preserveAspectRatio="xMidYMid meet">
+                <defs>
+                  {nodes.map(n => (
+                    <clipPath id={`clip-m-${n.key}`} key={`clip-m-${n.key}`}>
+                      <circle cx={n.x} cy={n.y} r={R - 6} />
+                    </clipPath>
+                  ))}
+                </defs>
+
+                {lines.map(([ai,bi,color,width], idx) => (
+                  <line
+                    key={`l-${idx}`}
+                    x1={nodes[ai].x}
+                    y1={nodes[ai].y}
+                    x2={nodes[bi].x}
+                    y2={nodes[bi].y}
+                    stroke={color}
+                    strokeWidth={width}
+                  />
+                ))}
+
+                {nodes.map(n => (
+                  <g key={`n-${n.key}`}>
+                    <circle cx={n.x} cy={n.y} r={R} fill="#ffffff" stroke={n.stroke} strokeWidth={6} />
+                    <image
+                      href={n.img}
+                      x={n.x - (R - 6)}
+                      y={n.y - (R - 6)}
+                      width={(R - 6) * 2}
+                      height={(R - 6) * 2}
+                      clipPath={`url(#clip-m-${n.key})`}
+                      preserveAspectRatio="xMidYMid slice"
+                    />
+                  </g>
+                ))}
+
+                {nodes.map(n => (
+                  <text
+                    key={`label-${n.key}`}
+                    x={n.x}
+                    y={n.y < SVG_H/2 ? n.y - (R + 24) : n.y + (R + 40)}
+                    textAnchor="middle"
+                    fill="#1f2937"
+                    fontWeight={600}
+                    fontSize={20}
+                  >
+                    {n.title.split('\n').map((line, i) => (
+                      <tspan x={n.x} dy={i === 0 ? 0 : 24} key={i}>{line}</tspan>
+                    ))}
+                  </text>
+                ))}
+              </svg>
+            );
+          })()}
         </div>
       </div>
     </section>
