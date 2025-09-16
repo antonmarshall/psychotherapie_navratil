@@ -110,4 +110,4 @@ const TreatmentConceptSection = () => {
   );
 };
 
-export default TreatmentConceptSection;
+export default TreatmentConceptSection; 
