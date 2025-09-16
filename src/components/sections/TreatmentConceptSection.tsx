@@ -171,81 +171,62 @@ const TreatmentConceptSection = () => {
           })}
         </div>
 
-        {/* Mobile (responsive single SVG) */}
+        {/* Mobile (hybrid: SVG lines + HTML buttons with tap tooltips) */}
         <div className="block md:hidden max-w-[700px] w-full mx-auto">
-          {(() => {
-            const SVG_W = 700;
-            const SVG_H = 520;
-            const R = circleRadius;
-            const nodes = [
-              { key: 'vt',   title: 'Verhaltenstherapie',                            img: concepts[0].icon, x: nodePositions[0].x, y: nodePositions[0].y, stroke: '#F6A81A' },
-              { key: 'sys',  title: 'Systemische Therapie',                           img: concepts[1].icon, x: nodePositions[1].x, y: nodePositions[1].y, stroke: '#4A6A7B' },
-              { key: 'tief', title: 'Tiefenpsychologisch\nfundierte Psychotherapie', img: concepts[2].icon, x: nodePositions[2].x, y: nodePositions[2].y, stroke: '#7B4F6A' },
-              { key: 'neuro',title: 'Neuropsychologische\nTherapie',                 img: concepts[3].icon, x: nodePositions[3].x, y: nodePositions[3].y, stroke: '#E4572E' },
-            ];
-            const lines: Array<[number, number, string, number]> = [
-              [0,1,'#F6A81A',6],
-              [1,2,'#4A6A7B',6],
-              [2,3,'#7B4F6A',6],
-              [3,0,'#E4572E',6],
-              [0,2,'#7B4F6A22',3],
-              [1,3,'#4A6A7B22',3],
-            ];
-            return (
-              <svg viewBox={`0 0 ${SVG_W} ${SVG_H}`} className="w-full h-auto" preserveAspectRatio="xMidYMid meet">
-                <defs>
-                  {nodes.map(n => (
-                    <clipPath id={`clip-m-${n.key}`} key={`clip-m-${n.key}`}>
-                      <circle cx={n.x} cy={n.y} r={R - 6} />
-                    </clipPath>
-                  ))}
-                </defs>
+          <div className="relative w-full" style={{ aspectRatio: `${svgWidth}/${svgHeight}` }} onClick={() => setHovered(null)}>
+            {/* SVG for lines only */}
+            <svg
+              width={svgWidth}
+              height={svgHeight}
+              viewBox={`0 0 ${svgWidth} ${svgHeight}`}
+              className="absolute left-0 top-0 w-full h-full pointer-events-none"
+            >
+              <line x1={nodePositions[0].x} y1={nodePositions[0].y} x2={nodePositions[1].x} y2={nodePositions[1].y} stroke="#F6A81A" strokeWidth="6" />
+              <line x1={nodePositions[1].x} y1={nodePositions[1].y} x2={nodePositions[2].x} y2={nodePositions[2].y} stroke="#4A6A7B" strokeWidth="6" />
+              <line x1={nodePositions[2].x} y1={nodePositions[2].y} x2={nodePositions[3].x} y2={nodePositions[3].y} stroke="#7B4F6A" strokeWidth="6" />
+              <line x1={nodePositions[3].x} y1={nodePositions[3].y} x2={nodePositions[0].x} y2={nodePositions[0].y} stroke="#E4572E" strokeWidth="6" />
+              <line x1={nodePositions[0].x} y1={nodePositions[0].y} x2={nodePositions[2].x} y2={nodePositions[2].y} stroke="#7B4F6A22" strokeWidth="3" />
+              <line x1={nodePositions[1].x} y1={nodePositions[1].y} x2={nodePositions[3].x} y2={nodePositions[3].y} stroke="#4A6A7B22" strokeWidth="3" />
+            </svg>
 
-                {lines.map(([ai,bi,color,width], idx) => (
-                  <line
-                    key={`l-${idx}`}
-                    x1={nodes[ai].x}
-                    y1={nodes[ai].y}
-                    x2={nodes[bi].x}
-                    y2={nodes[bi].y}
-                    stroke={color}
-                    strokeWidth={width}
-                  />
-                ))}
-
-                {nodes.map(n => (
-                  <g key={`n-${n.key}`}>
-                    <circle cx={n.x} cy={n.y} r={R} fill="#ffffff" stroke={n.stroke} strokeWidth={6} />
-                    <image
-                      href={n.img}
-                      x={n.x - (R - 6)}
-                      y={n.y - (R - 6)}
-                      width={(R - 6) * 2}
-                      height={(R - 6) * 2}
-                      clipPath={`url(#clip-m-${n.key})`}
-                      preserveAspectRatio="xMidYMid slice"
-                    />
-                  </g>
-                ))}
-
-                {nodes.map(n => (
-                  <text
-                    key={`label-${n.key}`}
-                    x={n.x}
-                    y={n.y < SVG_H/2 ? n.y - (R + 24) : n.y + (R + 40)}
-                    textAnchor="middle"
-                    fill="#1f2937"
-                    fontWeight={600}
-                    fontSize={20}
+            {/* HTML buttons for nodes */}
+            {concepts.map((concept, idx) => {
+              const { x, y } = nodePositions[idx];
+              const leftPct = (x / svgWidth) * 100;
+              const topPct = (y / svgHeight) * 100;
+              const sizePct = (circleRadius * 2 / svgWidth) * 100;
+              const show = hovered === concept.key;
+              const tooltipAbove = idx < 2;
+              return (
+                <div key={`m-${concept.key}`} className="absolute" style={{ left: `${leftPct}%`, top: `${topPct}%`, transform: 'translate(-50%, -50%)' }}>
+                  <button
+                    type="button"
+                    aria-label={concept.title}
+                    aria-expanded={show}
+                    onClick={(e) => { e.stopPropagation(); setHovered(prev => prev === concept.key ? null : concept.key); }}
+                    className={`rounded-full border-4 shadow-md overflow-hidden bg-white ${concept.color}`}
+                    style={{ width: `${sizePct}%`, height: `${sizePct}%` }}
                   >
-                    {n.title.split('\n').map((line, i) => (
-                      <tspan x={n.x} dy={i === 0 ? 0 : 24} key={i}>{line}</tspan>
-                    ))}
-                  </text>
-                ))}
-              </svg>
-            );
-          })()}
+                    <img src={concept.icon} alt={concept.iconAlt} className="w-full h-full object-cover" />
+                  </button>
+
+                  {show && (
+                    <div
+                      className="absolute z-20 bg-white/95 border border-gray-200 rounded-2xl shadow-xl p-4 text-gray-800 text-sm w-[240px]"
+                      style={{
+                        left: '50%',
+                        transform: 'translateX(-50%)',
+                        top: tooltipAbove ? `-${circleRadius + 32}px` : 'calc(100% + 12px)'
+                      }}
+                    >
+                      <div className="font-semibold text-base mb-1 text-gray-900 text-center">{concept.title}</div>
+                      <div className="text-gray-700 text-center">{concept.description}</div>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>
