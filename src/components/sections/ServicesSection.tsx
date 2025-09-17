@@ -1,4 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useState } from "react";
 
 const ServicesSection = () => {
   const services = [
@@ -32,6 +33,8 @@ const ServicesSection = () => {
     }
   ];
 
+  const [openIdx, setOpenIdx] = useState<number | null>(null);
+
   return (
     <section id="angebot" className="py-20 bg-white">
       <div className="container mx-auto px-6">
@@ -53,24 +56,40 @@ const ServicesSection = () => {
                 key={index}
                 className={`group relative ${service.bgColor} ${service.borderColor} shadow-lg hover:shadow-xl transition-all duration-300 border-2 overflow-hidden rounded-xl md:rounded-2xl`}
               >
-                {/* Mobile: Rahmen mit Titel; Tap toggelt Inhalt */}
+                {/* Mobile: Bild im Rahmen + Titel-Overlay; Tap blendet Text ein */}
                 <div className="md:hidden">
                   <button
                     type="button"
-                    className="w-full aspect-square flex items-center justify-center p-3"
-                    onClick={(e) => {
-                      const c = (e.currentTarget.nextSibling as HTMLElement);
-                      if (c) c.classList.toggle('hidden');
-                    }}
+                    className="w-full"
+                    aria-expanded={openIdx === index}
+                    onClick={() => setOpenIdx(prev => prev === index ? null : index)}
                     aria-label={`${service.title} öffnen`}
                   >
-                    <div className="w-full h-full border-2 border-gray-200 rounded-lg flex items-center justify-center">
-                      <span className="text-sm font-semibold text-gray-900 text-center px-2">{service.title}</span>
+                    <div className="relative aspect-square border-2 border-gray-200 rounded-lg overflow-hidden">
+                      {openIdx === index ? (
+                        <div className="absolute inset-0 flex items-center justify-center p-4">
+                          <p className="text-gray-800 text-sm leading-relaxed text-center">
+                            {service.description}
+                          </p>
+                        </div>
+                      ) : (
+                        <>
+                          <img
+                            src={service.image}
+                            alt={service.title}
+                            className="absolute inset-0 w-full h-full object-cover"
+                          />
+                          {/* sanfter Gradient unten für bessere Lesbarkeit */}
+                          <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/30 to-transparent" />
+                          <div className="absolute inset-x-0 bottom-3 flex justify-center">
+                            <span className="bg-white/90 backdrop-blur-sm text-gray-900 text-sm font-semibold px-3 py-1 rounded-full shadow-sm">
+                              {service.title}
+                            </span>
+                          </div>
+                        </>
+                      )}
                     </div>
                   </button>
-                  <div className="hidden p-3 text-center">
-                    <p className="text-gray-700 text-sm leading-relaxed">{service.description}</p>
-                  </div>
                 </div>
 
                 {/* Desktop: wie bisher */}
