@@ -1,6 +1,7 @@
 
 import { Heart, Users, Brain, Leaf, Sun, Sparkles, BookOpen, ChevronDown } from "lucide-react";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import { useState } from "react";
 
 const MethodsSection = () => {
   const methodCategories = [
@@ -105,9 +106,11 @@ const MethodsSection = () => {
 
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 max-w-7xl mx-auto">
           {methodCategories.map((category, index) => (
-            <div 
+            <div
               key={index}
-              className={`group bg-white rounded-xl md:rounded-3xl p-4 md:p-8 shadow-lg border-2 ${category.borderColor} hover:shadow-xl transition-all duration-300 md:hover:-translate-y-1`}
+              className={`group bg-white rounded-xl md:rounded-3xl p-4 md:p-8 shadow-lg border-2 ${category.borderColor} hover:shadow-xl transition-all duration-300 md:hover:-translate-y-1
+              ${/* Mobile: expand selected card to full row */''}
+              ${openIdx === index ? 'col-span-2 col-start-1' : ''} md:col-auto`}
             >
               <div className="text-center mb-8">
                 <div className={`mx-auto mb-4 md:mb-6 p-3 md:p-4 rounded-full w-fit ${category.bgColor} shadow-md md:group-hover:scale-110 transition-transform duration-300`}>
@@ -130,8 +133,8 @@ const MethodsSection = () => {
                 ))}
               </div>
 
-              {/* Mobile: aufklappbar */}
-              <Collapsible className="md:hidden">
+              {/* Mobile: aufklappbar & gesteuert, damit wir die Spaltenbreite ändern können */}
+              <Collapsible className="md:hidden" open={openIdx === index} onOpenChange={(open) => setOpenIdx(open ? index : null)}>
                 <CollapsibleContent className="space-y-3">
                   {category.methods.map((method, methodIndex) => (
                     <div key={methodIndex} className="flex items-start gap-3">
