@@ -106,18 +106,20 @@ const MethodsSection = () => {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 max-w-7xl mx-auto">
-          {methodCategories.map((category, index) => (
+          {methodCategories.map((category, index) => {
+            const isOpen = openIdx === index;
+            return (
             <div
               key={index}
               className={`group bg-white rounded-xl md:rounded-3xl p-4 md:p-8 shadow-lg border-2 ${category.borderColor} hover:shadow-xl transition-all duration-300 md:hover:-translate-y-1
               ${/* Mobile: expand selected card to full row */''}
-              ${openIdx === index ? 'col-span-2 col-start-1' : ''} md:col-auto`}
+              ${isOpen ? 'col-span-2 col-start-1 p-3' : ''} md:col-auto`}
             >
-              <div className="text-center mb-8">
-                <div className={`mx-auto mb-4 md:mb-6 p-3 md:p-4 rounded-full w-fit ${category.bgColor} shadow-md md:group-hover:scale-110 transition-transform duration-300`}>
-                  <category.icon className={`w-8 h-8 ${category.iconColor}`} />
+              <div className={`${isOpen ? 'text-left' : 'text-center'} mb-6 md:mb-8`}>
+                <div className={`${isOpen ? 'mx-0' : 'mx-auto'} mb-3 md:mb-6 p-3 md:p-4 rounded-full w-fit ${category.bgColor} shadow-md md:group-hover:scale-110 transition-transform duration-300`}>
+                  <category.icon className={`w-7 h-7 md:w-8 md:h-8 ${category.iconColor}`} />
                 </div>
-                <h3 className="text-base md:text-xl font-semibold text-gray-800 mb-3 md:mb-4">
+                <h3 className={`font-semibold text-gray-800 ${isOpen ? 'text-base' : 'text-base'} md:text-xl ${isOpen ? 'mb-2' : 'mb-3 md:mb-4'}`}>
                   {category.title}
                 </h3>
               </div>
@@ -135,12 +137,12 @@ const MethodsSection = () => {
               </div>
 
               {/* Mobile: aufklappbar & gesteuert, damit wir die Spaltenbreite ändern können */}
-              <Collapsible className="md:hidden" open={openIdx === index} onOpenChange={(open) => setOpenIdx(open ? index : null)}>
-                <CollapsibleContent className="space-y-3">
+              <Collapsible className="md:hidden" open={isOpen} onOpenChange={(open) => setOpenIdx(open ? index : null)}>
+                <CollapsibleContent className="space-y-2 pr-1">
                   {category.methods.map((method, methodIndex) => (
-                    <div key={methodIndex} className="flex items-start gap-3">
-                      <div className={`w-2.5 h-2.5 rounded-full mt-1.5 flex-shrink-0 ${category.bulletColor}`}></div>
-                      <p className="text-gray-700 text-sm leading-relaxed">
+                    <div key={methodIndex} className="flex items-start gap-2.5">
+                      <div className={`w-2 h-2 rounded-full mt-1.5 flex-shrink-0 ${category.bulletColor}`}></div>
+                      <p className="text-gray-700 text-[13px] leading-relaxed">
                         {method}
                       </p>
                     </div>
@@ -148,15 +150,15 @@ const MethodsSection = () => {
                 </CollapsibleContent>
                 <CollapsibleTrigger asChild>
                   <button
-                    className="mt-3 w-full flex items-center justify-center text-gray-700/90 hover:text-gray-900 transition-colors"
+                    className="mt-2 w-full flex items-center justify-center text-gray-700/90 hover:text-gray-900 transition-colors"
                     aria-label="Details ein-/ausklappen"
                   >
-                    <ChevronDown className="w-5 h-5 transition-transform data-[state=open]:rotate-180" />
+                    <ChevronDown className={`w-5 h-5 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
                   </button>
                 </CollapsibleTrigger>
               </Collapsible>
             </div>
-          ))}
+          )})}
         </div>
 
         <div className="text-center mt-16">
