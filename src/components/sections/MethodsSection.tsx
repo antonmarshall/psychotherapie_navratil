@@ -1,5 +1,6 @@
 
-import { Heart, Users, Brain, Leaf, Sun, Sparkles, BookOpen } from "lucide-react";
+import { Heart, Users, Brain, Leaf, Sun, Sparkles, BookOpen, ChevronDown } from "lucide-react";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 
 const MethodsSection = () => {
   const methodCategories = [
@@ -102,22 +103,23 @@ const MethodsSection = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 max-w-7xl mx-auto">
           {methodCategories.map((category, index) => (
             <div 
               key={index}
-              className={`group bg-white rounded-3xl p-8 shadow-lg border-2 ${category.borderColor} hover:shadow-xl transition-all duration-300 hover:-translate-y-1`}
+              className={`group bg-white rounded-xl md:rounded-3xl p-4 md:p-8 shadow-lg border-2 ${category.borderColor} hover:shadow-xl transition-all duration-300 md:hover:-translate-y-1`}
             >
               <div className="text-center mb-8">
-                <div className={`mx-auto mb-6 p-4 rounded-full w-fit ${category.bgColor} shadow-md group-hover:scale-110 transition-transform duration-300`}>
+                <div className={`mx-auto mb-4 md:mb-6 p-3 md:p-4 rounded-full w-fit ${category.bgColor} shadow-md md:group-hover:scale-110 transition-transform duration-300`}>
                   <category.icon className={`w-8 h-8 ${category.iconColor}`} />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-4">
+                <h3 className="text-base md:text-xl font-semibold text-gray-800 mb-3 md:mb-4">
                   {category.title}
                 </h3>
               </div>
-              
-              <div className="space-y-4">
+
+              {/* Desktop: immer offen */}
+              <div className="hidden md:block space-y-4">
                 {category.methods.map((method, methodIndex) => (
                   <div key={methodIndex} className="flex items-start gap-4">
                     <div className={`w-3 h-3 rounded-full mt-2 flex-shrink-0 ${category.bulletColor}`}></div>
@@ -127,6 +129,28 @@ const MethodsSection = () => {
                   </div>
                 ))}
               </div>
+
+              {/* Mobile: aufklappbar */}
+              <Collapsible className="md:hidden">
+                <CollapsibleContent className="space-y-3">
+                  {category.methods.map((method, methodIndex) => (
+                    <div key={methodIndex} className="flex items-start gap-3">
+                      <div className={`w-2.5 h-2.5 rounded-full mt-1.5 flex-shrink-0 ${category.bulletColor}`}></div>
+                      <p className="text-gray-700 text-sm leading-relaxed">
+                        {method}
+                      </p>
+                    </div>
+                  ))}
+                </CollapsibleContent>
+                <CollapsibleTrigger asChild>
+                  <button
+                    className="mt-3 w-full flex items-center justify-center text-gray-700/90 hover:text-gray-900 transition-colors"
+                    aria-label="Details ein-/ausklappen"
+                  >
+                    <ChevronDown className="w-5 h-5 transition-transform data-[state=open]:rotate-180" />
+                  </button>
+                </CollapsibleTrigger>
+              </Collapsible>
             </div>
           ))}
         </div>
