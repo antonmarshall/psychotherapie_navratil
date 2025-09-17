@@ -18,7 +18,7 @@ const HeroSection = () => {
           <img
             src={import.meta.env.BASE_URL + 'profil.jpg'}
             alt="Dipl.-Psych. Christiane Navrátil"
-            className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover mb-2 shadow-md border-4 border-white absolute left-1/2 -translate-x-1/2 -top-16"
+            className="w-28 h-28 md:w-40 md:h-40 rounded-full object-cover mb-2 shadow-md border-4 border-white absolute left-1/2 -translate-x-1/2 -top-14 md:-top-16"
             style={{marginTop: 0}}
           />
           <div className="mt-20 w-full">

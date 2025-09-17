@@ -50,11 +50,11 @@ const PersonHero = () => {
             
             {/* Bild und Name */}
             <div className="text-center lg:text-left">
-              <div className="mb-8">
+              <div className="mb-6 md:mb-8">
                 <img 
                   src={import.meta.env.BASE_URL + 'profil.jpg'} 
                   alt="Dipl.-Psych. Christiane Navrátil"
-                  className="w-64 h-64 mx-auto lg:mx-0 rounded-full object-cover shadow-xl"
+                  className="w-40 h-40 md:w-64 md:h-64 mx-auto lg:mx-0 rounded-full object-cover shadow-xl"
                 />
               </div>
               <h2 className="text-3xl font-bold text-gray-900 mb-2">
@@ -63,7 +63,7 @@ const PersonHero = () => {
               <p className="text-lg text-gray-600 mb-4">
                 Kinder- und Jugendlichen-Psychotherapeutin
               </p>
-              <div className="text-sm text-gray-500 space-y-1">
+              <div className="text-sm text-gray-500 space-y-0.5 md:space-y-1">
                 <p>Hüffer-Straße 22, Münster</p>
                 <p>Praxis seit 2009 • 30+ Jahre Erfahrung</p>
               </div>
