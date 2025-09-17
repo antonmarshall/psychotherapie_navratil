@@ -50,10 +50,10 @@ const PracticeGallery = () => {
         <div className="max-w-4xl mx-auto">
           <Carousel className="w-full">
             <CarouselContent>
-              {galleryImages.map((image) => (
-                <CarouselItem key={image.id} className="md:basis-1/2 lg:basis-1/3">
+                {galleryImages.map((image) => (
+                <CarouselItem key={image.id} className="basis-4/5 sm:basis-3/4 md:basis-1/2 lg:basis-1/3">
                   <Card className="overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-0">
-                    <div className="aspect-square overflow-hidden">
+                    <div className="aspect-square overflow-hidden max-w-xs mx-auto md:max-w-none">
                       <img 
                         src={image.image} 
                         alt={image.title}
@@ -77,13 +77,7 @@ const PracticeGallery = () => {
             <CarouselPrevious className="bg-white shadow-lg hover:bg-white text-[#F6A81A] border-[#F6A81A]/20 hover:border-[#F6A81A]/40 w-10 h-10 md:w-14 md:h-14 hover:scale-105 transition-all duration-200" />
             <CarouselNext className="bg-white shadow-lg hover:bg-white text-[#F6A81A] border-[#F6A81A]/20 hover:border-[#F6A81A]/40 w-10 h-10 md:w-14 md:h-14 hover:scale-105 transition-all duration-200" />
           </Carousel>
-          {/* Swipe-Hinweis */}
-          <div className="flex justify-center mt-4 md:hidden select-none">
-            <span className="flex items-center gap-2 text-[#F6A81A] text-sm bg-[#fff8ed] rounded-full px-4 py-1 shadow-sm">
-              <svg xmlns='http://www.w3.org/2000/svg' className='w-5 h-5' fill='none' viewBox='0 0 24 24' stroke='currentColor'><path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M15 12H3m0 0l4-4m-4 4l4 4' /></svg>
-              Zum Durchwischen ziehen
-            </span>
-          </div>
+          {/* Swipe-Hinweis entfernt (mobile hint) */}
         </div>
 
         <div className="mt-12 text-center">

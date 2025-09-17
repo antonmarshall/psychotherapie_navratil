@@ -47,13 +47,13 @@ const ServicesSection = () => {
           </div>
 
           {/* Services Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
             {services.map((service, index) => (
               <Card 
                 key={index}
-                className={`group ${service.bgColor} ${service.borderColor} shadow-lg hover:shadow-xl transition-all duration-300 border-2 overflow-hidden rounded-2xl`}
+                className={`group ${service.bgColor} ${service.borderColor} shadow-lg hover:shadow-xl transition-all duration-300 border-2 overflow-hidden rounded-xl md:rounded-2xl`}
               >
-                <div className="aspect-video overflow-hidden">
+                <div className="aspect-square sm:aspect-video overflow-hidden">
                   <img 
                     src={service.image} 
                     alt={service.title}
@@ -61,14 +61,14 @@ const ServicesSection = () => {
                   />
                 </div>
                 
-                <CardHeader className="pb-4">
-                  <CardTitle className="text-xl font-semibold text-gray-900">
+                <CardHeader className="pb-3 md:pb-4">
+                  <CardTitle className="text-sm sm:text-base md:text-xl font-semibold text-gray-900 text-center">
                     {service.title}
                   </CardTitle>
                 </CardHeader>
                 
                 <CardContent className="pt-0">
-                  <p className="text-gray-700 leading-relaxed">
+                  <p className="text-gray-700 leading-relaxed text-xs sm:text-sm md:text-base text-center">
                     {service.description}
                   </p>
                 </CardContent>
