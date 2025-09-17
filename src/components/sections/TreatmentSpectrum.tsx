@@ -219,7 +219,7 @@ const TreatmentSpectrum = () => {
               className="relative flex flex-col items-center"
               onMouseEnter={() => handleMouseEnter(idx)}
               onMouseLeave={handleMouseLeave}
-              onTouchStart={() => setOpenPopover(openPopover === idx ? null : idx)}
+              onTouchEnd={(e) => { e.preventDefault(); setOpenPopover(openPopover === idx ? null : idx); }}
             >
               <button
                 type="button"
@@ -228,7 +228,7 @@ const TreatmentSpectrum = () => {
                 aria-controls={`popover-${idx}`}
                 tabIndex={0}
                 className={`w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 flex items-center justify-center rounded-full shadow-lg text-center text-xs sm:text-sm md:text-base font-semibold text-gray-800 cursor-pointer transition-transform duration-200 hover:scale-105 focus:scale-105 outline-none break-words leading-tight ${bubbleColors[idx % bubbleColors.length]}`}
-                onClick={() => setOpenPopover(openPopover === idx ? null : idx)}
+                onClick={(e) => { e.preventDefault(); setOpenPopover(openPopover === idx ? null : idx); }}
                 onKeyDown={e => {
                   if (e.key === 'Enter' || e.key === ' ') {
                     setOpenPopover(openPopover === idx ? null : idx);

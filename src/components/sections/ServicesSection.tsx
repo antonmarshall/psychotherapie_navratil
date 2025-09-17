@@ -77,7 +77,7 @@ const ServicesSection = () => {
                           <img
                             src={service.image}
                             alt={service.title}
-                            className="absolute inset-0 w-full h-full object-cover"
+                            className="absolute inset-0 w-full h-full object-contain object-center bg-white p-2"
                           />
                           {/* sanfter Gradient unten für bessere Lesbarkeit */}
                           <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/30 to-transparent" />
