@@ -4,6 +4,7 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/component
 import { useState } from "react";
 
 const MethodsSection = () => {
+  const [openIdx, setOpenIdx] = useState<number | null>(null);
   const methodCategories = [
     {
       icon: Heart,
