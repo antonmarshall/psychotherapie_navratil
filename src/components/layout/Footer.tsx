@@ -142,7 +142,7 @@ const Footer = () => {
             &copy; {new Date().getFullYear()} Dipl.-Psych. Christiane Navrátil. Alle Rechte vorbehalten.
           </p>
           <p className="text-gray-500 text-xs mt-2">
-            Kinder- und Jugendlichen-Psychotherapeutin • Hüffer-Str. 22, 48149 Münster
+            Kinder-, Jugendlichen- & Erwachsenen‑Psychotherapeutin • Hüffer-Str. 22, 48149 Münster
           </p>
         </div>
       </div>

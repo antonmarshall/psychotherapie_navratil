@@ -230,13 +230,27 @@ const TreatmentConceptSection = () => {
                        preserveAspectRatio="xMidYMid slice"/>
                 <text
                   x={nodePositions[idx].x}
-                  y={idx < 2 ? nodePositions[idx].y - (circleRadius + 20) : nodePositions[idx].y + (circleRadius + 36)}
+                  y={idx < 2 ? nodePositions[idx].y - (circleRadius + 20) : nodePositions[idx].y + (circleRadius + 30)}
                   textAnchor="middle"
                   fill="#1f2937"
                   fontWeight={600}
-                  fontSize={18}
+                  fontSize={16}
                 >
-                  {c.title}
+                  {c.title.split(' ').length > 2 ? (
+                    c.title.split(' ').length > 3 && c.title.includes('Tiefenpsychologisch') ? (
+                      <>
+                        <tspan x={nodePositions[idx].x} dy={0}>Tiefenpsychologisch</tspan>
+                        <tspan x={nodePositions[idx].x} dy={18}>fundierte Psychotherapie</tspan>
+                      </>
+                    ) : (
+                      <>
+                        {c.title.split(' ').slice(0,2).join(' ')}
+                        <tspan x={nodePositions[idx].x} dy={18}>{c.title.split(' ').slice(2).join(' ')}</tspan>
+                      </>
+                    )
+                  ) : (
+                    <tspan x={nodePositions[idx].x} dy={0}>{c.title}</tspan>
+                  )}
                 </text>
               </g>
             ))}

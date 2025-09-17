@@ -27,7 +27,7 @@ const Timeline = () => {
     {
       year: "2000er",
       title: "Therapeutische Ausbildungen",
-      description: "Kinder- und Jugendlichen-Psychotherapeutin",
+      description: "Kinder-, Jugendlichen- & Erwachsenen‑Psychotherapeutin",
       icon: Award,
       color: "bg-purple-500"
     },
@@ -130,7 +130,7 @@ const Timeline = () => {
                 Qualifikationen
               </h4>
               <div className="text-sm text-gray-700 space-y-2">
-                <p>• Dipl.-Psychologin • Kinder- und Jugendlichen-Psychotherapeutin</p>
+                <p>• Dipl.-Psychologin • Kinder-, Jugendlichen- & Erwachsenen‑Psychotherapeutin</p>
                 <p>• Klinische Neuropsychologin • Heilpraktiker (Psychotherapie)</p>
                 <p>• Montessori-Pädagogin • Krankenschwester</p>
               </div>

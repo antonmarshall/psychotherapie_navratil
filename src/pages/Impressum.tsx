@@ -49,7 +49,7 @@ const Impressum = () => {
                 <h3 className="text-lg font-semibold text-gray-900 mb-3">Diensteanbieter</h3>
                 <div className="space-y-2 text-gray-700">
                   <p><strong>Dipl.-Psych. Christiane Navrátil</strong></p>
-                  <p>Kinder- und Jugendlichen-Psychotherapeutin</p>
+                  <p>Kinder-, Jugendlichen- & Erwachsenen‑Psychotherapeutin</p>
                   <p>Hüffer-Str. 22</p>
                   <p>48149 Münster</p>
                 </div>
@@ -83,7 +83,7 @@ const Impressum = () => {
               <div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-3">Berufsbezeichnung</h3>
                 <div className="space-y-2 text-gray-700">
-                  <p>Kinder- und Jugendlichen-Psychotherapeutin</p>
+                  <p>Kinder-, Jugendlichen- & Erwachsenen‑Psychotherapeutin</p>
                   <p>Verliehen durch: APV – Gesellschaft für Angewandte Psychologie und Verhaltensmedizin, Münster</p>
                 </div>
               </div>

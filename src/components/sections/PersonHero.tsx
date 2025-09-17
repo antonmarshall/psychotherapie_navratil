@@ -61,7 +61,7 @@ const PersonHero = () => {
                 Dipl.-Psych. Christiane Navrátil
               </h2>
               <p className="text-lg text-gray-600 mb-4">
-                Kinder- und Jugendlichen-Psychotherapeutin
+                Kinder-, Jugendlichen- & Erwachsenen‑Psychotherapeutin
               </p>
               <div className="text-sm text-gray-500 space-y-0.5 md:space-y-1">
                 <p>Hüffer-Straße 22, Münster</p>

@@ -47,7 +47,7 @@ const Datenschutz = () => {
             <CardContent className="space-y-4">
               <div className="space-y-2 text-gray-700">
                 <p><strong>Dipl.-Psych. Christiane Navrátil</strong></p>
-                <p>Kinder- und Jugendlichen-Psychotherapeutin</p>
+                <p>Kinder-, Jugendlichen- & Erwachsenen‑Psychotherapeutin</p>
                 <p>Hüffer-Str. 22</p>
                 <p>48149 Münster</p>
                 <div className="flex items-center gap-2 mt-2">

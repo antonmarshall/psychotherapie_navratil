@@ -51,27 +51,50 @@ const ServicesSection = () => {
             {services.map((service, index) => (
               <Card 
                 key={index}
-                className={`group ${service.bgColor} ${service.borderColor} shadow-lg hover:shadow-xl transition-all duration-300 border-2 overflow-hidden rounded-xl md:rounded-2xl`}
+                className={`group relative ${service.bgColor} ${service.borderColor} shadow-lg hover:shadow-xl transition-all duration-300 border-2 overflow-hidden rounded-xl md:rounded-2xl`}
               >
-                <div className="aspect-square sm:aspect-video overflow-hidden">
-                  <img 
-                    src={service.image} 
-                    alt={service.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
+                {/* Mobile: Rahmen mit Titel; Tap toggelt Inhalt */}
+                <div className="md:hidden">
+                  <button
+                    type="button"
+                    className="w-full aspect-square flex items-center justify-center p-3"
+                    onClick={(e) => {
+                      const c = (e.currentTarget.nextSibling as HTMLElement);
+                      if (c) c.classList.toggle('hidden');
+                    }}
+                    aria-label={`${service.title} öffnen`}
+                  >
+                    <div className="w-full h-full border-2 border-gray-200 rounded-lg flex items-center justify-center">
+                      <span className="text-sm font-semibold text-gray-900 text-center px-2">{service.title}</span>
+                    </div>
+                  </button>
+                  <div className="hidden p-3 text-center">
+                    <p className="text-gray-700 text-sm leading-relaxed">{service.description}</p>
+                  </div>
                 </div>
-                
-                <CardHeader className="pb-3 md:pb-4">
-                  <CardTitle className="text-sm sm:text-base md:text-xl font-semibold text-gray-900 text-center">
-                    {service.title}
-                  </CardTitle>
-                </CardHeader>
-                
-                <CardContent className="pt-0">
-                  <p className="text-gray-700 leading-relaxed text-xs sm:text-sm md:text-base text-center">
-                    {service.description}
-                  </p>
-                </CardContent>
+
+                {/* Desktop: wie bisher */}
+                <div className="hidden md:block">
+                  <div className="aspect-square sm:aspect-video overflow-hidden">
+                    <img 
+                      src={service.image} 
+                      alt={service.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  
+                  <CardHeader className="pb-3 md:pb-4">
+                    <CardTitle className="text-sm sm:text-base md:text-xl font-semibold text-gray-900 text-center">
+                      {service.title}
+                    </CardTitle>
+                  </CardHeader>
+                  
+                  <CardContent className="pt-0">
+                    <p className="text-gray-700 leading-relaxed text-xs sm:text-sm md:text-base text-center">
+                      {service.description}
+                    </p>
+                  </CardContent>
+                </div>
               </Card>
             ))}
           </div>
