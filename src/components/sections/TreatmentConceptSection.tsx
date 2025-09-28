@@ -5,7 +5,7 @@ const concepts = [
   {
     key: "verhaltenstherapie",
     title: "Verhaltenstherapie",
-    icon: import.meta.env.BASE_URL + 'verhaltenstherapie.png',
+    icon: import.meta.env.BASE_URL + 'verhaltenstherapie_version_2.png',
     color: "bg-primary-light border-primary",
     iconAlt: "Symbol Verhaltenstherapie",
     description: (
@@ -46,7 +46,7 @@ const concepts = [
     key: "traumatherapie",
     title: "Traumatherapie",
     icon: import.meta.env.BASE_URL + 'traumatherapie.png',
-    color: "bg-green-100 border-green-600",
+    color: "bg-accent3-light border-accent3",
     iconAlt: "Symbol Traumatherapie",
     description: (
       <>Die Traumatherapie unterstützt bei der Verarbeitung belastender Erfahrungen. Mit speziellen Methoden wie EMDR helfen wir dabei, traumatische Erinnerungen zu integrieren und Heilung zu fördern.</>
@@ -120,13 +120,13 @@ const TreatmentConceptSection = () => {
             <line x1={nodePositions[1].x} y1={nodePositions[1].y} x2={nodePositions[2].x} y2={nodePositions[2].y} stroke="#4A6A7B" strokeWidth="6" />
             <line x1={nodePositions[2].x} y1={nodePositions[2].y} x2={nodePositions[3].x} y2={nodePositions[3].y} stroke="#7B4F6A" strokeWidth="6" />
             <line x1={nodePositions[3].x} y1={nodePositions[3].y} x2={nodePositions[4].x} y2={nodePositions[4].y} stroke="#E4572E" strokeWidth="6" />
-            <line x1={nodePositions[4].x} y1={nodePositions[4].y} x2={nodePositions[0].x} y2={nodePositions[0].y} stroke="#2E8B57" strokeWidth="6" />
+            <line x1={nodePositions[4].x} y1={nodePositions[4].y} x2={nodePositions[0].x} y2={nodePositions[0].y} stroke="#5A7B6A" strokeWidth="6" />
             {/* Verbindungslinien zur Mitte */}
             <line x1={nodePositions[0].x} y1={nodePositions[0].y} x2={centerX} y2={centerY} stroke="#F6A81A22" strokeWidth="3" />
             <line x1={nodePositions[1].x} y1={nodePositions[1].y} x2={centerX} y2={centerY} stroke="#4A6A7B22" strokeWidth="3" />
             <line x1={nodePositions[2].x} y1={nodePositions[2].y} x2={centerX} y2={centerY} stroke="#7B4F6A22" strokeWidth="3" />
             <line x1={nodePositions[3].x} y1={nodePositions[3].y} x2={centerX} y2={centerY} stroke="#E4572E22" strokeWidth="3" />
-            <line x1={nodePositions[4].x} y1={nodePositions[4].y} x2={centerX} y2={centerY} stroke="#2E8B5722" strokeWidth="3" />
+            <line x1={nodePositions[4].x} y1={nodePositions[4].y} x2={centerX} y2={centerY} stroke="#5A7B6A22" strokeWidth="3" />
           </svg>
           {/* Knoten, Labels, Tooltips als absolut positionierte Divs */}
           {concepts.map((concept, idx) => {
@@ -236,17 +236,17 @@ const TreatmentConceptSection = () => {
             <line x1={nodePositions[1].x} y1={nodePositions[1].y} x2={nodePositions[2].x} y2={nodePositions[2].y} stroke="#4A6A7B" strokeWidth={6} />
             <line x1={nodePositions[2].x} y1={nodePositions[2].y} x2={nodePositions[3].x} y2={nodePositions[3].y} stroke="#7B4F6A" strokeWidth={6} />
             <line x1={nodePositions[3].x} y1={nodePositions[3].y} x2={nodePositions[4].x} y2={nodePositions[4].y} stroke="#E4572E" strokeWidth={6} />
-            <line x1={nodePositions[4].x} y1={nodePositions[4].y} x2={nodePositions[0].x} y2={nodePositions[0].y} stroke="#2E8B57" strokeWidth={6} />
+            <line x1={nodePositions[4].x} y1={nodePositions[4].y} x2={nodePositions[0].x} y2={nodePositions[0].y} stroke="#5A7B6A" strokeWidth={6} />
             <line x1={nodePositions[0].x} y1={nodePositions[0].y} x2={centerX} y2={centerY} stroke="#F6A81A22" strokeWidth={3} />
             <line x1={nodePositions[1].x} y1={nodePositions[1].y} x2={centerX} y2={centerY} stroke="#4A6A7B22" strokeWidth={3} />
             <line x1={nodePositions[2].x} y1={nodePositions[2].y} x2={centerX} y2={centerY} stroke="#7B4F6A22" strokeWidth={3} />
             <line x1={nodePositions[3].x} y1={nodePositions[3].y} x2={centerX} y2={centerY} stroke="#E4572E22" strokeWidth={3} />
-            <line x1={nodePositions[4].x} y1={nodePositions[4].y} x2={centerX} y2={centerY} stroke="#2E8B5722" strokeWidth={3} />
+            <line x1={nodePositions[4].x} y1={nodePositions[4].y} x2={centerX} y2={centerY} stroke="#5A7B6A22" strokeWidth={3} />
 
             {concepts.map((c, idx) => (
               <g key={`m-node-${c.key}`}>
                 <circle cx={nodePositions[idx].x} cy={nodePositions[idx].y} r={circleRadius} fill="#fff" strokeWidth={6}
-                        stroke={idx===0?'#F6A81A':idx===1?'#4A6A7B':idx===2?'#7B4F6A':idx===3?'#E4572E':'#2E8B57'} />
+                        stroke={idx===0?'#F6A81A':idx===1?'#4A6A7B':idx===2?'#7B4F6A':idx===3?'#E4572E':'#5A7B6A'} />
                 <image href={c.icon}
                        x={nodePositions[idx].x - (circleRadius - 6)}
                        y={nodePositions[idx].y - (circleRadius - 6)}

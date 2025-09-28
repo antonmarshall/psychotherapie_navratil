@@ -56,6 +56,12 @@ export default {
 					light: '#7BA6B6',
 					foreground: '#fff8ed',
 				},
+				accent3: {
+					DEFAULT: '#5A7B6A', // Waldgrün (mellow, kühl)
+					dark: '#4A6B5A',
+					light: '#8FB69F',
+					foreground: '#fff8ed',
+				},
 				popover: {
 					DEFAULT: 'hsl(var(--popover))',
 					foreground: 'hsl(var(--popover-foreground))'

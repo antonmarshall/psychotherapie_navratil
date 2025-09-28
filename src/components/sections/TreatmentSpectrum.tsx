@@ -152,7 +152,7 @@ const bubbleColors = [
   'bg-primary', // Impuls & Wut
   'bg-secondary-light', // Einnässen & Einkoten
   // Entwicklung & Beziehung (Blaugrün)
-  'bg-accent2-light', // Bindung & Beziehung
+  'bg-accent3-light', // Bindung & Beziehung
   'bg-primary-dark', // Traurigkeit & Rückzug
   'bg-primary-light', // Lernen & Schule
   // Körper & Gesundheit (Violett)
@@ -163,7 +163,7 @@ const bubbleColors = [
   'bg-accent-light', // Schlaf & Träume
   'bg-secondary-light', // Körperliche Beschwerden
   // Belastung & Trauma (Orange/Rot)
-  'bg-secondary', // Trauma & Belastung
+  'bg-accent3', // Trauma & Belastung
   'bg-primary-dark' // Zwänge
 ];
 

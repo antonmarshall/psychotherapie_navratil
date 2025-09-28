@@ -65,10 +65,10 @@ const MethodsSection = () => {
     {
       icon: BookOpen,
       title: "Narrative Heilung",
-      bgColor: "bg-primary-light",
-      borderColor: "border-primary-dark",
-      iconColor: "text-primary-dark",
-      bulletColor: "bg-primary-dark",
+      bgColor: "bg-accent3-light",
+      borderColor: "border-accent3-dark",
+      iconColor: "text-accent3-dark",
+      bulletColor: "bg-accent3-dark",
       methods: [
         "Arbeit mit Metaphern und Geschichten",
         "Lösungsorientierte Therapie",
