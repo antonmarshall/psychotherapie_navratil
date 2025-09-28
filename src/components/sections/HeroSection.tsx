@@ -23,11 +23,14 @@ const HeroSection = () => {
           />
           <div className="mt-16 md:mt-20 w-full">
             {/* Headline */}
-            <h1 className="text-4xl md:text-5xl font-bold text-[#222222] mb-2 text-center">
-              Praxis für Psychotherapie
-              <br />
-              Christiane Navrátil
-          </h1>
+            <div className="text-center mb-2">
+              <h1 className="text-4xl md:text-5xl font-bold text-[#222222]">
+                Praxis für Psychotherapie
+              </h1>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#222222] mt-2">
+                Christiane Navrátil
+              </h2>
+            </div>
             {/* Subline */}
             <p className="text-base md:text-lg text-gray-500 mb-3 md:mb-4 text-center mx-auto mt-4">
               Kinder, Jugendliche & Erwachsene und Familien
