@@ -31,11 +31,11 @@ const Footer = () => {
                 alt="Logo"
                 className="w-6 h-6 object-contain"
               />
-              <h3 className="text-xl font-semibold">Psychotherapeutische Praxis Christiane Navrátil</h3>
+              <h3 className="text-xl font-semibold">
+                Psychotherapeutische Praxis<br />
+                Christiane Navrátil
+              </h3>
             </div>
-            <p className="text-gray-300 mb-6">
-              Professionelle psychologische Unterstützung für Kinder, Jugendliche und Familien in Münster.
-            </p>
             <div className="space-y-3">
               <div className="flex items-center gap-3">
                 <MapPin className="w-4 h-4 text-[#F6A81A] flex-shrink-0" />

@@ -130,14 +130,12 @@ const Lebenslauf = () => {
                 <h2 className="text-2xl font-semibold text-gray-900 mb-2">Zulassungen</h2>
                 <p className="text-gray-600">Meine behördlichen Zulassungen</p>
               </div>
-              <div className="flex flex-wrap gap-3 justify-center">
+              <div className="grid md:grid-cols-2 gap-4">
                 {trustBadges.map((badge, index) => (
-                  <Badge 
-                    key={index} 
-                    className="bg-[#4A6A7B]/10 text-[#4A6A7B] border-[#4A6A7B]/20 px-4 py-2 text-sm font-medium rounded-full hover:bg-[#4A6A7B] hover:text-white transition-colors"
-                  >
-                    {badge}
-                  </Badge>
+                  <div key={index} className="flex items-start gap-3 bg-gradient-to-r from-[#fff8ed] to-[#F6A81A]/5 p-4 rounded-lg border border-[#F6A81A]/10 hover:border-[#F6A81A]/20 transition-colors">
+                    <div className="w-2 h-2 bg-[#F6A81A] rounded-full mt-2 flex-shrink-0 shadow-sm"></div>
+                    <span className="text-gray-700 text-sm">{badge}</span>
+                  </div>
                 ))}
               </div>
             </CardContent>
@@ -150,14 +148,12 @@ const Lebenslauf = () => {
                 <h2 className="text-2xl font-semibold text-gray-900 mb-2">Schwerpunkte & Methoden</h2>
                 <p className="text-gray-600">Meine therapeutischen Ansätze</p>
               </div>
-              <div className="flex flex-wrap gap-3 justify-center">
+              <div className="grid md:grid-cols-2 gap-4">
                 {methods.map((method, index) => (
-                  <Badge 
-                    key={index} 
-                    className="bg-[#4A6A7B]/10 text-[#4A6A7B] border-[#4A6A7B]/20 px-4 py-2 text-sm font-medium rounded-full hover:bg-[#4A6A7B] hover:text-white transition-colors"
-                  >
-                    {method}
-                  </Badge>
+                  <div key={index} className="flex items-start gap-3 bg-gradient-to-r from-[#fff8ed] to-[#F6A81A]/5 p-4 rounded-lg border border-[#F6A81A]/10 hover:border-[#F6A81A]/20 transition-colors">
+                    <div className="w-2 h-2 bg-[#F6A81A] rounded-full mt-2 flex-shrink-0 shadow-sm"></div>
+                    <span className="text-gray-700 text-sm">{method}</span>
+                  </div>
                 ))}
               </div>
             </CardContent>
@@ -190,14 +186,12 @@ const Lebenslauf = () => {
                 <h2 className="text-2xl font-semibold text-gray-900 mb-2">Berufliche Stationen</h2>
                 <p className="text-gray-600">Auswahl meiner beruflichen Erfahrung</p>
               </div>
-              <div className="flex flex-wrap gap-3 justify-center">
+              <div className="grid md:grid-cols-2 gap-4">
                 {workStations.map((station, index) => (
-                  <Badge 
-                    key={index} 
-                    className="bg-[#4A6A7B]/10 text-[#4A6A7B] border-[#4A6A7B]/20 px-4 py-2 text-sm font-medium rounded-full hover:bg-[#4A6A7B] hover:text-white transition-colors"
-                  >
-                    {station}
-                  </Badge>
+                  <div key={index} className="flex items-start gap-3 bg-gradient-to-r from-[#fff8ed] to-[#F6A81A]/5 p-4 rounded-lg border border-[#F6A81A]/10 hover:border-[#F6A81A]/20 transition-colors">
+                    <div className="w-2 h-2 bg-[#F6A81A] rounded-full mt-2 flex-shrink-0 shadow-sm"></div>
+                    <span className="text-gray-700 text-sm">{station}</span>
+                  </div>
                 ))}
               </div>
             </CardContent>
@@ -207,7 +201,7 @@ const Lebenslauf = () => {
           <Card className="bg-white shadow-lg border-0 mb-16">
             <CardContent className="p-8">
               <div className="text-center mb-8">
-                <h2 className="text-2xl font-semibold text-gray-900 mb-2">Lehre & Vorträge</h2>
+                <h2 className="text-2xl font-semibold text-gray-900 mb-2">Lehre &amp; Vorträge</h2>
                 <p className="text-gray-600">Auswahl meiner Lehrtätigkeit</p>
               </div>
               <div className="grid md:grid-cols-3 gap-6">
