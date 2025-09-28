@@ -57,9 +57,9 @@ export default {
 					foreground: '#fff8ed',
 				},
 				accent3: {
-					DEFAULT: '#5A7B6A', // Waldgrün (mellow, kühl)
-					dark: '#4A6B5A',
-					light: '#8FB69F',
+					DEFAULT: '#3E8B5F', // Seewald-Grün (lebendiger aber mellow)
+					dark: '#2E7B4F',
+					light: '#7DB090',
 					foreground: '#fff8ed',
 				},
 				popover: {
