@@ -2,6 +2,7 @@
 import { Heart, Users, Brain, Leaf, Sun, Sparkles, BookOpen, ChevronDown } from "lucide-react";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { useState } from "react";
+import { BRAND_COLORS } from "@/utils/colors";
 
 const MethodsSection = () => {
   const [openIdx, setOpenIdx] = useState<number | null>(null);
@@ -37,10 +38,10 @@ const MethodsSection = () => {
     {
       icon: Brain,
       title: "Kognitive Entwicklung",
-      bgColor: "bg-secondary-light",
-      borderColor: "border-secondary",
-      iconColor: "text-secondary",
-      bulletColor: "bg-secondary",
+      bgColor: "bg-primary",
+      borderColor: "border-primary",
+      iconColor: "text-primary",
+      bulletColor: "bg-primary-dark",
       methods: [
         "Kognitive Umstrukturierung",
         "PC-gestütztes kognitives Training",
@@ -111,9 +112,11 @@ const MethodsSection = () => {
             return (
             <div
               key={index}
-              className={`group bg-white rounded-xl md:rounded-3xl p-4 md:p-8 shadow-lg border-2 ${category.borderColor} hover:shadow-xl transition-all duration-300 md:hover:-translate-y-1
-              ${/* Mobile: expand selected card to full row */''}
-              ${isOpen ? 'col-span-2 col-start-1 p-3' : ''} md:col-auto`}
+              className={`group rounded-xl md:rounded-3xl p-4 md:p-8 shadow-lg border-2 ${category.borderColor} hover:shadow-xl transition-all duration-300 md:hover:-translate-y-1
+              ${isOpen ? 'relative z-10 scale-105' : ''}`}
+              style={{
+                backgroundColor: BRAND_COLORS.white
+              }}
             >
               <div className={`${isOpen ? 'text-left' : 'text-center'} mb-6 md:mb-8`}>
                 <div className={`${isOpen ? 'mx-0' : 'mx-auto'} mb-3 md:mb-6 p-3 md:p-4 rounded-full w-fit ${category.bgColor} shadow-md md:group-hover:scale-110 transition-transform duration-300`}>

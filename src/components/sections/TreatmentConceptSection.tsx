@@ -47,7 +47,7 @@ const concepts = [
     key: "traumatherapie",
     title: "Trauma-Therapie",
     icon: import.meta.env.BASE_URL + 'traumatherapie.png',
-    color: "bg-primary border-primary",
+    color: "bg-accent3-light border-accent3",
     iconAlt: "Symbol Traumatherapie",
     description: (
       <>Die Traumatherapie unterstützt bei der Verarbeitung belastender Erfahrungen. Mit speziellen Methoden wie EMDR helfen wir dabei, traumatische Erinnerungen zu integrieren und Heilung zu fördern.</>
@@ -273,21 +273,33 @@ const TreatmentConceptSection = () => {
               
               return (
                 <div key={concept.key}>
-                  {/* Label */}
+                  {/* Label mit mehr Platz und Zeilenumbrüchen */}
                   <div 
                     style={{
                       position: 'absolute',
                       left: `${(x / svgWidth) * 100}%`,
-                      width: '140px',
+                      width: '160px',
                       transform: 'translateX(-50%)',
                       top: idx === 0 || idx === 1 || idx === 4 
-                        ? `${((y - circleRadius - 50) / svgHeight) * 100}%`
-                        : `${((y + circleRadius + 20) / svgHeight) * 100}%`,
+                        ? `${((y - circleRadius - 70) / svgHeight) * 100}%`
+                        : `${((y + circleRadius + 30) / svgHeight) * 100}%`,
                       zIndex: 3,
                     }}
-                    className="font-semibold text-xs text-gray-800 text-center leading-tight select-none pointer-events-none"
+                    className="font-semibold text-sm text-gray-800 text-center leading-tight select-none pointer-events-none"
                   >
-                    {concept.title}
+                    {concept.title.includes('Tiefenpsychologische') ? (
+                      <>
+                        Tiefenpsychologische<br />
+                        Psychotherapie
+                      </>
+                    ) : concept.title.includes('Neuropsychologische') ? (
+                      <>
+                        Neuropsychologische<br />
+                        Therapie
+                      </>
+                    ) : (
+                      concept.title
+                    )}
                   </div>
                   
                   {/* Kreis mit Tap-Event - größer und besser positioniert */}
