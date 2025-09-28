@@ -98,18 +98,18 @@ const TreatmentConceptSection = () => {
     return () => window.removeEventListener('scroll', onScroll);
   }, [hovered]);
 
-  // Close tooltip when clicking elsewhere on mobile
+  // Close tooltip when tapping elsewhere on mobile
   useEffect(() => {
     const isDesktop = window.matchMedia('(min-width: 768px)').matches;
-    if (isDesktop) return;
+    if (isDesktop || !hovered) return;
     
     const handleTouchStart = (e: TouchEvent) => {
-      if (!hovered) return;
-      // Check if touch is outside any concept circle
       const target = e.target as HTMLElement;
-      if (!target.closest('[data-concept-circle]')) {
-        setHovered(null);
+      // Don't close if tapping on a concept circle or tooltip
+      if (target.closest('[data-concept-touch]') || target.closest('[data-tooltip]')) {
+        return;
       }
+      setHovered(null);
     };
     
     document.addEventListener('touchstart', handleTouchStart, { passive: true });
@@ -273,55 +273,53 @@ const TreatmentConceptSection = () => {
               
               return (
                 <div key={concept.key}>
-                  {/* Label mit Zeilenumbrüchen */}
+                  {/* Label */}
                   <div 
                     style={{
                       position: 'absolute',
                       left: `${(x / svgWidth) * 100}%`,
-                      width: '160px',
+                      width: '140px',
                       transform: 'translateX(-50%)',
                       top: idx === 0 || idx === 1 || idx === 4 
-                        ? `${((y - circleRadius - 70) / svgHeight) * 100}%`
-                        : `${((y + circleRadius + 30) / svgHeight) * 100}%`,
+                        ? `${((y - circleRadius - 50) / svgHeight) * 100}%`
+                        : `${((y + circleRadius + 20) / svgHeight) * 100}%`,
                       zIndex: 3,
                     }}
-                    className="font-semibold text-sm text-gray-800 text-center leading-tight select-none pointer-events-none"
+                    className="font-semibold text-xs text-gray-800 text-center leading-tight select-none pointer-events-none"
                   >
-                    {concept.title.includes('Tiefenpsychologische') ? (
-                      <>
-                        Tiefenpsychologische<br />
-                        Psychotherapie
-                      </>
-                    ) : concept.title.includes('Neuropsychologische') ? (
-                      <>
-                        Neuropsychologische<br />
-                        Therapie
-                      </>
-                    ) : (
-                      concept.title
-                    )}
+                    {concept.title}
                   </div>
                   
                   {/* Kreis mit Tap-Event - größer und besser positioniert */}
                   <div
-                    data-concept-circle
                     style={{
                       position: 'absolute',
                       left: `${(x / svgWidth) * 100}%`,
                       top: `${(y / svgHeight) * 100}%`,
-                      width: '80px',
-                      height: '80px',
+                      width: '64px',
+                      height: '64px',
+                      transform: 'translate(-50%, -50%)',
+                      borderRadius: '50%',
+                      cursor: 'pointer',
+                      zIndex: 5,
+                    }}
+                    data-concept-touch
+                    className={`${concept.color} border-4 shadow-lg transition-all duration-200 ${hovered === concept.key ? 'scale-110' : ''}`}
+                    style={{
+                      position: 'absolute',
+                      left: `${(x / svgWidth) * 100}%`,
+                      top: `${(y / svgHeight) * 100}%`,
+                      width: '72px',
+                      height: '72px',
                       transform: 'translate(-50%, -50%)',
                       borderRadius: '50%',
                       cursor: 'pointer',
                       zIndex: 5,
                       backgroundColor: BRAND_COLORS.white
                     }}
-                    className={`${concept.color} border-4 shadow-lg transition-all duration-200 ${hovered === concept.key ? 'scale-110' : ''}`}
                     onClick={() => setHovered(hovered === concept.key ? null : concept.key)}
-                    onTouchEnd={(e) => {
+                    onTouchStart={(e) => {
                       e.preventDefault();
-                      e.stopPropagation();
                       setHovered(concept.key);
                       openMetaRef.current = { y: window.scrollY, t: Date.now() };
                     }}
@@ -333,23 +331,42 @@ const TreatmentConceptSection = () => {
                     />
                   </div>
                   
-                  {/* Mobile Tooltip - immer zentriert unter Pentagon für Konsistenz */}
+                  {/* Mobile Tooltip - intelligent positioniert */}
                   {hovered === concept.key && (
                     <div 
                       style={{
                         position: 'absolute',
-                        left: '50%',
-                        top: '110%',
-                        transform: 'translateX(-50%)',
-                        width: 'calc(100vw - 40px)',
-                        maxWidth: '300px',
+                        left: idx === 1 || idx === 2 ? '20px' : // rechte Seite: links positionieren
+                              idx === 3 || idx === 4 ? 'calc(100% - 300px)' : // linke Seite: rechts positionieren  
+                              '50%', // oben: mittig
+                        top: idx === 0 ? `${((y + circleRadius + 80) / svgHeight) * 100}%` : // oben: darunter
+                             idx === 2 || idx === 3 ? `${((y - 120) / svgHeight) * 100}%` : // unten: darüber
+                             `${(y / svgHeight) * 100}%`, // seiten: daneben
+                        transform: idx === 0 ? 'translateX(-50%)' : 'none',
+                        width: '280px',
+                        maxWidth: 'calc(100vw - 40px)',
                         zIndex: 20,
-                        backgroundColor: BRAND_COLORS.white + 'F5' // 95% opacity
                       }}
-                      className="border border-gray-200 rounded-2xl shadow-xl p-5 text-gray-800 text-sm animate-fade-in"
+                      data-tooltip
+                      className="border border-gray-200 rounded-2xl shadow-xl p-4 text-gray-800 text-sm animate-fade-in"
+                      style={{
+                        position: 'absolute',
+                        left: idx === 1 || idx === 2 ? '20px' : 
+                              idx === 3 || idx === 4 ? 'calc(100% - 320px)' : 
+                              '50%',
+                        top: idx === 0 ? `${((y + circleRadius + 100) / svgHeight) * 100}%` :
+                             idx === 2 || idx === 3 ? `${((y - 140) / svgHeight) * 100}%` :
+                             `${((y - 60) / svgHeight) * 100}%`,
+                        transform: idx === 0 ? 'translateX(-50%)' : 'none',
+                        width: '300px',
+                        maxWidth: 'calc(100vw - 40px)',
+                        zIndex: 20,
+                        backgroundColor: BRAND_COLORS.white,
+                        backdropFilter: 'blur(10px)'
+                      }}
                     >
-                      <div className="font-semibold mb-3 text-lg text-center">{concept.title}</div>
-                      <div className="text-center leading-relaxed">{concept.description}</div>
+                      <div className="font-semibold mb-2 text-base">{concept.title}</div>
+                      <div>{concept.description}</div>
                     </div>
                   )}
                 </div>
