@@ -26,7 +26,19 @@ export const BRAND_COLORS = {
   // Basis-Farben
   background: '#fff8ed',     // Creme
   foreground: '#222222',     // Dunkelgrau
-  white: '#ffffff',
+  white: '#fefcf8',          // Creme-Weiß (ÄNDERBAR für gesamte Website)
+  
+  // 10 Weiß-Alternativen die mit Creme harmonieren:
+  cardWhite: '#ffffff',      // 1. Reines Weiß (aktuell)
+  warmWhite: '#fefefe',      // 2. Hauch wärmer
+  creamWhite: '#fefcf8',     // 3. Sehr leicht cremig
+  ivoryWhite: '#fdf9f4',     // 4. Elfenbein-Weiß
+  pearlWhite: '#faf8f5',     // 5. Perlen-Weiß
+  linen: '#faf9f7',          // 6. Leinen-Weiß
+  ghostWhite: '#f8f8ff',     // 7. Geister-Weiß (kühl)
+  snowWhite: '#fffafa',      // 8. Schnee-Weiß
+  seashell: '#fff5ee',       // 9. Muschel-Weiß (warm)
+  floralWhite: '#fffaf0',    // 10. Blüten-Weiß
 } as const;
 
 // Tailwind-Klassen Mapping
