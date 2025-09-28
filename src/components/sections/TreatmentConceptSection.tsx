@@ -41,17 +41,33 @@ const concepts = [
     description: (
       <>Die Neuropsychologie verbindet psychische Prozesse mit den Funktionen des Gehirns. Sie hilft z.B. bei Aufmerksamkeits-, Gedächtnis- oder Sprachstörungen nach Erkrankungen oder Unfällen.</>
     )
+  },
+  {
+    key: "traumatherapie",
+    title: "Traumatherapie",
+    icon: import.meta.env.BASE_URL + 'traumatherapie.png',
+    color: "bg-green-100 border-green-600",
+    iconAlt: "Symbol Traumatherapie",
+    description: (
+      <>Die Traumatherapie unterstützt bei der Verarbeitung belastender Erfahrungen. Mit speziellen Methoden wie EMDR helfen wir dabei, traumatische Erinnerungen zu integrieren und Heilung zu fördern.</>
+    )
   }
 ];
 
 const circleRadius = 60;
 const svgWidth = 700;
-const svgHeight = 520;
+const svgHeight = 580;
+const centerX = svgWidth / 2;
+const centerY = svgHeight / 2;
+const pentagonRadius = 160;
+
+// Pentagon-Koordinaten berechnen (oben beginnend, im Uhrzeigersinn)
 const nodePositions = [
-  { x: 180, y: 140 }, // Verhaltenstherapie (links oben)
-  { x: 520, y: 140 }, // Systemische Therapie (rechts oben)
-  { x: 520, y: 370 }, // Tiefenpsychologisch (rechts unten)
-  { x: 180, y: 370 }  // Neuropsychologisch (links unten)
+  { x: centerX + pentagonRadius * Math.sin(0 * 2 * Math.PI / 5), y: centerY - pentagonRadius * Math.cos(0 * 2 * Math.PI / 5) }, // Verhaltenstherapie (oben)
+  { x: centerX + pentagonRadius * Math.sin(1 * 2 * Math.PI / 5), y: centerY - pentagonRadius * Math.cos(1 * 2 * Math.PI / 5) }, // Systemische Therapie (rechts oben)
+  { x: centerX + pentagonRadius * Math.sin(2 * 2 * Math.PI / 5), y: centerY - pentagonRadius * Math.cos(2 * 2 * Math.PI / 5) }, // Tiefenpsychologisch (rechts unten)
+  { x: centerX + pentagonRadius * Math.sin(3 * 2 * Math.PI / 5), y: centerY - pentagonRadius * Math.cos(3 * 2 * Math.PI / 5) }, // Neuropsychologisch (links unten)
+  { x: centerX + pentagonRadius * Math.sin(4 * 2 * Math.PI / 5), y: centerY - pentagonRadius * Math.cos(4 * 2 * Math.PI / 5) }  // Traumatherapie (links oben)
 ];
 
 const TreatmentConceptSection = () => {
@@ -87,11 +103,11 @@ const TreatmentConceptSection = () => {
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Behandlungskonzept</h2>
           <p className="text-lg text-gray-700 max-w-2xl mx-auto">
-            Mein psychotherapeutisches Behandlungskonzept basiert auf vier wissenschaftlich anerkannten Verfahren:
+            Mein psychotherapeutisches Behandlungskonzept basiert auf fünf wissenschaftlich anerkannten Verfahren:
           </p>
         </div>
         {/* Desktop (interactive original) */}
-        <div className="relative max-w-[700px] w-full mx-auto h-[520px] hidden md:block">
+        <div className="relative max-w-[700px] w-full mx-auto h-[580px] hidden md:block">
           {/* SVG-Linien */}
           <svg
             width={svgWidth}
@@ -99,28 +115,34 @@ const TreatmentConceptSection = () => {
             viewBox={`0 0 ${svgWidth} ${svgHeight}`}
             className="absolute left-0 top-0 w-full h-full pointer-events-none"
           >
-            {/* Quadrat/Polygon */}
+            {/* Pentagon-Linien */}
             <line x1={nodePositions[0].x} y1={nodePositions[0].y} x2={nodePositions[1].x} y2={nodePositions[1].y} stroke="#F6A81A" strokeWidth="6" />
             <line x1={nodePositions[1].x} y1={nodePositions[1].y} x2={nodePositions[2].x} y2={nodePositions[2].y} stroke="#4A6A7B" strokeWidth="6" />
             <line x1={nodePositions[2].x} y1={nodePositions[2].y} x2={nodePositions[3].x} y2={nodePositions[3].y} stroke="#7B4F6A" strokeWidth="6" />
-            <line x1={nodePositions[3].x} y1={nodePositions[3].y} x2={nodePositions[0].x} y2={nodePositions[0].y} stroke="#E4572E" strokeWidth="6" />
-            {/* Diagonalen */}
-            <line x1={nodePositions[0].x} y1={nodePositions[0].y} x2={nodePositions[2].x} y2={nodePositions[2].y} stroke="#7B4F6A22" strokeWidth="3" />
-            <line x1={nodePositions[1].x} y1={nodePositions[1].y} x2={nodePositions[3].x} y2={nodePositions[3].y} stroke="#4A6A7B22" strokeWidth="3" />
+            <line x1={nodePositions[3].x} y1={nodePositions[3].y} x2={nodePositions[4].x} y2={nodePositions[4].y} stroke="#E4572E" strokeWidth="6" />
+            <line x1={nodePositions[4].x} y1={nodePositions[4].y} x2={nodePositions[0].x} y2={nodePositions[0].y} stroke="#2E8B57" strokeWidth="6" />
+            {/* Verbindungslinien zur Mitte */}
+            <line x1={nodePositions[0].x} y1={nodePositions[0].y} x2={centerX} y2={centerY} stroke="#F6A81A22" strokeWidth="3" />
+            <line x1={nodePositions[1].x} y1={nodePositions[1].y} x2={centerX} y2={centerY} stroke="#4A6A7B22" strokeWidth="3" />
+            <line x1={nodePositions[2].x} y1={nodePositions[2].y} x2={centerX} y2={centerY} stroke="#7B4F6A22" strokeWidth="3" />
+            <line x1={nodePositions[3].x} y1={nodePositions[3].y} x2={centerX} y2={centerY} stroke="#E4572E22" strokeWidth="3" />
+            <line x1={nodePositions[4].x} y1={nodePositions[4].y} x2={centerX} y2={centerY} stroke="#2E8B5722" strokeWidth="3" />
           </svg>
           {/* Knoten, Labels, Tooltips als absolut positionierte Divs */}
           {concepts.map((concept, idx) => {
             const { x, y } = nodePositions[idx];
             const IconSrc = concept.icon;
             const IconAlt = concept.iconAlt;
-            // Label-Position: oben für 0/1, unten für 2/3
+            // Label-Position: dynamisch für Pentagon
             const labelStyle = {
               left: x,
               width: 200,
               transform: 'translateX(-50%)',
               position: 'absolute',
               zIndex: 3,
-              top: idx < 2 ? y - circleRadius - 38 : y + circleRadius + 12
+              top: idx === 0 ? y - circleRadius - 38 : // oben
+                   idx === 1 || idx === 4 ? y - circleRadius - 38 : // rechts oben, links oben  
+                   y + circleRadius + 12 // unten für 2,3
             };
             // Tooltip-Position: individuell je nach Kreis
             let tooltipStyle: React.CSSProperties = {
@@ -213,14 +235,18 @@ const TreatmentConceptSection = () => {
             <line x1={nodePositions[0].x} y1={nodePositions[0].y} x2={nodePositions[1].x} y2={nodePositions[1].y} stroke="#F6A81A" strokeWidth={6} />
             <line x1={nodePositions[1].x} y1={nodePositions[1].y} x2={nodePositions[2].x} y2={nodePositions[2].y} stroke="#4A6A7B" strokeWidth={6} />
             <line x1={nodePositions[2].x} y1={nodePositions[2].y} x2={nodePositions[3].x} y2={nodePositions[3].y} stroke="#7B4F6A" strokeWidth={6} />
-            <line x1={nodePositions[3].x} y1={nodePositions[3].y} x2={nodePositions[0].x} y2={nodePositions[0].y} stroke="#E4572E" strokeWidth={6} />
-            <line x1={nodePositions[0].x} y1={nodePositions[0].y} x2={nodePositions[2].x} y2={nodePositions[2].y} stroke="#7B4F6A22" strokeWidth={3} />
-            <line x1={nodePositions[1].x} y1={nodePositions[1].y} x2={nodePositions[3].x} y2={nodePositions[3].y} stroke="#4A6A7B22" strokeWidth={3} />
+            <line x1={nodePositions[3].x} y1={nodePositions[3].y} x2={nodePositions[4].x} y2={nodePositions[4].y} stroke="#E4572E" strokeWidth={6} />
+            <line x1={nodePositions[4].x} y1={nodePositions[4].y} x2={nodePositions[0].x} y2={nodePositions[0].y} stroke="#2E8B57" strokeWidth={6} />
+            <line x1={nodePositions[0].x} y1={nodePositions[0].y} x2={centerX} y2={centerY} stroke="#F6A81A22" strokeWidth={3} />
+            <line x1={nodePositions[1].x} y1={nodePositions[1].y} x2={centerX} y2={centerY} stroke="#4A6A7B22" strokeWidth={3} />
+            <line x1={nodePositions[2].x} y1={nodePositions[2].y} x2={centerX} y2={centerY} stroke="#7B4F6A22" strokeWidth={3} />
+            <line x1={nodePositions[3].x} y1={nodePositions[3].y} x2={centerX} y2={centerY} stroke="#E4572E22" strokeWidth={3} />
+            <line x1={nodePositions[4].x} y1={nodePositions[4].y} x2={centerX} y2={centerY} stroke="#2E8B5722" strokeWidth={3} />
 
             {concepts.map((c, idx) => (
               <g key={`m-node-${c.key}`}>
                 <circle cx={nodePositions[idx].x} cy={nodePositions[idx].y} r={circleRadius} fill="#fff" strokeWidth={6}
-                        stroke={idx===0?'#F6A81A':idx===1?'#4A6A7B':idx===2?'#7B4F6A':'#E4572E'} />
+                        stroke={idx===0?'#F6A81A':idx===1?'#4A6A7B':idx===2?'#7B4F6A':idx===3?'#E4572E':'#2E8B57'} />
                 <image href={c.icon}
                        x={nodePositions[idx].x - (circleRadius - 6)}
                        y={nodePositions[idx].y - (circleRadius - 6)}
@@ -230,7 +256,7 @@ const TreatmentConceptSection = () => {
                        preserveAspectRatio="xMidYMid slice"/>
                 <text
                   x={nodePositions[idx].x}
-                  y={idx < 2 ? nodePositions[idx].y - (circleRadius + 20) : nodePositions[idx].y + (circleRadius + 30)}
+                  y={idx === 0 || idx === 1 || idx === 4 ? nodePositions[idx].y - (circleRadius + 20) : nodePositions[idx].y + (circleRadius + 30)}
                   textAnchor="middle"
                   fill="#1f2937"
                   fontWeight={600}
