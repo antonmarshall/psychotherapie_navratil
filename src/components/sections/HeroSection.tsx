@@ -24,13 +24,13 @@ const HeroSection = () => {
           <div className="mt-16 md:mt-20 w-full">
             {/* Headline */}
             <h1 className="text-4xl md:text-5xl font-bold text-[#222222] mb-2 text-center">
-              Praxis für Psychotherapie – Christiane Navrátil
+              Praxis für Psychotherapie
+              <br />
+              Christiane Navrátil
           </h1>
             {/* Subline */}
-            <p className="text-lg md:text-xl text-gray-500 mb-3 md:mb-4 max-w-md text-center mx-auto">
-              Ein Ort um Neues zu lernen und sich auszuruhen.
-              <br />
-              Um neue Ideen zu entwickeln und Lösungen für Probleme zu finden.
+            <p className="text-base md:text-lg text-gray-500 mb-3 md:mb-4 text-center mx-auto mt-4">
+              Kinder, Jugendliche & Erwachsene und Familien
             </p>
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-center justify-center mt-6">
