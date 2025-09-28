@@ -59,7 +59,7 @@ const PersonHero = () => {
               </div>
               <div className="space-y-4">
                 <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
-                  Christiane Navrátil
+                  Dipl.-Psych. Christiane Navrátil
                 </h2>
                 <div className="text-base text-gray-600 space-y-1">
                   <p>Psychotherapeutin für Kinder, Jugendliche und Familien</p>
