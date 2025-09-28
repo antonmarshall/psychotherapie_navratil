@@ -5,7 +5,7 @@ import { PENTAGON_COLORS } from "@/utils/colors";
 const concepts = [
   {
     key: "verhaltenstherapie",
-    title: "Verhaltenstherapie",
+    title: "Verhaltens-Therapie",
     icon: import.meta.env.BASE_URL + 'verhaltenstherapie_version_2.png',
     color: "bg-primary-light border-primary",
     iconAlt: "Symbol Verhaltenstherapie",
@@ -15,7 +15,7 @@ const concepts = [
   },
   {
     key: "systemische-therapie",
-    title: "Systemische Therapie",
+    title: "Familien-Therapie",
     icon: import.meta.env.BASE_URL + 'systemischepsychologie.png',
     color: "bg-accent2-light border-accent2",
     iconAlt: "Symbol Systemische Therapie",
@@ -171,7 +171,7 @@ const TreatmentConceptSection = () => {
             return (
               <div key={concept.key}>
                 {/* Label */}
-                <div style={labelStyle} className="font-semibold text-base text-gray-800 text-center leading-tight select-none pointer-events-none">
+                <div style={labelStyle} className="font-semibold text-lg md:text-xl text-gray-800 text-center leading-tight select-none pointer-events-none">
                   {concept.title}
                 </div>
                 {/* Gemeinsamer Wrapper für Hover-Events */}
@@ -261,7 +261,7 @@ const TreatmentConceptSection = () => {
                   textAnchor="middle"
                   fill="#1f2937"
                   fontWeight={600}
-                  fontSize={16}
+                  fontSize={18}
                 >
                   {c.title.split(' ').length > 2 ? (
                     c.title.split(' ').length > 3 && c.title.includes('Tiefenpsychologisch') ? (
