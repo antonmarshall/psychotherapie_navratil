@@ -1,33 +1,34 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useState } from "react";
+import { BRAND_COLORS } from "@/utils/colors";
 
 const ServicesSection = () => {
   const services = [
     {
       image: import.meta.env.BASE_URL + 'diagnostik_2.png',
       title: "Diagnostik",
-      description: "Umfassende psychologische Untersuchung zur genauen Erfassung Ihrer individuellen Situation",
+      description: "Umfassende psychologische Untersuchung zur genauen Erfassung Ihrer individuellen Situation.",
       bgColor: "bg-primary-light",
       borderColor: "border-primary"
     },
     {
       image: import.meta.env.BASE_URL + 'beratung_2.png',
       title: "Beratung", 
-      description: "Professionelle Begleitung für Familien, Eltern und Kinder bei Entwicklungsfragen",
+      description: "Professionelle Begleitung für Familien, Eltern und Kinder bei Entwicklungsfragen.",
       bgColor: "bg-accent2-light",
       borderColor: "border-accent2"
     },
     {
       image: import.meta.env.BASE_URL + 'behandlung_2.png',
       title: "Behandlung",
-      description: "Evidenzbasierte Psychotherapie für Kinder, Jugendliche und Familien",
+      description: "Evidenzbasierte Psychotherapie für Kinder, Jugendliche und Familien.",
       bgColor: "bg-accent-light",
       borderColor: "border-accent"
     },
     {
       image: import.meta.env.BASE_URL + 'berufliche_wiedereingliederung.png',
       title: "Berufliche Wiedereingliederung",
-      description: "Unterstützung bei der Rückkehr ins Berufsleben nach psychischen Belastungen oder Erkrankungen",
+      description: "Unterstützung bei der Rückkehr ins Berufsleben nach psychischen Belastungen oder Erkrankungen.",
       bgColor: "bg-primary",
       borderColor: "border-primary-dark"
     }
@@ -65,11 +66,11 @@ const ServicesSection = () => {
                     onClick={() => setOpenIdx(prev => prev === index ? null : index)}
                     aria-label={`${service.title} öffnen`}
                   >
-                    <div className="relative aspect-square border-2 border-gray-200 rounded-lg overflow-hidden">
+                    <div className="relative aspect-square rounded-lg overflow-hidden">
                       {openIdx === index ? (
-                        <div className="absolute inset-0 flex items-center justify-center p-4">
+                        <div className="absolute inset-0 flex items-center justify-center p-6" style={{backgroundColor: BRAND_COLORS.white}}>
                           <p className="text-gray-800 text-sm leading-relaxed text-center">
-                            {service.description}
+                            {service.description}.
                           </p>
                         </div>
                       ) : (
@@ -77,12 +78,14 @@ const ServicesSection = () => {
                           <img
                             src={service.image}
                             alt={service.title}
-                            className="absolute inset-0 w-full h-full object-contain object-center bg-white p-2"
+                            className="w-full h-full object-cover"
                           />
-                          {/* sanfter Gradient unten für bessere Lesbarkeit */}
-                          <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/30 to-transparent" />
                           <div className="absolute inset-x-0 bottom-3 flex justify-center">
-                            <span className="bg-white/90 backdrop-blur-sm text-gray-900 text-sm font-semibold px-3 py-1 rounded-full shadow-sm">
+                            <span className="text-white text-sm font-semibold px-3 py-1 rounded-full shadow-lg" style={{
+                              backgroundColor: BRAND_COLORS.white + 'E6',
+                              backdropFilter: 'blur(8px)',
+                              color: BRAND_COLORS.foreground
+                            }}>
                               {service.title}
                             </span>
                           </div>

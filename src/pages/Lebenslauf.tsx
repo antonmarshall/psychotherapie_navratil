@@ -25,27 +25,27 @@ const Lebenslauf = () => {
     {
       title: "Kinder",
       aspects: [
-        { label: "Spielerisch", description: "Zugang über Spiel + kreative Methoden" },
-        { label: "Entwicklung", description: "Förderung emotionaler, kognitiver + sozialer Reifung" },
-        { label: "Sicherheit", description: "Aufbau von Vertrauen und Sicherheit" },
-        { label: "Ressource", description: "Stärken entdecken + nutzen" }
+        { label: "Spielerisch", description: "Zugang über Spiel + kreative Methoden." },
+        { label: "Entwicklung", description: "Förderung emotionaler, kognitiver + sozialer Reifung." },
+        { label: "Sicherheit", description: "Aufbau von Vertrauen und Sicherheit." },
+        { label: "Ressource", description: "Stärken entdecken + nutzen." }
       ]
     },
     {
       title: "Jugendliche", 
       aspects: [
-        { label: "Selbstfindung", description: "Selbstfindung und Rollenklärung" },
-        { label: "Bewältigung", description: "Umgang mit Stress, Konflikten und Krisen" },
-        { label: "Perspektiven", description: "Zukunftsplanung und Entscheidungsfindung" }
+        { label: "Selbstfindung", description: "Selbstfindung und Rollenklärung." },
+        { label: "Bewältigung", description: "Umgang mit Stress, Konflikten und Krisen." },
+        { label: "Perspektiven", description: "Zukunftsplanung und Entscheidungsfindung." }
       ]
     },
     {
       title: "Erwachsene",
       aspects: [
-        { label: "Klarheit", description: "Verstehen von Mustern und Lebenssituation" },
-        { label: "Veränderung", description: "Begleitung bei Übergängen und Neuausrichtung" },
-        { label: "Resilienz", description: "Stärkung innerer Widerstandskraft" },
-        { label: "Selbstfürsorge", description: "Förderung von Achtsamkeit und Balance" }
+        { label: "Klarheit", description: "Verstehen von Mustern und Lebenssituation." },
+        { label: "Veränderung", description: "Begleitung bei Übergängen und Neuausrichtung." },
+        { label: "Resilienz", description: "Stärkung innerer Widerstandskraft." },
+        { label: "Selbstfürsorge", description: "Förderung von Achtsamkeit und Balance." }
       ]
     }
   ];
