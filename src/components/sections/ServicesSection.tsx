@@ -57,7 +57,7 @@ const ServicesSection = () => {
                 key={index}
                 className={`group relative ${service.bgColor} ${service.borderColor} shadow-lg hover:shadow-xl transition-all duration-300 border-2 overflow-hidden rounded-xl md:rounded-2xl`}
               >
-                {/* Mobile: Bild im Rahmen + Titel-Overlay; Tap blendet Text ein */}
+                {/* Mobile: Clean Design ohne seltsame Ränder */}
                 <div className="md:hidden">
                   <button
                     type="button"
@@ -66,32 +66,36 @@ const ServicesSection = () => {
                     onClick={() => setOpenIdx(prev => prev === index ? null : index)}
                     aria-label={`${service.title} öffnen`}
                   >
-                    <div className="relative aspect-square rounded-lg overflow-hidden">
-                      {openIdx === index ? (
-                        <div className="absolute inset-0 flex items-center justify-center p-6" style={{backgroundColor: BRAND_COLORS.white}}>
-                          <p className="text-gray-800 text-sm leading-relaxed text-center">
-                            {service.description}.
-                          </p>
+                    {openIdx === index ? (
+                      /* Text-Ansicht: Clean und geräumig */
+                      <div className="p-4 text-center min-h-[120px] flex flex-col justify-center">
+                        <h3 className="font-semibold text-gray-900 mb-3 text-base">{service.title}</h3>
+                        <p className="text-gray-700 text-sm leading-relaxed">
+                          {service.description}
+                        </p>
+                      </div>
+                    ) : (
+                      /* Bild-Ansicht: Fullsize ohne Ränder */
+                      <div className="relative aspect-square overflow-hidden">
+                        <img
+                          src={service.image}
+                          alt={service.title}
+                          className="w-full h-full object-cover"
+                        />
+                        {/* Blur-Titel ohne weißen Hintergrund */}
+                        <div className="absolute inset-x-0 bottom-0 p-3">
+                          <span 
+                            className="text-white text-sm font-semibold px-3 py-2 rounded-lg shadow-lg block text-center"
+                            style={{
+                              backdropFilter: 'blur(12px)',
+                              backgroundColor: 'rgba(0, 0, 0, 0.3)'
+                            }}
+                          >
+                            {service.title}
+                          </span>
                         </div>
-                      ) : (
-                        <>
-                          <img
-                            src={service.image}
-                            alt={service.title}
-                            className="w-full h-full object-cover"
-                          />
-                          <div className="absolute inset-x-0 bottom-3 flex justify-center">
-                            <span className="text-white text-sm font-semibold px-3 py-1 rounded-full shadow-lg" style={{
-                              backgroundColor: BRAND_COLORS.white + 'E6',
-                              backdropFilter: 'blur(8px)',
-                              color: BRAND_COLORS.foreground
-                            }}>
-                              {service.title}
-                            </span>
-                          </div>
-                        </>
-                      )}
-                    </div>
+                      </div>
+                    )}
                   </button>
                 </div>
 

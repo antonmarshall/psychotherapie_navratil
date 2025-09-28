@@ -109,13 +109,19 @@ const MethodsSection = () => {
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 max-w-7xl mx-auto">
           {methodCategories.map((category, index) => {
             const isOpen = openIdx === index;
+            const isAdjacent = openIdx !== null && Math.abs(index - openIdx) === 1 && Math.floor(index / 2) === Math.floor(openIdx / 2); // Same row, adjacent
+            
             return (
             <div
               key={index}
               className={`group rounded-xl md:rounded-3xl p-4 md:p-8 shadow-lg border-2 ${category.borderColor} hover:shadow-xl transition-all duration-300 md:hover:-translate-y-1
-              ${isOpen ? 'relative z-10 scale-105' : ''}`}
+              ${isOpen ? 'md:relative md:z-10 md:scale-105 col-span-2' : ''} 
+              ${isAdjacent ? 'md:block hidden' : ''}`}
               style={{
-                backgroundColor: BRAND_COLORS.white
+                backgroundColor: BRAND_COLORS.white,
+                ...(isAdjacent && { 
+                  borderLeft: `4px solid ${category.borderColor.replace('border-', '')}`
+                })
               }}
             >
               <div className={`${isOpen ? 'text-left' : 'text-center'} mb-6 md:mb-8`}>

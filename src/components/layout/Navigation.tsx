@@ -274,11 +274,8 @@ const Navigation = () => {
       <div className="absolute inset-0 bg-white/5 pointer-events-none"></div>
       <div className="w-full px-4 sm:px-6 flex items-center justify-between h-16 relative z-10 pointer-events-auto">
         <div className="relative z-20 flex items-center justify-between w-full h-16">
-          {/* Logo */}
+          {/* Logo entfernt */}
           <div className="flex items-center cursor-pointer select-none" onClick={() => scrollToSection('willkommen')}>
-            <span className="text-white font-semibold text-xl tracking-wide">
-              Praxis <span className="text-primary">Navrátil</span>
-            </span>
           </div>
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center relative" ref={navRef}>
