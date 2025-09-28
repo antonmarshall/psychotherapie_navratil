@@ -25,7 +25,7 @@ const concepts = [
   },
   {
     key: "tiefenpsychologisch",
-    title: "Tiefenpsychologisch-fundierte-Psychotherapie",
+    title: "Tiefenpsychologische Psychotherapie",
     icon: import.meta.env.BASE_URL + 'tiefenpsychologie_version_2.png',
     color: "bg-accent-light border-accent",
     iconAlt: "Symbol Tiefenpsychologisch fundierte Psychotherapie",
@@ -35,7 +35,7 @@ const concepts = [
   },
   {
     key: "neuropsychologisch",
-    title: "Neuropsychologische-Therapie",
+    title: "Neuropsychologische Therapie",
     icon: import.meta.env.BASE_URL + 'neuropsychologie.png',
     color: "bg-secondary-light border-secondary",
     iconAlt: "Symbol Neuropsychologische Therapie",
@@ -242,78 +242,86 @@ const TreatmentConceptSection = () => {
             <line x1={nodePositions[4].x} y1={nodePositions[4].y} x2={centerX} y2={centerY} stroke={`${PENTAGON_COLORS[4]}22`} strokeWidth="2" />
           </svg>
           
-          {/* Mobile Kreise und Labels - absolut positioniert */}
-          {concepts.map((concept, idx) => {
-            const { x, y } = nodePositions[idx];
-            const scaleFactor = Math.min(typeof window !== 'undefined' ? window.innerWidth : 400, 800) / svgWidth;
-            const actualX = x * scaleFactor;
-            const actualY = y * scaleFactor;
-            const actualRadius = circleRadius * scaleFactor;
-            
-            return (
-              <div key={concept.key}>
-                {/* Label */}
-                <div 
-                  style={{
-                    position: 'absolute',
-                    left: actualX,
-                    width: 160,
-                    transform: 'translateX(-50%)',
-                    top: idx === 0 || idx === 1 || idx === 4 ? actualY - actualRadius - 40 : actualY + actualRadius + 10,
-                    zIndex: 3,
-                  }}
-                  className="font-semibold text-sm text-gray-800 text-center leading-tight select-none pointer-events-none"
-                >
-                  {concept.title}
-                </div>
-                
-                {/* Kreis mit Tap-Event */}
-                <div
-                  style={{
-                    position: 'absolute',
-                    left: actualX - actualRadius,
-                    top: actualY - actualRadius,
-                    width: actualRadius * 2,
-                    height: actualRadius * 2,
-                    borderRadius: '50%',
-                    cursor: 'pointer',
-                    zIndex: 5,
-                  }}
-                  className={`${concept.color} border-4 bg-white shadow-lg transition-transform duration-200 active:scale-95`}
-                  onClick={() => setHovered(hovered === concept.key ? null : concept.key)}
-                  onTouchEnd={(e) => {
-                    e.preventDefault();
-                    setHovered(hovered === concept.key ? null : concept.key);
-                    openMetaRef.current = { y: window.scrollY, t: Date.now() };
-                  }}
-                >
-                  <img
-                    src={concept.icon}
-                    alt={concept.iconAlt}
-                    className="w-full h-full object-cover rounded-full"
-                  />
-                </div>
-                
-                {/* Mobile Tooltip */}
-                {hovered === concept.key && (
+          {/* Mobile Kreise und Labels - absolut positioniert mit korrekter Skalierung */}
+          <div className="absolute inset-0">
+            {concepts.map((concept, idx) => {
+              const { x, y } = nodePositions[idx];
+              // Responsive Skalierung basierend auf Container-Breite
+              const containerWidth = 320; // Standard mobile Breite
+              const scaleFactor = containerWidth / svgWidth;
+              const actualX = x * scaleFactor;
+              const actualY = y * scaleFactor;
+              const actualRadius = circleRadius * scaleFactor * 0.8; // Etwas kleiner für Mobile
+              
+              return (
+                <div key={concept.key}>
+                  {/* Label */}
                   <div 
                     style={{
                       position: 'absolute',
-                      left: '50%',
-                      top: actualY + actualRadius + 60,
+                      left: `${(x / svgWidth) * 100}%`,
+                      width: '140px',
                       transform: 'translateX(-50%)',
-                      width: Math.min(280, typeof window !== 'undefined' ? window.innerWidth - 40 : 280),
-                      zIndex: 20,
+                      top: idx === 0 || idx === 1 || idx === 4 
+                        ? `${((y - circleRadius - 50) / svgHeight) * 100}%`
+                        : `${((y + circleRadius + 20) / svgHeight) * 100}%`,
+                      zIndex: 3,
                     }}
-                    className="bg-white/95 border border-gray-200 rounded-2xl shadow-xl p-4 text-gray-800 text-sm animate-fade-in"
+                    className="font-semibold text-xs text-gray-800 text-center leading-tight select-none pointer-events-none"
                   >
-                    <div className="font-semibold mb-2 text-base">{concept.title}</div>
-                    <div>{concept.description}</div>
+                    {concept.title}
                   </div>
-                )}
-              </div>
-            );
-          })}
+                  
+                  {/* Kreis mit Tap-Event */}
+                  <div
+                    style={{
+                      position: 'absolute',
+                      left: `${(x / svgWidth) * 100}%`,
+                      top: `${(y / svgHeight) * 100}%`,
+                      width: '48px',
+                      height: '48px',
+                      transform: 'translate(-50%, -50%)',
+                      borderRadius: '50%',
+                      cursor: 'pointer',
+                      zIndex: 5,
+                    }}
+                    className={`${concept.color} border-2 bg-white shadow-lg transition-transform duration-200 active:scale-95`}
+                    onClick={() => setHovered(hovered === concept.key ? null : concept.key)}
+                    onTouchEnd={(e) => {
+                      e.preventDefault();
+                      setHovered(hovered === concept.key ? null : concept.key);
+                      openMetaRef.current = { y: window.scrollY, t: Date.now() };
+                    }}
+                  >
+                    <img
+                      src={concept.icon}
+                      alt={concept.iconAlt}
+                      className="w-full h-full object-cover rounded-full"
+                    />
+                  </div>
+                  
+                  {/* Mobile Tooltip - zentriert unter dem Pentagon */}
+                  {hovered === concept.key && (
+                    <div 
+                      style={{
+                        position: 'absolute',
+                        left: '50%',
+                        top: '105%',
+                        transform: 'translateX(-50%)',
+                        width: 'calc(100vw - 40px)',
+                        maxWidth: '280px',
+                        zIndex: 20,
+                      }}
+                      className="bg-white/95 border border-gray-200 rounded-2xl shadow-xl p-4 text-gray-800 text-sm animate-fade-in"
+                    >
+                      <div className="font-semibold mb-2 text-base">{concept.title}</div>
+                      <div>{concept.description}</div>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>
