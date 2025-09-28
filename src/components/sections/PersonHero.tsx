@@ -63,8 +63,8 @@ const PersonHero = () => {
                 </h2>
                 <div className="text-base text-gray-600 space-y-1">
                   <p>Psychotherapeutin für Kinder, Jugendliche und Familien</p>
-                  <p>Tiefenpsychologische Psychotherapeutin</p>
-                  <p>Zert. Neuropsychologin</p>
+                  <p>Tiefenpsychologische Psychotherapeutin i.A.</p>
+                  <p>Med. Neuropsychologin</p>
                 </div>
               </div>
             </div>
