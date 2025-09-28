@@ -6,27 +6,33 @@ const PracticeGallery = () => {
   const galleryImages = [
     {
       id: 1,
-      title: "Wartezimmer",
-      description: "Gemütlicher Wartebereich für Familien",
-      image: import.meta.env.BASE_URL + 'wartezimmer.png'
+      title: "Praxis von außen",
+      description: "Die Praxis in der Hüffer-Straße 22 in Münster",
+      image: import.meta.env.BASE_URL + 'praxis_von_außen.png'
     },
     {
       id: 2,
-      title: "Therapieraum",
-      description: "Ruhiger Raum für Gespräche und Therapie",
-      image: import.meta.env.BASE_URL + 'therapieraum.png'
-    },
-    {
-      id: 3,
       title: "Eingangsbereich",
       description: "Willkommener Empfangsbereich der Praxis",
       image: import.meta.env.BASE_URL + 'Eingangsbereich.png'
     },
     {
+      id: 3,
+      title: "Wartezimmer",
+      description: "Gemütlicher Wartebereich für Familien",
+      image: import.meta.env.BASE_URL + 'wartezimmer.png'
+    },
+    {
       id: 4,
-      title: "Praxis von außen",
-      description: "Die Praxis in der Hüffer-Straße 22 in Münster",
-      image: import.meta.env.BASE_URL + 'praxis_von_außen.png'
+      title: "Spielzimmer",
+      description: "Kreativer Raum für Kinder und Jugendliche",
+      image: import.meta.env.BASE_URL + 'spielzimmer.png'
+    },
+    {
+      id: 5,
+      title: "Therapieraum",
+      description: "Ruhiger Raum für Gespräche und Therapie",
+      image: import.meta.env.BASE_URL + 'therapieraum.png'
     }
   ];
 
