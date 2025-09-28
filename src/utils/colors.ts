@@ -26,7 +26,7 @@ export const BRAND_COLORS = {
   // Basis-Farben
   background: '#fff8ed',     // Creme
   foreground: '#222222',     // Dunkelgrau
-  white: '#fefcf8',          // Creme-Weiß (ÄNDERBAR für gesamte Website)
+  white: '#fff5ee',          // Muschel-Weiß (ÄNDERBAR für gesamte Website)
   
   // 10 Weiß-Alternativen die mit Creme harmonieren:
   cardWhite: '#ffffff',      // 1. Reines Weiß (aktuell)
