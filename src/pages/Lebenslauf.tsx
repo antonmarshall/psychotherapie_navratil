@@ -8,43 +8,55 @@ const Lebenslauf = () => {
   const navigate = useNavigate();
 
   const trustBadges = [
-    "Approbation KJP (VT)",
-    "Klinische Neuropsychologin (GNP)",
-    "Eigene Praxis seit 2009",
-    "Kassenzulassung KVWL seit 2014"
+    "Klinische Neuropsychologin (GNP, PTK RP)",
+    "Kassenzulassung KVWL seit 2012"
   ];
 
   const methods = [
+    "Familien-Therapie",
+    "Sandspiel-Therapie", 
+    "Tiefenpsychologische Therapie",
+    "Neuropsychologische Therapie",
     "Verhaltenstherapie",
-    "EMDR (Kinder/Jugendliche)",
-    "Psychotraumatologie (DeGPT)",
-    "Systemische Familienarbeit",
-    "Kreative Verfahren",
-    "Klinische Neuropsychologie"
+    "EMDR (auch Erwachsene)"
   ];
 
   const targetGroups = [
     {
       title: "Kinder",
-      description: "Spielerisch, sicherheits- und bindungsorientiert; Elternarbeit fest integriert."
+      aspects: [
+        { label: "Spielerisch", description: "Zugang über Spiel + kreative Methoden" },
+        { label: "Entwicklung", description: "Förderung emotionaler, kognitiver + sozialer Reifung" },
+        { label: "Sicherheit", description: "Aufbau von Vertrauen und Sicherheit" },
+        { label: "Ressource", description: "Stärken entdecken + nutzen" }
+      ]
     },
     {
       title: "Jugendliche", 
-      description: "Klare Ziele, Selbstwirksamkeit, alltagsnahe Tools (z.B. Exposition, Skills)."
+      aspects: [
+        { label: "Selbstfindung", description: "Selbstfindung und Rollenklärung" },
+        { label: "Bewältigung", description: "Umgang mit Stress, Konflikten und Krisen" },
+        { label: "Perspektiven", description: "Zukunftsplanung und Entscheidungsfindung" }
+      ]
     },
     {
       title: "Erwachsene",
-      description: "Fokussiert und wirksam, von VT bis tiefenpsychologisch fundierten Elementen."
+      aspects: [
+        { label: "Klarheit", description: "Verstehen von Mustern und Lebenssituation" },
+        { label: "Veränderung", description: "Begleitung bei Übergängen und Neuausrichtung" },
+        { label: "Resilienz", description: "Stärkung innerer Widerstandskraft" },
+        { label: "Selbstfürsorge", description: "Förderung von Achtsamkeit und Balance" }
+      ]
     }
   ];
 
   const qualifications = [
-    "Psychologie-Studium (WWU Münster)",
-    "Approbation KJP (VT)",
-    "Klinische Neuropsychologin (GNP)",
-    "zzt. vertiefende Weiterbildung zur Psychologischen Psychotherapeutin (TP)",
-    "Montessori-Pädagogin",
-    "Zusatz: DeGPT Psychotraumatologie, EMDR (Kinder/Jugendliche), lösungsorientierte systemische Familienarbeit"
+    "Klinische Neuropsychologie (GNP, PTK RP)",
+    "Montessori-Pädagogin, internationale Montessori Vereinigung, Aachen",
+    "Approbation KJP (VT, APV, Münster)",
+    "Approbation PP in Vorbereitung (TP, LPP, Rinkerode)",
+    "Psychotraumatologin (DeGPT, Berlin)",
+    "Familien-Therapeutin (Bundeskonferenz für Erziehung, Fürth)"
   ];
 
   const workStations = [
@@ -169,9 +181,19 @@ const Lebenslauf = () => {
               <div className="grid md:grid-cols-3 gap-8">
                 {targetGroups.map((group, index) => (
                   <Card key={index} className="bg-[#fff8ed] border-[#F6A81A]/20 shadow-md hover:shadow-lg transition-shadow">
-                    <CardContent className="p-6 text-center">
-                      <h3 className="font-semibold text-[#4A6A7B] mb-3 text-lg">{group.title}</h3>
-                      <p className="text-gray-700 text-sm leading-relaxed">{group.description}</p>
+                    <CardContent className="p-6">
+                      <h3 className="font-semibold text-[#4A6A7B] mb-4 text-lg text-center">{group.title}</h3>
+                      <div className="space-y-3">
+                        {group.aspects.map((aspect, aspectIndex) => (
+                          <div key={aspectIndex} className="flex items-start gap-3 bg-gradient-to-r from-[#fff8ed] to-[#F6A81A]/5 p-3 rounded-lg border border-[#F6A81A]/10">
+                            <div className="w-2 h-2 bg-[#F6A81A] rounded-full mt-1.5 flex-shrink-0 shadow-sm"></div>
+                            <div>
+                              <div className="font-medium text-gray-800 text-sm">{aspect.label}</div>
+                              <div className="text-gray-600 text-xs mt-1">{aspect.description}</div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
                     </CardContent>
                   </Card>
                 ))}
