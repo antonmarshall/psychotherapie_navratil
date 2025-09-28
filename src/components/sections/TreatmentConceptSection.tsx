@@ -25,8 +25,8 @@ const concepts = [
   },
   {
     key: "tiefenpsychologisch",
-    title: "Tiefenpsychologisch fundierte Psychotherapie",
-    icon: import.meta.env.BASE_URL + 'tiefenpsychologie.png',
+    title: "Tiefenpsychologisch-fundierte-Psychotherapie",
+    icon: import.meta.env.BASE_URL + 'tiefenpsychologie_version_2.png',
     color: "bg-accent-light border-accent",
     iconAlt: "Symbol Tiefenpsychologisch fundierte Psychotherapie",
     description: (
@@ -35,7 +35,7 @@ const concepts = [
   },
   {
     key: "neuropsychologisch",
-    title: "Neuropsychologische Therapie",
+    title: "Neuropsychologische-Therapie",
     icon: import.meta.env.BASE_URL + 'neuropsychologie.png',
     color: "bg-secondary-light border-secondary",
     iconAlt: "Symbol Neuropsychologische Therapie",
@@ -45,7 +45,7 @@ const concepts = [
   },
   {
     key: "traumatherapie",
-    title: "Traumatherapie",
+    title: "Trauma-Therapie",
     icon: import.meta.env.BASE_URL + 'traumatherapie.png',
     color: "bg-accent3-light border-accent3",
     iconAlt: "Symbol Traumatherapie",
@@ -56,11 +56,11 @@ const concepts = [
 ];
 
 const circleRadius = 60;
-const svgWidth = 700;
-const svgHeight = 580;
+const svgWidth = 800;
+const svgHeight = 600;
 const centerX = svgWidth / 2;
 const centerY = svgHeight / 2;
-const pentagonRadius = 160;
+const pentagonRadius = 180;
 
 // Pentagon-Koordinaten berechnen (oben beginnend, im Uhrzeigersinn)
 const nodePositions = [
@@ -108,7 +108,7 @@ const TreatmentConceptSection = () => {
           </p>
         </div>
         {/* Desktop (interactive original) */}
-        <div className="relative max-w-[700px] w-full mx-auto h-[580px] hidden md:block">
+        <div className="relative max-w-[800px] w-full mx-auto h-[600px] hidden md:block">
           {/* SVG-Linien */}
           <svg
             width={svgWidth}
@@ -218,70 +218,102 @@ const TreatmentConceptSection = () => {
           })}
         </div>
 
-        {/* Mobile (vereinfachte, reine SVG-Grafik) */}
-        <div className="block md:hidden max-w-[700px] w-full mx-auto">
+        {/* Mobile (interaktives Pentagon mit Tooltips) */}
+        <div className="block md:hidden max-w-[800px] w-full mx-auto relative">
+          {/* SVG-Linien */}
           <svg
+            width={svgWidth}
+            height={svgHeight}
             viewBox={`0 0 ${svgWidth} ${svgHeight}`}
             className="w-full h-auto"
             preserveAspectRatio="xMidYMid meet"
           >
-            <defs>
-              {nodePositions.map((pos, i) => (
-                <clipPath id={`clip-mobile-${i}`} key={`clip-mobile-${i}`}>
-                  <circle cx={pos.x} cy={pos.y} r={circleRadius - 6} />
-                </clipPath>
-              ))}
-            </defs>
-
-            <line x1={nodePositions[0].x} y1={nodePositions[0].y} x2={nodePositions[1].x} y2={nodePositions[1].y} stroke={PENTAGON_COLORS[0]} strokeWidth={6} />
-            <line x1={nodePositions[1].x} y1={nodePositions[1].y} x2={nodePositions[2].x} y2={nodePositions[2].y} stroke={PENTAGON_COLORS[1]} strokeWidth={6} />
-            <line x1={nodePositions[2].x} y1={nodePositions[2].y} x2={nodePositions[3].x} y2={nodePositions[3].y} stroke={PENTAGON_COLORS[2]} strokeWidth={6} />
-            <line x1={nodePositions[3].x} y1={nodePositions[3].y} x2={nodePositions[4].x} y2={nodePositions[4].y} stroke={PENTAGON_COLORS[3]} strokeWidth={6} />
-            <line x1={nodePositions[4].x} y1={nodePositions[4].y} x2={nodePositions[0].x} y2={nodePositions[0].y} stroke={PENTAGON_COLORS[4]} strokeWidth={6} />
-            <line x1={nodePositions[0].x} y1={nodePositions[0].y} x2={centerX} y2={centerY} stroke={`${PENTAGON_COLORS[0]}22`} strokeWidth={3} />
-            <line x1={nodePositions[1].x} y1={nodePositions[1].y} x2={centerX} y2={centerY} stroke={`${PENTAGON_COLORS[1]}22`} strokeWidth={3} />
-            <line x1={nodePositions[2].x} y1={nodePositions[2].y} x2={centerX} y2={centerY} stroke={`${PENTAGON_COLORS[2]}22`} strokeWidth={3} />
-            <line x1={nodePositions[3].x} y1={nodePositions[3].y} x2={centerX} y2={centerY} stroke={`${PENTAGON_COLORS[3]}22`} strokeWidth={3} />
-            <line x1={nodePositions[4].x} y1={nodePositions[4].y} x2={centerX} y2={centerY} stroke={`${PENTAGON_COLORS[4]}22`} strokeWidth={3} />
-
-            {concepts.map((c, idx) => (
-              <g key={`m-node-${c.key}`}>
-                <circle cx={nodePositions[idx].x} cy={nodePositions[idx].y} r={circleRadius} fill="#fff" strokeWidth={6}
-                        stroke={PENTAGON_COLORS[idx]} />
-                <image href={c.icon}
-                       x={nodePositions[idx].x - (circleRadius - 6)}
-                       y={nodePositions[idx].y - (circleRadius - 6)}
-                       width={(circleRadius - 6) * 2}
-                       height={(circleRadius - 6) * 2}
-                       clipPath={`url(#clip-mobile-${idx})`}
-                       preserveAspectRatio="xMidYMid slice"/>
-                <text
-                  x={nodePositions[idx].x}
-                  y={idx === 0 || idx === 1 || idx === 4 ? nodePositions[idx].y - (circleRadius + 20) : nodePositions[idx].y + (circleRadius + 30)}
-                  textAnchor="middle"
-                  fill="#1f2937"
-                  fontWeight={600}
-                  fontSize={18}
-                >
-                  {c.title.split(' ').length > 2 ? (
-                    c.title.split(' ').length > 3 && c.title.includes('Tiefenpsychologisch') ? (
-                      <>
-                        <tspan x={nodePositions[idx].x} dy={0}>Tiefenpsychologisch</tspan>
-                        <tspan x={nodePositions[idx].x} dy={18}>fundierte Psychotherapie</tspan>
-                      </>
-                    ) : (
-                      <>
-                        {c.title.split(' ').slice(0,2).join(' ')}
-                        <tspan x={nodePositions[idx].x} dy={18}>{c.title.split(' ').slice(2).join(' ')}</tspan>
-                      </>
-                    )
-                  ) : (
-                    <tspan x={nodePositions[idx].x} dy={0}>{c.title}</tspan>
-                  )}
-                </text>
-              </g>
-            ))}
+            {/* Pentagon-Linien */}
+            <line x1={nodePositions[0].x} y1={nodePositions[0].y} x2={nodePositions[1].x} y2={nodePositions[1].y} stroke={PENTAGON_COLORS[0]} strokeWidth="4" />
+            <line x1={nodePositions[1].x} y1={nodePositions[1].y} x2={nodePositions[2].x} y2={nodePositions[2].y} stroke={PENTAGON_COLORS[1]} strokeWidth="4" />
+            <line x1={nodePositions[2].x} y1={nodePositions[2].y} x2={nodePositions[3].x} y2={nodePositions[3].y} stroke={PENTAGON_COLORS[2]} strokeWidth="4" />
+            <line x1={nodePositions[3].x} y1={nodePositions[3].y} x2={nodePositions[4].x} y2={nodePositions[4].y} stroke={PENTAGON_COLORS[3]} strokeWidth="4" />
+            <line x1={nodePositions[4].x} y1={nodePositions[4].y} x2={nodePositions[0].x} y2={nodePositions[0].y} stroke={PENTAGON_COLORS[4]} strokeWidth="4" />
+            {/* Verbindungslinien zur Mitte */}
+            <line x1={nodePositions[0].x} y1={nodePositions[0].y} x2={centerX} y2={centerY} stroke={`${PENTAGON_COLORS[0]}22`} strokeWidth="2" />
+            <line x1={nodePositions[1].x} y1={nodePositions[1].y} x2={centerX} y2={centerY} stroke={`${PENTAGON_COLORS[1]}22`} strokeWidth="2" />
+            <line x1={nodePositions[2].x} y1={nodePositions[2].y} x2={centerX} y2={centerY} stroke={`${PENTAGON_COLORS[2]}22`} strokeWidth="2" />
+            <line x1={nodePositions[3].x} y1={nodePositions[3].y} x2={centerX} y2={centerY} stroke={`${PENTAGON_COLORS[3]}22`} strokeWidth="2" />
+            <line x1={nodePositions[4].x} y1={nodePositions[4].y} x2={centerX} y2={centerY} stroke={`${PENTAGON_COLORS[4]}22`} strokeWidth="2" />
           </svg>
+          
+          {/* Mobile Kreise und Labels - absolut positioniert */}
+          {concepts.map((concept, idx) => {
+            const { x, y } = nodePositions[idx];
+            const scaleFactor = Math.min(typeof window !== 'undefined' ? window.innerWidth : 400, 800) / svgWidth;
+            const actualX = x * scaleFactor;
+            const actualY = y * scaleFactor;
+            const actualRadius = circleRadius * scaleFactor;
+            
+            return (
+              <div key={concept.key}>
+                {/* Label */}
+                <div 
+                  style={{
+                    position: 'absolute',
+                    left: actualX,
+                    width: 160,
+                    transform: 'translateX(-50%)',
+                    top: idx === 0 || idx === 1 || idx === 4 ? actualY - actualRadius - 40 : actualY + actualRadius + 10,
+                    zIndex: 3,
+                  }}
+                  className="font-semibold text-sm text-gray-800 text-center leading-tight select-none pointer-events-none"
+                >
+                  {concept.title}
+                </div>
+                
+                {/* Kreis mit Tap-Event */}
+                <div
+                  style={{
+                    position: 'absolute',
+                    left: actualX - actualRadius,
+                    top: actualY - actualRadius,
+                    width: actualRadius * 2,
+                    height: actualRadius * 2,
+                    borderRadius: '50%',
+                    cursor: 'pointer',
+                    zIndex: 5,
+                  }}
+                  className={`${concept.color} border-4 bg-white shadow-lg transition-transform duration-200 active:scale-95`}
+                  onClick={() => setHovered(hovered === concept.key ? null : concept.key)}
+                  onTouchEnd={(e) => {
+                    e.preventDefault();
+                    setHovered(hovered === concept.key ? null : concept.key);
+                    openMetaRef.current = { y: window.scrollY, t: Date.now() };
+                  }}
+                >
+                  <img
+                    src={concept.icon}
+                    alt={concept.iconAlt}
+                    className="w-full h-full object-cover rounded-full"
+                  />
+                </div>
+                
+                {/* Mobile Tooltip */}
+                {hovered === concept.key && (
+                  <div 
+                    style={{
+                      position: 'absolute',
+                      left: '50%',
+                      top: actualY + actualRadius + 60,
+                      transform: 'translateX(-50%)',
+                      width: Math.min(280, typeof window !== 'undefined' ? window.innerWidth - 40 : 280),
+                      zIndex: 20,
+                    }}
+                    className="bg-white/95 border border-gray-200 rounded-2xl shadow-xl p-4 text-gray-800 text-sm animate-fade-in"
+                  >
+                    <div className="font-semibold mb-2 text-base">{concept.title}</div>
+                    <div>{concept.description}</div>
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
