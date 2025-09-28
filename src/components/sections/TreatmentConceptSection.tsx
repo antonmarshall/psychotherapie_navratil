@@ -1,5 +1,6 @@
 import { Brain, Users, Layers, Activity } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
+import { PENTAGON_COLORS } from "@/utils/colors";
 
 const concepts = [
   {
@@ -116,17 +117,17 @@ const TreatmentConceptSection = () => {
             className="absolute left-0 top-0 w-full h-full pointer-events-none"
           >
             {/* Pentagon-Linien */}
-            <line x1={nodePositions[0].x} y1={nodePositions[0].y} x2={nodePositions[1].x} y2={nodePositions[1].y} stroke="#F6A81A" strokeWidth="6" />
-            <line x1={nodePositions[1].x} y1={nodePositions[1].y} x2={nodePositions[2].x} y2={nodePositions[2].y} stroke="#4A6A7B" strokeWidth="6" />
-            <line x1={nodePositions[2].x} y1={nodePositions[2].y} x2={nodePositions[3].x} y2={nodePositions[3].y} stroke="#7B4F6A" strokeWidth="6" />
-            <line x1={nodePositions[3].x} y1={nodePositions[3].y} x2={nodePositions[4].x} y2={nodePositions[4].y} stroke="#E4572E" strokeWidth="6" />
-            <line x1={nodePositions[4].x} y1={nodePositions[4].y} x2={nodePositions[0].x} y2={nodePositions[0].y} stroke="#3E8B5F" strokeWidth="6" />
+            <line x1={nodePositions[0].x} y1={nodePositions[0].y} x2={nodePositions[1].x} y2={nodePositions[1].y} stroke={PENTAGON_COLORS[0]} strokeWidth="6" />
+            <line x1={nodePositions[1].x} y1={nodePositions[1].y} x2={nodePositions[2].x} y2={nodePositions[2].y} stroke={PENTAGON_COLORS[1]} strokeWidth="6" />
+            <line x1={nodePositions[2].x} y1={nodePositions[2].y} x2={nodePositions[3].x} y2={nodePositions[3].y} stroke={PENTAGON_COLORS[2]} strokeWidth="6" />
+            <line x1={nodePositions[3].x} y1={nodePositions[3].y} x2={nodePositions[4].x} y2={nodePositions[4].y} stroke={PENTAGON_COLORS[3]} strokeWidth="6" />
+            <line x1={nodePositions[4].x} y1={nodePositions[4].y} x2={nodePositions[0].x} y2={nodePositions[0].y} stroke={PENTAGON_COLORS[4]} strokeWidth="6" />
             {/* Verbindungslinien zur Mitte */}
-            <line x1={nodePositions[0].x} y1={nodePositions[0].y} x2={centerX} y2={centerY} stroke="#F6A81A22" strokeWidth="3" />
-            <line x1={nodePositions[1].x} y1={nodePositions[1].y} x2={centerX} y2={centerY} stroke="#4A6A7B22" strokeWidth="3" />
-            <line x1={nodePositions[2].x} y1={nodePositions[2].y} x2={centerX} y2={centerY} stroke="#7B4F6A22" strokeWidth="3" />
-            <line x1={nodePositions[3].x} y1={nodePositions[3].y} x2={centerX} y2={centerY} stroke="#E4572E22" strokeWidth="3" />
-            <line x1={nodePositions[4].x} y1={nodePositions[4].y} x2={centerX} y2={centerY} stroke="#3E8B5F22" strokeWidth="3" />
+            <line x1={nodePositions[0].x} y1={nodePositions[0].y} x2={centerX} y2={centerY} stroke={`${PENTAGON_COLORS[0]}22`} strokeWidth="3" />
+            <line x1={nodePositions[1].x} y1={nodePositions[1].y} x2={centerX} y2={centerY} stroke={`${PENTAGON_COLORS[1]}22`} strokeWidth="3" />
+            <line x1={nodePositions[2].x} y1={nodePositions[2].y} x2={centerX} y2={centerY} stroke={`${PENTAGON_COLORS[2]}22`} strokeWidth="3" />
+            <line x1={nodePositions[3].x} y1={nodePositions[3].y} x2={centerX} y2={centerY} stroke={`${PENTAGON_COLORS[3]}22`} strokeWidth="3" />
+            <line x1={nodePositions[4].x} y1={nodePositions[4].y} x2={centerX} y2={centerY} stroke={`${PENTAGON_COLORS[4]}22`} strokeWidth="3" />
           </svg>
           {/* Knoten, Labels, Tooltips als absolut positionierte Divs */}
           {concepts.map((concept, idx) => {
@@ -232,21 +233,21 @@ const TreatmentConceptSection = () => {
               ))}
             </defs>
 
-            <line x1={nodePositions[0].x} y1={nodePositions[0].y} x2={nodePositions[1].x} y2={nodePositions[1].y} stroke="#F6A81A" strokeWidth={6} />
-            <line x1={nodePositions[1].x} y1={nodePositions[1].y} x2={nodePositions[2].x} y2={nodePositions[2].y} stroke="#4A6A7B" strokeWidth={6} />
-            <line x1={nodePositions[2].x} y1={nodePositions[2].y} x2={nodePositions[3].x} y2={nodePositions[3].y} stroke="#7B4F6A" strokeWidth={6} />
-            <line x1={nodePositions[3].x} y1={nodePositions[3].y} x2={nodePositions[4].x} y2={nodePositions[4].y} stroke="#E4572E" strokeWidth={6} />
-            <line x1={nodePositions[4].x} y1={nodePositions[4].y} x2={nodePositions[0].x} y2={nodePositions[0].y} stroke="#3E8B5F" strokeWidth={6} />
-            <line x1={nodePositions[0].x} y1={nodePositions[0].y} x2={centerX} y2={centerY} stroke="#F6A81A22" strokeWidth={3} />
-            <line x1={nodePositions[1].x} y1={nodePositions[1].y} x2={centerX} y2={centerY} stroke="#4A6A7B22" strokeWidth={3} />
-            <line x1={nodePositions[2].x} y1={nodePositions[2].y} x2={centerX} y2={centerY} stroke="#7B4F6A22" strokeWidth={3} />
-            <line x1={nodePositions[3].x} y1={nodePositions[3].y} x2={centerX} y2={centerY} stroke="#E4572E22" strokeWidth={3} />
-            <line x1={nodePositions[4].x} y1={nodePositions[4].y} x2={centerX} y2={centerY} stroke="#3E8B5F22" strokeWidth={3} />
+            <line x1={nodePositions[0].x} y1={nodePositions[0].y} x2={nodePositions[1].x} y2={nodePositions[1].y} stroke={PENTAGON_COLORS[0]} strokeWidth={6} />
+            <line x1={nodePositions[1].x} y1={nodePositions[1].y} x2={nodePositions[2].x} y2={nodePositions[2].y} stroke={PENTAGON_COLORS[1]} strokeWidth={6} />
+            <line x1={nodePositions[2].x} y1={nodePositions[2].y} x2={nodePositions[3].x} y2={nodePositions[3].y} stroke={PENTAGON_COLORS[2]} strokeWidth={6} />
+            <line x1={nodePositions[3].x} y1={nodePositions[3].y} x2={nodePositions[4].x} y2={nodePositions[4].y} stroke={PENTAGON_COLORS[3]} strokeWidth={6} />
+            <line x1={nodePositions[4].x} y1={nodePositions[4].y} x2={nodePositions[0].x} y2={nodePositions[0].y} stroke={PENTAGON_COLORS[4]} strokeWidth={6} />
+            <line x1={nodePositions[0].x} y1={nodePositions[0].y} x2={centerX} y2={centerY} stroke={`${PENTAGON_COLORS[0]}22`} strokeWidth={3} />
+            <line x1={nodePositions[1].x} y1={nodePositions[1].y} x2={centerX} y2={centerY} stroke={`${PENTAGON_COLORS[1]}22`} strokeWidth={3} />
+            <line x1={nodePositions[2].x} y1={nodePositions[2].y} x2={centerX} y2={centerY} stroke={`${PENTAGON_COLORS[2]}22`} strokeWidth={3} />
+            <line x1={nodePositions[3].x} y1={nodePositions[3].y} x2={centerX} y2={centerY} stroke={`${PENTAGON_COLORS[3]}22`} strokeWidth={3} />
+            <line x1={nodePositions[4].x} y1={nodePositions[4].y} x2={centerX} y2={centerY} stroke={`${PENTAGON_COLORS[4]}22`} strokeWidth={3} />
 
             {concepts.map((c, idx) => (
               <g key={`m-node-${c.key}`}>
                 <circle cx={nodePositions[idx].x} cy={nodePositions[idx].y} r={circleRadius} fill="#fff" strokeWidth={6}
-                        stroke={idx===0?'#F6A81A':idx===1?'#4A6A7B':idx===2?'#7B4F6A':idx===3?'#E4572E':'#3E8B5F'} />
+                        stroke={PENTAGON_COLORS[idx]} />
                 <image href={c.icon}
                        x={nodePositions[idx].x - (circleRadius - 6)}
                        y={nodePositions[idx].y - (circleRadius - 6)}
