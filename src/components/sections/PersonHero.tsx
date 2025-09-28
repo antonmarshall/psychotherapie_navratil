@@ -60,9 +60,6 @@ const PersonHero = () => {
               <h2 className="text-3xl font-bold text-gray-900 mb-2">
                 Dipl.-Psych. Christiane Navrátil
               </h2>
-              <p className="text-lg text-gray-600 mb-4">
-                Kinder-, Jugendlichen- & Erwachsenen‑Psychotherapeutin
-              </p>
               <div className="text-sm text-gray-500 space-y-0.5 md:space-y-1">
                 <p>Hüffer-Straße 22, Münster</p>
                 <p>Praxis seit 2009 • 30+ Jahre Erfahrung</p>

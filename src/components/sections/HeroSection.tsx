@@ -33,7 +33,7 @@ const HeroSection = () => {
             </div>
             {/* Subline */}
             <p className="text-base md:text-lg text-gray-500 mb-3 md:mb-4 text-center mx-auto mt-4">
-              Kinder, Jugendliche & Erwachsene und Familien
+              Kinder, Jugendliche, Erwachsene und Familien
             </p>
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-center justify-center mt-6">

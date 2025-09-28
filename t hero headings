@@ -1,0 +1,25 @@
+[1mdiff --git a/src/components/sections/PersonHero.tsx b/src/components/sections/PersonHero.tsx[m
+[1mindex 9bdc8ef..9442b82 100644[m
+[1m--- a/src/components/sections/PersonHero.tsx[m
+[1m+++ b/src/components/sections/PersonHero.tsx[m
+[36m@@ -53,15 +53,15 @@[m [mconst PersonHero = () => {[m
+               <div className="mb-6 md:mb-8">[m
+                 <img [m
+                   src={import.meta.env.BASE_URL + 'profil.jpg'} [m
+[31m-                  alt="Dipl.-Psych. Christiane Navrátil"[m
+[32m+[m[32m                  alt="Dipl. Psych. Christiane Navrátil"[m
+                   className="w-40 h-40 md:w-64 md:h-64 mx-auto lg:mx-0 rounded-full object-cover shadow-xl"[m
+                 />[m
+               </div>[m
+[31m-              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 text-center">[m
+[31m-                Dipl.-Psych. Christiane Navrátil[m
+[32m+[m[32m              <h2 className="text-xl md:text-2xl font-bold text-gray-900 text-center">[m
+[32m+[m[32m                Dipl. Psych. Christiane Navrátil[m
+               </h2>[m
+[31m-              <p className="text-lg text-gray-600 mb-6 text-center">[m
+[31m-                Kinder, Jugendliche & Erwachsene und Familien[m
+[32m+[m[32m              <p className="mt-4 text-lg text-gray-600 text-center">[m
+[32m+[m[32m                Kinder, Jungendliche & Erwachsene und Fammilien[m
+               </p>[m
+               <div className="text-sm text-gray-500 space-y-0.5 md:space-y-1">[m
+                 <p>Hüffer-Straße 22, Münster</p>[m
