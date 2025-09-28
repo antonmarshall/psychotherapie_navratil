@@ -25,7 +25,7 @@ const concepts = [
   },
   {
     key: "tiefenpsychologisch",
-    title: "Tiefenpsychologische Psychotherapie",
+    title: "Tiefenpsychologische Therapie",
     icon: import.meta.env.BASE_URL + 'tiefenpsychologie_version_2.png',
     color: "bg-accent-light border-accent",
     iconAlt: "Symbol Tiefenpsychologisch fundierte Psychotherapie",
@@ -190,7 +190,19 @@ const TreatmentConceptSection = () => {
               <div key={concept.key}>
                 {/* Label */}
                 <div style={labelStyle} className="font-semibold text-lg md:text-xl text-gray-800 text-center leading-tight select-none pointer-events-none">
-                  {concept.title}
+                  {concept.title.includes('Tiefenpsychologische') ? (
+                    <div className="flex flex-col items-center">
+                      <div>Tiefenpsychologische</div>
+                      <div className="text-center">Therapie</div>
+                    </div>
+                  ) : concept.title.includes('Neuropsychologische') ? (
+                    <div className="flex flex-col items-center">
+                      <div>Neuropsychologische</div>
+                      <div className="text-center">Therapie</div>
+                    </div>
+                  ) : (
+                    concept.title
+                  )}
                 </div>
                 {/* Gemeinsamer Wrapper für Hover-Events */}
                 <div
@@ -274,13 +286,13 @@ const TreatmentConceptSection = () => {
               return (
                 <div key={concept.key}>
                   {/* Label mit mehr Platz und Zeilenumbrüchen */}
-                  <div 
+                  <div
                     style={{
                       position: 'absolute',
                       left: `${(x / svgWidth) * 100}%`,
                       width: '160px',
                       transform: 'translateX(-50%)',
-                      top: idx === 0 || idx === 1 || idx === 4 
+                      top: idx === 0 || idx === 1 || idx === 4
                         ? `${((y - circleRadius - 70) / svgHeight) * 100}%`
                         : `${((y + circleRadius + 30) / svgHeight) * 100}%`,
                       zIndex: 3,
@@ -288,15 +300,15 @@ const TreatmentConceptSection = () => {
                     className="font-semibold text-sm text-gray-800 text-center leading-tight select-none pointer-events-none"
                   >
                     {concept.title.includes('Tiefenpsychologische') ? (
-                      <>
-                        Tiefenpsychologische<br />
-                        Psychotherapie
-                      </>
+                      <div className="flex flex-col items-center">
+                        <div>Tiefenpsychologische</div>
+                        <div className="text-center">Therapie</div>
+                      </div>
                     ) : concept.title.includes('Neuropsychologische') ? (
-                      <>
-                        Neuropsychologische<br />
-                        Therapie
-                      </>
+                      <div className="flex flex-col items-center">
+                        <div>Neuropsychologische</div>
+                        <div className="text-center">Therapie</div>
+                      </div>
                     ) : (
                       concept.title
                     )}
