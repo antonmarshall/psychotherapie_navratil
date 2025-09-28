@@ -36,7 +36,7 @@ const MapSection = () => {
               <h3 className="text-base md:text-lg font-semibold text-gray-800 mb-2 md:mb-3">Anfahrt</h3>
               <p className="text-gray-600 text-sm md:text-base">
                 Die Praxis befindet sich zentral in Münster und ist gut mit öffentlichen Verkehrsmitteln 
-                sowie dem Auto erreichbar. Parkmöglichkeiten sind in der Nähe vorhanden.
+                sowie dem Auto erreichbar. Parkmöglichkeiten direkt im Hinterhof.
               </p>
             </div>
           </div>
