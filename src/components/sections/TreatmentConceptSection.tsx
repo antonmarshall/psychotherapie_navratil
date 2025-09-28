@@ -237,7 +237,7 @@ const TreatmentConceptSection = () => {
         </div>
 
         {/* Mobile (interaktives Pentagon mit Tooltips) */}
-        <div className="block md:hidden max-w-[400px] w-full mx-auto relative px-2">
+        <div className="block md:hidden w-full mx-auto relative">
           {/* SVG-Linien */}
           <svg
             width={svgWidth}

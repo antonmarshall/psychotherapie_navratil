@@ -76,7 +76,7 @@ const ServicesSection = () => {
                       </div>
                     ) : (
                       /* Bild-Ansicht: Fullsize ohne Ränder */
-                      <div className="relative aspect-square overflow-hidden">
+                      <div className="relative aspect-square overflow-hidden rounded-xl border-2" style={{borderColor: BRAND_COLORS.white}}>
                         <img
                           src={service.image}
                           alt={service.title}
@@ -84,11 +84,11 @@ const ServicesSection = () => {
                         />
                         {/* Blur-Titel ohne weißen Hintergrund */}
                         <div className="absolute inset-x-0 bottom-0 p-3">
-                          <span 
+                          <span
                             className="text-white text-sm font-semibold px-3 py-2 rounded-lg shadow-lg block text-center"
                             style={{
                               backdropFilter: 'blur(12px)',
-                              backgroundColor: 'rgba(0, 0, 0, 0.3)'
+                              backgroundColor: 'rgba(0, 0, 0, 0.075)' // 7.5% statt 30%
                             }}
                           >
                             {service.title}

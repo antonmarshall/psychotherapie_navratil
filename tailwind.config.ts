@@ -66,7 +66,7 @@ export default {
 					DEFAULT: 'hsl(var(--popover))',
 					foreground: 'hsl(var(--popover-foreground))'
 				},
-				card: '#fefcf8', // Creme-Weiß statt reines Weiß
+				card: '#fefcf9', // Wärmeres Creme-Weiß statt reines Weiß
 				text: {
 					DEFAULT: '#222222',
 					light: '#fff8ed',
