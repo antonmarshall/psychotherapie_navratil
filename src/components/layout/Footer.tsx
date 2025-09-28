@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin, Clock, Heart, AlertTriangle } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, AlertTriangle } from "lucide-react";
 
 const Footer = () => {
   const emergencyContacts = [
@@ -26,8 +26,12 @@ const Footer = () => {
           {/* Praxis Info */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <Heart className="w-6 h-6 text-[#F6A81A]" />
-              <h3 className="text-xl font-semibold">Praxis Navrátil</h3>
+              <img
+                src={import.meta.env.BASE_URL + 'favicon.ico'}
+                alt="Logo"
+                className="w-6 h-6 object-contain"
+              />
+              <h3 className="text-xl font-semibold">Psychotherapeutische Praxis Christiane Navrátil</h3>
             </div>
             <p className="text-gray-300 mb-6">
               Professionelle psychologische Unterstützung für Kinder, Jugendliche und Familien in Münster.
