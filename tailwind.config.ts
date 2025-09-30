@@ -67,6 +67,7 @@ export default {
 					foreground: 'hsl(var(--popover-foreground))'
 				},
 				card: '#fefcf9', // Wärmeres Creme-Weiß statt reines Weiß
+				paper: '#fefcf9', // Warmes Weiß für Seiten-Hintergründe
 				text: {
 					DEFAULT: '#222222',
 					light: '#fff8ed',

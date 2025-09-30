@@ -37,7 +37,7 @@ const PracticeGallery = () => {
   ];
 
   return (
-    <section id="galerie" className="py-20 bg-white">
+    <section id="galerie" className="py-20 bg-paper">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <div className="flex justify-center mb-2">

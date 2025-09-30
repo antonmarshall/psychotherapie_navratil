@@ -249,7 +249,7 @@ const TreatmentConceptSection = () => {
         </div>
 
         {/* Mobile (interaktives Pentagon mit Tooltips) */}
-        <div className="block md:hidden w-full mx-auto relative">
+        <div className="block md:hidden w-full mx-auto relative px-3">
           {/* SVG-Linien */}
           <svg
             width={svgWidth}
@@ -276,8 +276,9 @@ const TreatmentConceptSection = () => {
           <div className="absolute inset-0">
             {concepts.map((concept, idx) => {
               const { x, y } = nodePositions[idx];
-              // Responsive Skalierung basierend auf Container-Breite
-              const containerWidth = 320; // Standard mobile Breite
+              // Responsive Skalierung basierend auf Container-Breite (mehr horizontaler Platz)
+              const winW = typeof window !== 'undefined' ? window.innerWidth : 360;
+              const containerWidth = Math.min(winW - 24, 460); // nutze nahezu volle Breite, Cap bei 460px
               const scaleFactor = containerWidth / svgWidth;
               const actualX = x * scaleFactor;
               const actualY = y * scaleFactor;
@@ -290,11 +291,11 @@ const TreatmentConceptSection = () => {
                     style={{
                       position: 'absolute',
                       left: `${(x / svgWidth) * 100}%`,
-                      width: '160px',
+                      width: '200px',
                       transform: 'translateX(-50%)',
                       top: idx === 0 || idx === 1 || idx === 4
-                        ? `${((y - circleRadius - 70) / svgHeight) * 100}%`
-                        : `${((y + circleRadius + 30) / svgHeight) * 100}%`,
+                        ? `${((y - circleRadius - 85) / svgHeight) * 100}%`
+                        : `${((y + circleRadius + 40) / svgHeight) * 100}%`,
                       zIndex: 3,
                     }}
                     className="font-semibold text-sm text-gray-800 text-center leading-tight select-none pointer-events-none"
@@ -320,27 +321,16 @@ const TreatmentConceptSection = () => {
                       position: 'absolute',
                       left: `${(x / svgWidth) * 100}%`,
                       top: `${(y / svgHeight) * 100}%`,
-                      width: '64px',
-                      height: '64px',
-                      transform: 'translate(-50%, -50%)',
-                      borderRadius: '50%',
-                      cursor: 'pointer',
-                      zIndex: 5,
-                    }}
-                    data-concept-touch
-                    className={`${concept.color} border-4 shadow-lg transition-all duration-200 ${hovered === concept.key ? 'scale-110' : ''}`}
-                    style={{
-                      position: 'absolute',
-                      left: `${(x / svgWidth) * 100}%`,
-                      top: `${(y / svgHeight) * 100}%`,
-                      width: '72px',
-                      height: '72px',
+                      width: `${72 * scaleFactor * 1.05}px`,
+                      height: `${72 * scaleFactor * 1.05}px`,
                       transform: 'translate(-50%, -50%)',
                       borderRadius: '50%',
                       cursor: 'pointer',
                       zIndex: 5,
                       backgroundColor: BRAND_COLORS.white
                     }}
+                    data-concept-touch
+                    className={`${concept.color} border-4 shadow-lg transition-all duration-200 ${hovered === concept.key ? 'scale-110' : ''}`}
                     onClick={() => setHovered(hovered === concept.key ? null : concept.key)}
                     onTouchStart={(e) => {
                       e.preventDefault();
@@ -361,33 +351,20 @@ const TreatmentConceptSection = () => {
                       style={{
                         position: 'absolute',
                         left: idx === 1 || idx === 2 ? '20px' : // rechte Seite: links positionieren
-                              idx === 3 || idx === 4 ? 'calc(100% - 300px)' : // linke Seite: rechts positionieren  
+                              idx === 3 || idx === 4 ? 'calc(100% - 320px)' : // linke Seite: rechts positionieren  
                               '50%', // oben: mittig
-                        top: idx === 0 ? `${((y + circleRadius + 80) / svgHeight) * 100}%` : // oben: darunter
-                             idx === 2 || idx === 3 ? `${((y - 120) / svgHeight) * 100}%` : // unten: darüber
-                             `${(y / svgHeight) * 100}%`, // seiten: daneben
+                        top: idx === 0 ? `${((y + circleRadius + 110) / svgHeight) * 100}%` :
+                             idx === 2 || idx === 3 ? `${((y - 150) / svgHeight) * 100}%` :
+                             `${((y - 70) / svgHeight) * 100}%`,
                         transform: idx === 0 ? 'translateX(-50%)' : 'none',
-                        width: '280px',
-                        maxWidth: 'calc(100vw - 40px)',
-                        zIndex: 20,
-                      }}
-                      data-tooltip
-                      className="border border-gray-200 rounded-2xl shadow-xl p-4 text-gray-800 text-sm animate-fade-in"
-                      style={{
-                        position: 'absolute',
-                        left: idx === 1 || idx === 2 ? '20px' : 
-                              idx === 3 || idx === 4 ? 'calc(100% - 320px)' : 
-                              '50%',
-                        top: idx === 0 ? `${((y + circleRadius + 100) / svgHeight) * 100}%` :
-                             idx === 2 || idx === 3 ? `${((y - 140) / svgHeight) * 100}%` :
-                             `${((y - 60) / svgHeight) * 100}%`,
-                        transform: idx === 0 ? 'translateX(-50%)' : 'none',
-                        width: '300px',
+                        width: '320px',
                         maxWidth: 'calc(100vw - 40px)',
                         zIndex: 20,
                         backgroundColor: BRAND_COLORS.white,
                         backdropFilter: 'blur(10px)'
                       }}
+                      data-tooltip
+                      className="border border-gray-200 rounded-2xl shadow-xl p-4 text-gray-800 text-sm animate-fade-in"
                     >
                       <div className="font-semibold mb-2 text-base">{concept.title}</div>
                       <div>{concept.description}</div>

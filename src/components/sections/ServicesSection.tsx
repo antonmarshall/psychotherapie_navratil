@@ -1,6 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useState } from "react";
-import { BRAND_COLORS } from "@/utils/colors";
 import { Plus, X } from "lucide-react";
 
 const ServicesSection = () => {
@@ -42,7 +41,7 @@ const ServicesSection = () => {
   const [expandedCard, setExpandedCard] = useState<number | null>(null);
 
   return (
-    <section id="angebot" className="py-20" style={{backgroundColor: BRAND_COLORS.white}}>
+    <section id="angebot" className="py-20 bg-paper">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
