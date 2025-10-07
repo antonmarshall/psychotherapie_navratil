@@ -92,3 +92,4 @@ Du kannst die Farben auch in `BRAND_COLORS.sectionLight` und `BRAND_COLORS.secti
 3. Die Änderungen werden automatisch live angezeigt
 4. Wenn es dir gefällt, übernimm die Farben auch in `tailwind.config.ts` und `colors.ts`
 
+
