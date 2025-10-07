@@ -23,10 +23,14 @@ export const BRAND_COLORS = {
   accent2Dark: '#3B5A5A',
   accent3Dark: '#1F6D42',    // Dunkles Waldgrün
   
+  // ZENTRALE ABSCHNITT-HINTERGRUNDFARBEN (nur hier ändern!)
+  sectionLight: '#fefcf9',   // Hellerer Ton - Warmes Weiß
+  sectionDark: '#fff8ed',    // Dunklerer Ton - Creme
+  
   // Basis-Farben
   background: '#fff8ed',     // Creme
   foreground: '#222222',     // Dunkelgrau
-  white: '#fff5ee',          // Muschel-Weiß (ÄNDERBAR für gesamte Website)
+  white: '#fefcf9',          // Warmes Weiß (für Cards, etc.)
   
   // 10 Weiß-Alternativen die mit Creme harmonieren:
   cardWhite: '#ffffff',      // 1. Reines Weiß (aktuell)

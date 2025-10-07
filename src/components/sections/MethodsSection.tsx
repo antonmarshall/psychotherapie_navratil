@@ -38,9 +38,9 @@ const MethodsSection = () => {
     {
       icon: Brain,
       title: "Kognitive Entwicklung",
-      bgColor: "bg-primary",
+      bgColor: "bg-secondary-light",
       borderColor: "border-primary",
-      iconColor: "text-primary",
+      iconColor: "text-secondary-dark",
       bulletColor: "bg-primary-dark",
       methods: [
         "Kognitive Umstrukturierung",
@@ -94,7 +94,7 @@ const MethodsSection = () => {
   ];
 
   return (
-    <section id="methoden" className="py-20 bg-[#fff8ed]">
+    <section id="methoden" className="py-20 bg-section-dark">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">

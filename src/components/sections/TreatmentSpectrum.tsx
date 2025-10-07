@@ -204,7 +204,7 @@ const TreatmentSpectrum = () => {
   };
 
   return (
-    <section id="behandlungsspektrum" className="py-20 bg-paper">
+    <section id="behandlungsspektrum" className="py-20 bg-section-light">
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Behandlungs-Spektrum</h2>

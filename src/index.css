@@ -38,6 +38,10 @@ All colors MUST be HSL.
 
     --radius: 0.5rem;
 
+    /* ZENTRALE FARBVARIABLEN FÜR ABWECHSELNDE ABSCHNITTE */
+    --section-bg-light: #fefcf9;   /* Hellerer Ton - Warmes Weiß */
+    --section-bg-dark: #fff8ed;    /* Dunklerer Ton - Creme */
+
     --sidebar-background: 0 0% 98%;
 
     --sidebar-foreground: 240 5.3% 26.1%;

@@ -22,7 +22,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="kontakt" className="py-20 bg-[#fff8ed]">
+    <section id="kontakt" className="py-20 bg-section-dark">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-800 mb-6">

@@ -24,6 +24,11 @@ export default {
 				ring: 'hsl(var(--ring))',
 				background: '#fff8ed', // Creme
 				foreground: '#222222', // Dunkel
+				
+				// ZENTRALE ABSCHNITT-HINTERGRUNDFARBEN
+				'section-light': 'var(--section-bg-light)', // Hellerer Ton
+				'section-dark': 'var(--section-bg-dark)',   // Dunklerer Ton
+				
 				primary: {
 					DEFAULT: '#F6A81A', // Kräftiges Gelb
 					dark: '#F6C544', // Dunkleres Goldgelb
@@ -67,7 +72,7 @@ export default {
 					foreground: 'hsl(var(--popover-foreground))'
 				},
 				card: '#fefcf9', // Wärmeres Creme-Weiß statt reines Weiß
-				paper: '#fefcf9', // Warmes Weiß für Seiten-Hintergründe
+				paper: '#fefcf9', // Warmes Weiß für Seiten-Hintergründe (DEPRECATED - nutze section-light)
 				text: {
 					DEFAULT: '#222222',
 					light: '#fff8ed',

@@ -82,7 +82,7 @@ const Lebenslauf = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#fff8ed]">
+    <div className="min-h-screen bg-section-dark">
       <div className="container mx-auto px-6 py-8">
         <div className="max-w-6xl mx-auto">
           {/* Header */}

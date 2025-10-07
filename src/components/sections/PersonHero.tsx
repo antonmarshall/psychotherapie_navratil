@@ -43,7 +43,7 @@ const PersonHero = () => {
   ];
 
   return (
-    <section id="person" className="py-20 bg-[#fff8ed]">
+    <section id="person" className="py-20 bg-section-dark">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-start">

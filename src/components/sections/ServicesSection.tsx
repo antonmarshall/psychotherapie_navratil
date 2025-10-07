@@ -41,7 +41,7 @@ const ServicesSection = () => {
   const [expandedCard, setExpandedCard] = useState<number | null>(null);
 
   return (
-    <section id="angebot" className="py-20 bg-paper">
+    <section id="angebot" className="py-20 bg-section-light">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
