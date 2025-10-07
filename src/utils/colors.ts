@@ -25,7 +25,7 @@ export const BRAND_COLORS = {
   
   // ZENTRALE ABSCHNITT-HINTERGRUNDFARBEN (nur hier ändern!)
   sectionLight: '#fdfbf7',   // Hellerer Ton - Warmes Leinen-Weiß
-  sectionDark: '#f5f0e8',    // Dunklerer Ton - Sandbeige
+  sectionDark: '#f8f6f3',    // Dunklerer Ton - Sehr helles warmes Grau (freundlicher)
   
   // Basis-Farben
   background: '#fff8ed',     // Creme

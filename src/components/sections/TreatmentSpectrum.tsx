@@ -147,24 +147,24 @@ const spectrumData = [
 // Neue Farblogik nach Cluster, aber keine sichtbaren Gruppen/Labels
 const bubbleColors = [
   // Emotion & Affekt (Gelb/Orange)
-  'bg-primary-light', // Ängste
+  'bg-[#F6A81A]', // Ängste - Primär-Gelb
   'bg-accent2-light', // Konzentration & Aufmerksamkeit
   'bg-primary', // Impuls & Wut
   'bg-secondary-light', // Einnässen & Einkoten
   // Entwicklung & Beziehung (Blaugrün)
   'bg-accent3-light', // Bindung & Beziehung
-  'bg-primary-dark', // Traurigkeit & Rückzug
-  'bg-primary-light', // Lernen & Schule
+  'bg-[#F6A81A]', // Traurigkeit & Rückzug - Primär-Gelb
+  'bg-accent2', // Lernen & Schule - Blaugrün
   // Körper & Gesundheit (Violett)
   'bg-accent-light', // Essen & Körper
-  'bg-primary-light', // Hochsensibilität
+  'bg-accent2', // Hochsensibilität - Blaugrün
   'bg-accent-light', // Gehirn & Gesundheit
   'bg-secondary-light', // Regulation (Kleinkind)
   'bg-accent-light', // Schlaf & Träume
   'bg-secondary-light', // Körperliche Beschwerden
   // Belastung & Trauma (Orange/Rot)
   'bg-accent3', // Trauma & Belastung
-  'bg-primary-dark' // Zwänge
+  'bg-secondary' // Zwänge - Orange-Rot
 ];
 
 const TreatmentSpectrum = () => {
