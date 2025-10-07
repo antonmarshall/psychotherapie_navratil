@@ -24,8 +24,8 @@ export const BRAND_COLORS = {
   accent3Dark: '#1F6D42',    // Dunkles Waldgrün
   
   // ZENTRALE ABSCHNITT-HINTERGRUNDFARBEN (nur hier ändern!)
-  sectionLight: '#fefcf9',   // Hellerer Ton - Warmes Weiß
-  sectionDark: '#fff8ed',    // Dunklerer Ton - Creme
+  sectionLight: '#ffffff',   // Hellerer Ton - Reines Weiß
+  sectionDark: '#fef8f0',    // Dunklerer Ton - Helles Beige-Creme
   
   // Basis-Farben
   background: '#fff8ed',     // Creme
