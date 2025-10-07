@@ -7,7 +7,7 @@ const Datenschutz = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-[#fff8ed]">
+    <div className="min-h-screen bg-bg-creme">
       <div className="container mx-auto px-6 py-20">
         {/* Header mit Zurück-Button */}
         <div className="mb-16">
@@ -22,8 +22,8 @@ const Datenschutz = () => {
           
           <div className="text-center">
             <div className="flex justify-center mb-8">
-              <span className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-[#fff8ed] shadow-lg">
-                <Shield className="w-10 h-10 text-[#F6A81A]" />
+              <span className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-bg-creme shadow-lg">
+                <Shield className="w-10 h-10 text-primary" />
               </span>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
@@ -40,7 +40,7 @@ const Datenschutz = () => {
           <Card className="bg-white/90 backdrop-blur-sm shadow-xl border-0">
             <CardHeader>
               <CardTitle className="text-2xl font-semibold text-gray-900 flex items-center gap-3">
-                <Shield className="w-6 h-6 text-[#F6A81A]" />
+                <Shield className="w-6 h-6 text-primary" />
                 Verantwortlicher für die Datenverarbeitung
               </CardTitle>
             </CardHeader>
@@ -51,11 +51,11 @@ const Datenschutz = () => {
                 <p>Hüffer-Str. 22</p>
                 <p>48149 Münster</p>
                 <div className="flex items-center gap-2 mt-2">
-                  <Phone className="w-4 h-4 text-[#F6A81A]" />
+                  <Phone className="w-4 h-4 text-primary" />
                   <span>(0176) 96 34 60 95</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Mail className="w-4 h-4 text-[#F6A81A]" />
+                  <Mail className="w-4 h-4 text-primary" />
                   <span>christianenavratil@web.de</span>
                 </div>
               </div>
@@ -66,7 +66,7 @@ const Datenschutz = () => {
           <Card className="bg-white/90 backdrop-blur-sm shadow-xl border-0">
             <CardHeader>
               <CardTitle className="text-2xl font-semibold text-gray-900 flex items-center gap-3">
-                <Database className="w-6 h-6 text-[#F6A81A]" />
+                <Database className="w-6 h-6 text-primary" />
                 Erhebung und Verarbeitung personenbezogener Daten
               </CardTitle>
             </CardHeader>
@@ -97,7 +97,7 @@ const Datenschutz = () => {
           <Card className="bg-white/90 backdrop-blur-sm shadow-xl border-0">
             <CardHeader>
               <CardTitle className="text-2xl font-semibold text-gray-900 flex items-center gap-3">
-                <Eye className="w-6 h-6 text-[#F6A81A]" />
+                <Eye className="w-6 h-6 text-primary" />
                 Zweck der Datenverarbeitung
               </CardTitle>
             </CardHeader>
@@ -118,7 +118,7 @@ const Datenschutz = () => {
           <Card className="bg-white/90 backdrop-blur-sm shadow-xl border-0">
             <CardHeader>
               <CardTitle className="text-2xl font-semibold text-gray-900 flex items-center gap-3">
-                <Lock className="w-6 h-6 text-[#F6A81A]" />
+                <Lock className="w-6 h-6 text-primary" />
                 Rechtsgrundlagen der Datenverarbeitung
               </CardTitle>
             </CardHeader>
@@ -228,7 +228,7 @@ const Datenschutz = () => {
           <Card className="bg-white/90 backdrop-blur-sm shadow-xl border-0">
             <CardHeader>
               <CardTitle className="text-2xl font-semibold text-gray-900 flex items-center gap-3">
-                <Shield className="w-6 h-6 text-[#F6A81A]" />
+                <Shield className="w-6 h-6 text-primary" />
                 Cookies
               </CardTitle>
             </CardHeader>

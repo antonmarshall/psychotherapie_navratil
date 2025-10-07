@@ -38,9 +38,34 @@ All colors MUST be HSL.
 
     --radius: 0.5rem;
 
-    /* ZENTRALE FARBVARIABLEN FÜR ABWECHSELNDE ABSCHNITTE */
-    --section-bg-light: #ffffff;   /* Hellerer Ton - Reines Weiß */
-    --section-bg-dark: #fef8f0;    /* Dunklerer Ton - Helles Beige-Creme */
+    /* === ZENTRALE FARBVARIABLEN - ALLE FARBEN HIER ÄNDERN === */
+    
+    /* Primärfarben (Gelb/Gold) */
+    --color-primary: #F6A81A;           /* Haupt-Gelb */
+    --color-primary-hover: #F6C544;     /* Gelb Hover */
+    --color-primary-light: #F9E79F;     /* Gelb Hell */
+    
+    /* Hintergrundfarben - Abschnitte */
+    --section-bg-light: #fdfbf7;        /* Hellerer Ton - Warmes Leinen-Weiß */
+    --section-bg-dark: #f5f0e8;         /* Dunklerer Ton - Sandbeige */
+    
+    /* Hintergrundfarben - Komponenten */
+    --bg-creme: #fff8ed;                /* Legacy Creme (wird ersetzt) */
+    --bg-card: #fffefd;                 /* Card-Hintergrund - Sehr warmes Weiß */
+    
+    /* Textfarben */
+    --text-primary: #222222;            /* Haupt-Text */
+    --text-secondary: #6B7280;          /* Sekundär-Text (gray-500) */
+    --text-muted: #9CA3AF;              /* Gedämpfter Text (gray-400) */
+    --text-heading: #1F2937;            /* Überschriften (gray-800) */
+    
+    /* Akzentfarben */
+    --color-accent2: #4A6A7B;           /* Blaugrün */
+    --color-blue: #3B82F6;              /* Blau (für Map etc.) */
+    
+    /* Rahmen */
+    --border-default: #D1D5DB;          /* Standard-Border (gray-300) */
+    --border-light: #E5E7EB;            /* Heller Border (gray-200) */
 
     --sidebar-background: 0 0% 98%;
 

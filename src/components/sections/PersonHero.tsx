@@ -27,7 +27,7 @@ const PersonHero = () => {
       title: "Qualifikationen",
       icon: GraduationCap,
       content: (
-        <div className="bg-[#fff8ed] border border-[#F6A81A]/20 rounded-lg p-4">
+        <div className="bg-bg-creme border border-primary/20 rounded-lg p-4">
           <h4 className="font-semibold text-gray-900 mb-3">Alle Qualifikationen im Überblick:</h4>
           <div className="grid grid-cols-2 gap-2 text-sm text-gray-600">
             <div>• Dipl.-Psychologin</div>
@@ -83,7 +83,7 @@ const PersonHero = () => {
                       className="w-full justify-between p-4 h-auto bg-white/80 hover:bg-white border-0 shadow-lg"
                     >
                       <div className="flex items-center gap-3">
-                        <section.icon className="w-5 h-5 text-[#F6A81A]" />
+                        <section.icon className="w-5 h-5 text-primary" />
                         <span className="font-medium text-gray-900">{section.title}</span>
                       </div>
                       <ChevronDown className={`w-4 h-4 transition-transform ${openSection === section.id ? 'rotate-180' : ''}`} />
@@ -105,7 +105,7 @@ const PersonHero = () => {
               <Card className="mt-8 bg-gradient-to-br from-[#fff8ed] to-white border-0 shadow-lg">
                 <CardContent className="p-6">
                   <div className="flex items-center gap-3 mb-4">
-                    <BookOpen className="w-6 h-6 text-[#F6A81A]" />
+                    <BookOpen className="w-6 h-6 text-primary" />
                     <h3 className="font-semibold text-gray-900">Mehr über mich</h3>
                   </div>
                   <p className="text-gray-700 mb-4">
@@ -113,7 +113,7 @@ const PersonHero = () => {
                   </p>
                   <Button 
                     onClick={() => navigate('/lebenslauf')}
-                    className="w-full bg-[#F6A81A] hover:bg-[#F6C544] text-white"
+                    className="w-full bg-primary hover:bg-primary-hover text-white"
                   >
                     <BookOpen className="w-4 h-4 mr-2" />
                     Lebenslauf ansehen

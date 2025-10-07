@@ -416,7 +416,7 @@ const Navigation = () => {
               onMouseLeave={() => setContactHovered(false)}
               onFocus={() => setContactHovered(true)}
               onBlur={() => setContactHovered(false)}
-              className="bg-yellow-400 text-[#222222] hover:bg-yellow-300 border border-yellow-400 font-semibold px-6 py-2 rounded-full shadow transition-colors text-base focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400"
+              className="bg-primary text-text-primary hover:bg-primary-hover border border-primary font-semibold px-6 py-2 rounded-full shadow transition-colors text-base focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
             >
               Kontakt
             </Button>
@@ -433,7 +433,7 @@ const Navigation = () => {
       {isOpen && (
         <div className="md:hidden bg-white border-t border-gray-200 relative z-50 pointer-events-auto">
           <div className="py-6 px-6 shadow-lg animate-fade-in flex flex-col gap-4">
-            <button onClick={() => scrollToSection('person')} className="text-left text-gray-800 hover:text-yellow-700 text-lg font-medium px-2 py-2 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400 transition-colors">
+            <button onClick={() => scrollToSection('person')} className="text-left text-gray-800 hover:text-yellow-700 text-lg font-medium px-2 py-2 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors">
               Über mich
             </button>
             
@@ -441,16 +441,16 @@ const Navigation = () => {
             <div className="border-l-4 border-yellow-200 pl-4">
               <div className="text-sm font-semibold text-yellow-700 mb-2">Behandlungsangebot</div>
               <div className="flex flex-col gap-1">
-                <button onClick={() => scrollToSection('angebot')} className="text-left text-gray-700 hover:text-yellow-700 text-base font-medium px-2 py-1 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400 transition-colors">
+                <button onClick={() => scrollToSection('angebot')} className="text-left text-gray-700 hover:text-yellow-700 text-base font-medium px-2 py-1 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors">
                   Angebot
                 </button>
-                <button onClick={() => scrollToSection('behandlungskonzept')} className="text-left text-gray-700 hover:text-yellow-700 text-base font-medium px-2 py-1 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400 transition-colors">
+                <button onClick={() => scrollToSection('behandlungskonzept')} className="text-left text-gray-700 hover:text-yellow-700 text-base font-medium px-2 py-1 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors">
                   Behandlungskonzept
                 </button>
-                <button onClick={() => scrollToSection('behandlungsspektrum')} className="text-left text-gray-700 hover:text-yellow-700 text-base font-medium px-2 py-1 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400 transition-colors">
+                <button onClick={() => scrollToSection('behandlungsspektrum')} className="text-left text-gray-700 hover:text-yellow-700 text-base font-medium px-2 py-1 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors">
                   Spektrum
                 </button>
-                <button onClick={() => scrollToSection('methoden')} className="text-left text-gray-700 hover:text-yellow-700 text-base font-medium px-2 py-1 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400 transition-colors">
+                <button onClick={() => scrollToSection('methoden')} className="text-left text-gray-700 hover:text-yellow-700 text-base font-medium px-2 py-1 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors">
                   Methoden
                 </button>
               </div>
@@ -460,19 +460,19 @@ const Navigation = () => {
             <div className="border-l-4 border-yellow-200 pl-4">
               <div className="text-sm font-semibold text-yellow-700 mb-2">Praxis</div>
               <div className="flex flex-col gap-1">
-                <button onClick={() => scrollToSection('galerie')} className="text-left text-gray-700 hover:text-yellow-700 text-base font-medium px-2 py-1 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400 transition-colors">
+                <button onClick={() => scrollToSection('galerie')} className="text-left text-gray-700 hover:text-yellow-700 text-base font-medium px-2 py-1 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors">
                   Galerie
                 </button>
-                <button onClick={() => scrollToSection('standort')} className="text-left text-gray-700 hover:text-yellow-700 text-base font-medium px-2 py-1 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400 transition-colors">
+                <button onClick={() => scrollToSection('standort')} className="text-left text-gray-700 hover:text-yellow-700 text-base font-medium px-2 py-1 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors">
                   Anfahrt
                 </button>
               </div>
             </div>
             
-            <button onClick={() => scrollToSection('faq')} className="text-left text-gray-800 hover:text-yellow-700 text-lg font-medium px-2 py-2 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400 transition-colors">
+            <button onClick={() => scrollToSection('faq')} className="text-left text-gray-800 hover:text-yellow-700 text-lg font-medium px-2 py-2 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors">
               FAQ
             </button>
-            <Button onClick={() => scrollToSection('kontakt')} className="bg-yellow-600 hover:bg-yellow-700 text-white font-semibold px-6 py-3 rounded-full shadow text-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400">
+            <Button onClick={() => scrollToSection('kontakt')} className="bg-yellow-600 hover:bg-yellow-700 text-white font-semibold px-6 py-3 rounded-full shadow text-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-primary">
               Kontakt
             </Button>
           </div>

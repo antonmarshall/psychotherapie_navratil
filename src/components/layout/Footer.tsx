@@ -38,26 +38,26 @@ const Footer = () => {
             </div>
             <div className="space-y-3">
               <div className="flex items-center gap-3">
-                <MapPin className="w-4 h-4 text-[#F6A81A] flex-shrink-0" />
+                <MapPin className="w-4 h-4 text-primary flex-shrink-0" />
                 <div>
                   <p className="text-white">Hüffer-Str. 22</p>
                   <p className="text-gray-300">48149 Münster</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
-                <Phone className="w-4 h-4 text-[#F6A81A] flex-shrink-0" />
-                <a href="tel:+4917696346095" className="text-white hover:text-[#F6A81A] transition-colors">
+                <Phone className="w-4 h-4 text-primary flex-shrink-0" />
+                <a href="tel:+4917696346095" className="text-white hover:text-primary transition-colors">
                   (0176) 96 34 60 95
                 </a>
               </div>
               <div className="flex items-center gap-3">
-                <Mail className="w-4 h-4 text-[#F6A81A] flex-shrink-0" />
-                <a href="mailto:christianenavratil@web.de" className="text-white hover:text-[#F6A81A] transition-colors">
+                <Mail className="w-4 h-4 text-primary flex-shrink-0" />
+                <a href="mailto:christianenavratil@web.de" className="text-white hover:text-primary transition-colors">
                   christianenavratil@web.de
                 </a>
               </div>
               <div className="flex items-center gap-3">
-                <Clock className="w-4 h-4 text-[#F6A81A] flex-shrink-0" />
+                <Clock className="w-4 h-4 text-primary flex-shrink-0" />
                 <span className="text-gray-300">Mo–Fr: 9–18 Uhr</span>
               </div>
             </div>
@@ -67,32 +67,32 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Navigation</h3>
             <div className="space-y-2">
-              <a href="#person" className="text-gray-300 hover:text-[#F6A81A] transition-colors block">
+              <a href="#person" className="text-gray-300 hover:text-primary transition-colors block">
                 Über mich
               </a>
               <div className="ml-4 space-y-1">
-                <a href="#angebot" className="text-gray-300 hover:text-[#F6A81A] transition-colors block text-sm">
+                <a href="#angebot" className="text-gray-300 hover:text-primary transition-colors block text-sm">
                   Angebot
                 </a>
-                <a href="#behandlungskonzept" className="text-gray-300 hover:text-[#F6A81A] transition-colors block text-sm">
+                <a href="#behandlungskonzept" className="text-gray-300 hover:text-primary transition-colors block text-sm">
                   Behandlungskonzept
                 </a>
-                <a href="#behandlungsspektrum" className="text-gray-300 hover:text-[#F6A81A] transition-colors block text-sm">
+                <a href="#behandlungsspektrum" className="text-gray-300 hover:text-primary transition-colors block text-sm">
                   Behandlungsspektrum
                 </a>
-                <a href="#methoden" className="text-gray-300 hover:text-[#F6A81A] transition-colors block text-sm">
+                <a href="#methoden" className="text-gray-300 hover:text-primary transition-colors block text-sm">
                   Methoden
                 </a>
               </div>
-              <a href="#galerie" className="text-gray-300 hover:text-[#F6A81A] transition-colors block">
+              <a href="#galerie" className="text-gray-300 hover:text-primary transition-colors block">
                 Praxis
               </a>
               <div className="ml-4 space-y-1">
-                <a href="#standort" className="text-gray-300 hover:text-[#F6A81A] transition-colors block text-sm">
+                <a href="#standort" className="text-gray-300 hover:text-primary transition-colors block text-sm">
                   Anfahrt
                 </a>
               </div>
-              <a href="#faq" className="text-gray-300 hover:text-[#F6A81A] transition-colors block">
+              <a href="#faq" className="text-gray-300 hover:text-primary transition-colors block">
                 FAQ
               </a>
             </div>
@@ -102,10 +102,10 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Rechtliches</h3>
             <div className="space-y-3 mb-6">
-              <a href="/psychotherapie_navratil/impressum" className="text-gray-300 hover:text-[#F6A81A] transition-colors block">
+              <a href="/psychotherapie_navratil/impressum" className="text-gray-300 hover:text-primary transition-colors block">
                 Impressum
               </a>
-              <a href="/psychotherapie_navratil/datenschutz" className="text-gray-300 hover:text-[#F6A81A] transition-colors block">
+              <a href="/psychotherapie_navratil/datenschutz" className="text-gray-300 hover:text-primary transition-colors block">
                 Datenschutz
               </a>
             </div>

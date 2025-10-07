@@ -7,7 +7,7 @@ const Impressum = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-[#fff8ed]">
+    <div className="min-h-screen bg-bg-creme">
       <div className="container mx-auto px-6 py-20">
         {/* Header mit Zurück-Button */}
         <div className="mb-16">
@@ -22,8 +22,8 @@ const Impressum = () => {
           
           <div className="text-center">
             <div className="flex justify-center mb-8">
-              <span className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-[#fff8ed] shadow-lg">
-                <Building className="w-10 h-10 text-[#F6A81A]" />
+              <span className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-bg-creme shadow-lg">
+                <Building className="w-10 h-10 text-primary" />
               </span>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
@@ -40,7 +40,7 @@ const Impressum = () => {
           <Card className="bg-white/90 backdrop-blur-sm shadow-xl border-0">
             <CardHeader>
               <CardTitle className="text-2xl font-semibold text-gray-900 flex items-center gap-3">
-                <User className="w-6 h-6 text-[#F6A81A]" />
+                <User className="w-6 h-6 text-primary" />
                 Angaben gemäß § 5 TMG
               </CardTitle>
             </CardHeader>
@@ -59,11 +59,11 @@ const Impressum = () => {
                 <h3 className="text-lg font-semibold text-gray-900 mb-3">Kontaktdaten</h3>
                 <div className="space-y-2 text-gray-700">
                   <div className="flex items-center gap-2">
-                    <Phone className="w-4 h-4 text-[#F6A81A]" />
+                    <Phone className="w-4 h-4 text-primary" />
                     <span>Telefon: (0176) 96 34 60 95</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Mail className="w-4 h-4 text-[#F6A81A]" />
+                    <Mail className="w-4 h-4 text-primary" />
                     <span>E-Mail: christianenavratil@web.de</span>
                   </div>
                 </div>
@@ -75,7 +75,7 @@ const Impressum = () => {
           <Card className="bg-white/90 backdrop-blur-sm shadow-xl border-0">
             <CardHeader>
               <CardTitle className="text-2xl font-semibold text-gray-900 flex items-center gap-3">
-                <Shield className="w-6 h-6 text-[#F6A81A]" />
+                <Shield className="w-6 h-6 text-primary" />
                 Berufsbezeichnung und berufsrechtliche Regelungen
               </CardTitle>
             </CardHeader>
@@ -111,7 +111,7 @@ const Impressum = () => {
           <Card className="bg-white/90 backdrop-blur-sm shadow-xl border-0">
             <CardHeader>
               <CardTitle className="text-2xl font-semibold text-gray-900 flex items-center gap-3">
-                <Building className="w-6 h-6 text-[#F6A81A]" />
+                <Building className="w-6 h-6 text-primary" />
                 Aufsichtsbehörde
               </CardTitle>
             </CardHeader>
@@ -166,7 +166,7 @@ const Impressum = () => {
             </CardHeader>
             <CardContent>
               <p className="text-gray-700 mb-4">
-                Informationen zum Datenschutz finden Sie in unserer <a href="/psychotherapie_navratil/datenschutz" className="text-[#F6A81A] hover:underline">Datenschutzerklärung</a>.
+                Informationen zum Datenschutz finden Sie in unserer <a href="/psychotherapie_navratil/datenschutz" className="text-primary hover:underline">Datenschutzerklärung</a>.
               </p>
             </CardContent>
           </Card>

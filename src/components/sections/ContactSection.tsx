@@ -50,7 +50,7 @@ const ContactSection = () => {
                   
                   <div className="space-y-4">
                     <div className="flex items-start gap-3">
-                      <MapPin className="w-5 h-5 text-[#F6A81A] mt-1 flex-shrink-0" />
+                      <MapPin className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
                       <div>
                         <p className="text-gray-800 font-medium">Hüffer-Str. 22</p>
                         <p className="text-gray-600">48149 Münster</p>
@@ -58,21 +58,21 @@ const ContactSection = () => {
                     </div>
                     
                     <div className="flex items-center gap-3">
-                      <Phone className="w-5 h-5 text-[#F6A81A] flex-shrink-0" />
-                      <a href="tel:+4917696346095" className="text-gray-800 hover:text-[#F6A81A] transition-colors">
+                      <Phone className="w-5 h-5 text-primary flex-shrink-0" />
+                      <a href="tel:+4917696346095" className="text-gray-800 hover:text-primary transition-colors">
                         (0176) 96 34 60 95
                       </a>
                     </div>
                     
                     <div className="flex items-center gap-3">
-                      <Mail className="w-5 h-5 text-[#F6A81A] flex-shrink-0" />
-                      <a href="mailto:christianenavratil@web.de" className="text-gray-800 hover:text-[#F6A81A] transition-colors">
+                      <Mail className="w-5 h-5 text-primary flex-shrink-0" />
+                      <a href="mailto:christianenavratil@web.de" className="text-gray-800 hover:text-primary transition-colors">
                         christianenavratil@web.de
                       </a>
                     </div>
                     
                     <div className="flex items-start gap-3">
-                      <Clock className="w-5 h-5 text-[#F6A81A] mt-1 flex-shrink-0" />
+                      <Clock className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
                       <div>
                         <p className="text-gray-800 font-medium">Telefonische Sprechzeiten:</p>
                         <p className="text-gray-600">Montags von 9 bis 12 Uhr</p>
@@ -105,7 +105,7 @@ const ContactSection = () => {
                       value={formData.name}
                       onChange={(e) => setFormData({...formData, name: e.target.value})}
                       required
-                      className="border-gray-300 focus:border-[#F6A81A]"
+                      className="border-gray-300 focus:border-primary"
                     />
                     <Input
                       type="email"
@@ -113,7 +113,7 @@ const ContactSection = () => {
                       value={formData.email}
                       onChange={(e) => setFormData({...formData, email: e.target.value})}
                       required
-                      className="border-gray-300 focus:border-[#F6A81A]"
+                      className="border-gray-300 focus:border-primary"
                     />
                   </div>
                   <Input
@@ -121,7 +121,7 @@ const ContactSection = () => {
                     placeholder="Ihre Telefonnummer (optional)"
                     value={formData.phone}
                     onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                    className="border-gray-300 focus:border-[#F6A81A]"
+                    className="border-gray-300 focus:border-primary"
                   />
                   <Textarea
                     placeholder="Ihre Nachricht"
@@ -129,11 +129,11 @@ const ContactSection = () => {
                     value={formData.message}
                     onChange={(e) => setFormData({...formData, message: e.target.value})}
                     required
-                    className="border-gray-300 focus:border-[#F6A81A] resize-none"
+                    className="border-gray-300 focus:border-primary resize-none"
                   />
                   <Button 
                     type="submit" 
-                    className="w-full bg-[#F6A81A] hover:bg-[#F6C544] text-white py-3 rounded-lg transition-colors duration-300"
+                    className="w-full bg-primary hover:bg-primary-hover text-white py-3 rounded-lg transition-colors duration-300"
                   >
                     Nachricht senden
                   </Button>

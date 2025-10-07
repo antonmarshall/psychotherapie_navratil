@@ -22,19 +22,40 @@ export default {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
-				background: '#fff8ed', // Creme
+				background: '#fff8ed', // Creme (wird ersetzt durch bg-creme)
 				foreground: '#222222', // Dunkel
 				
-				// ZENTRALE ABSCHNITT-HINTERGRUNDFARBEN
-				'section-light': 'var(--section-bg-light)', // Hellerer Ton
-				'section-dark': 'var(--section-bg-dark)',   // Dunklerer Ton
+				// === ZENTRALE FARBEN - MIT CSS-VARIABLEN VERKNÜPFT ===
 				
+				// Primärfarben
 				primary: {
-					DEFAULT: '#F6A81A', // Kräftiges Gelb
-					dark: '#F6C544', // Dunkleres Goldgelb
-					light: '#F9E79F', // Helles Gelb
+					DEFAULT: 'var(--color-primary)',     // #F6A81A
+					hover: 'var(--color-primary-hover)', // #F6C544
+					light: 'var(--color-primary-light)', // #F9E79F
 					foreground: '#222222',
 				},
+				
+				// Abschnitt-Hintergründe
+				'section-light': 'var(--section-bg-light)', // Warmes Leinen-Weiß
+				'section-dark': 'var(--section-bg-dark)',   // Sandbeige
+				
+				// Komponenten-Hintergründe
+				'bg-creme': 'var(--bg-creme)',              // Legacy Creme
+				'bg-card-warm': 'var(--bg-card)',           // Warmes Card-Weiß
+				
+				// Textfarben (semantisch)
+				'text-primary': 'var(--text-primary)',      // Haupt-Text
+				'text-secondary': 'var(--text-secondary)',  // Sekundär-Text
+				'text-muted': 'var(--text-muted)',          // Gedämpft
+				'text-heading': 'var(--text-heading)',      // Überschriften
+				
+				// Akzentfarben
+				'accent2-custom': 'var(--color-accent2)',   // Blaugrün
+				'blue-custom': 'var(--color-blue)',         // Blau
+				
+				// Rahmen
+				'border-default': 'var(--border-default)',  // Standard
+				'border-light': 'var(--border-light)',      // Hell
 				secondary: {
 					DEFAULT: '#E4572E', // Orange-Rot
 					dark: '#C13D1A',

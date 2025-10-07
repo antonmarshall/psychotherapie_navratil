@@ -13,7 +13,7 @@ const HeroSection = () => {
     >
       {/* Weißer Kasten mit Inhalt */}
       <div className="relative z-10 container mx-auto px-6 flex flex-col items-center justify-center">
-        <div className="bg-[#fff8ed]/90 rounded-3xl shadow-xl p-6 md:p-12 max-w-2xl mx-auto flex flex-col items-start gap-4 md:gap-6 mt-14 md:mt-16 mb-8 md:mb-12 relative">
+        <div className="bg-bg-creme/90 rounded-3xl shadow-xl p-6 md:p-12 max-w-2xl mx-auto flex flex-col items-start gap-4 md:gap-6 mt-14 md:mt-16 mb-8 md:mb-12 relative">
           {/* Profilbild */}
           <img
             src={import.meta.env.BASE_URL + 'profil.jpg'}
@@ -24,10 +24,10 @@ const HeroSection = () => {
           <div className="mt-16 md:mt-20 w-full">
             {/* Headline */}
             <div className="text-center mb-2">
-              <h1 className="text-4xl md:text-5xl font-bold text-[#222222]">
+              <h1 className="text-4xl md:text-5xl font-bold text-text-primary">
                 Praxis für Psychotherapie
               </h1>
-              <h2 className="text-2xl md:text-3xl font-bold text-[#222222] mt-2">
+              <h2 className="text-2xl md:text-3xl font-bold text-text-primary mt-2">
                 Christiane Navrátil
               </h2>
             </div>
@@ -39,7 +39,7 @@ const HeroSection = () => {
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-center justify-center mt-6">
             <Button 
               size="lg" 
-                className="bg-yellow-400 text-[#222222] hover:bg-yellow-300 border border-yellow-400 px-8 py-4 rounded-full text-lg font-semibold shadow"
+                className="bg-primary text-text-primary hover:bg-primary-hover border border-primary px-8 py-4 rounded-full text-lg font-semibold shadow"
                 onClick={() => document.getElementById('angebot')?.scrollIntoView({ behavior: 'smooth' })}
             >
                 Therapieangebote
@@ -47,7 +47,7 @@ const HeroSection = () => {
             <Button 
                 size="lg"
               variant="outline" 
-                className="min-w-[180px] bg-white border border-yellow-400 text-[#222222] hover:bg-yellow-500 hover:text-white border border-yellow-400 font-semibold px-6 py-2 rounded-full shadow transition-all duration-200 text-base focus:outline-none focus-visible:ring-2 focus-visible:ring-accent2 hover:bg-accent2 hover:text-white hover:border-accent2"
+                className="min-w-[180px] bg-white border border-primary text-text-primary hover:bg-yellow-500 hover:text-white border border-primary font-semibold px-6 py-2 rounded-full shadow transition-all duration-200 text-base focus:outline-none focus-visible:ring-2 focus-visible:ring-accent2 hover:bg-accent2 hover:text-white hover:border-accent2"
                 onClick={() => document.getElementById('kontakt')?.scrollIntoView({ behavior: 'smooth' })}
             >
                 Kontakt aufnehmen

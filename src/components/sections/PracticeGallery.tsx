@@ -41,8 +41,8 @@ const PracticeGallery = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <div className="flex justify-center mb-2">
-            <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#fff8ed]">
-              <Camera className="w-6 h-6 text-[#F6A81A]" />
+            <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-bg-creme">
+              <Camera className="w-6 h-6 text-primary" />
             </span>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
@@ -67,7 +67,7 @@ const PracticeGallery = () => {
                       />
                     </div>
                     <CardContent
-                      className="p-6 bg-[#fff8ed] border border-white/60 shadow-2xl"
+                      className="p-6 bg-bg-creme border border-white/60 shadow-2xl"
                     >
                       <h3 className="text-xl font-semibold text-gray-800 mb-2 relative z-10">
                         {image.title}
@@ -80,8 +80,8 @@ const PracticeGallery = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="bg-white shadow-lg hover:bg-white text-[#F6A81A] border-[#F6A81A]/20 hover:border-[#F6A81A]/40 w-10 h-10 md:w-14 md:h-14 hover:scale-105 transition-all duration-200" />
-            <CarouselNext className="bg-white shadow-lg hover:bg-white text-[#F6A81A] border-[#F6A81A]/20 hover:border-[#F6A81A]/40 w-10 h-10 md:w-14 md:h-14 hover:scale-105 transition-all duration-200" />
+            <CarouselPrevious className="bg-white shadow-lg hover:bg-white text-primary border-primary/20 hover:border-primary/40 w-10 h-10 md:w-14 md:h-14 hover:scale-105 transition-all duration-200" />
+            <CarouselNext className="bg-white shadow-lg hover:bg-white text-primary border-primary/20 hover:border-primary/40 w-10 h-10 md:w-14 md:h-14 hover:scale-105 transition-all duration-200" />
           </Carousel>
           {/* Swipe-Hinweis entfernt (mobile hint) */}
         </div>

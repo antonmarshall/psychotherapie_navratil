@@ -38,8 +38,8 @@ const FAQSection = () => {
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#fff8ed] mb-6 shadow-lg">
-              <HelpCircle className="w-8 h-8 text-[#F6A81A]" />
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-bg-creme mb-6 shadow-lg">
+              <HelpCircle className="w-8 h-8 text-primary" />
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Häufig gestellte Fragen
@@ -63,7 +63,7 @@ const FAQSection = () => {
                   <CardTitle className="flex justify-between items-center text-left">
                     <span className="text-lg font-semibold text-gray-900">{faq.question}</span>
                     <ChevronDown 
-                      className={`w-5 h-5 text-[#F6A81A] transition-transform duration-200 ${
+                      className={`w-5 h-5 text-primary transition-transform duration-200 ${
                         openIndex === index ? 'rotate-180' : ''
                       }`}
                     />
@@ -80,7 +80,7 @@ const FAQSection = () => {
 
           {/* Call-to-Action */}
           <div className="text-center mt-12">
-            <Card className="max-w-2xl mx-auto bg-[#fff8ed] border-0 shadow-lg">
+            <Card className="max-w-2xl mx-auto bg-bg-creme border-0 shadow-lg">
               <CardContent className="p-8">
                 <h3 className="text-xl font-semibold text-gray-900 mb-4">
                   Haben Sie weitere Fragen?
@@ -89,7 +89,7 @@ const FAQSection = () => {
                   Falls Sie hier keine Antwort auf Ihre Frage gefunden haben, kontaktieren Sie mich gerne direkt. Ich helfe Ihnen weiter!
                 </p>
                 <button 
-                  className="inline-flex items-center gap-2 bg-[#F6A81A] hover:bg-[#F6C544] text-white px-6 py-3 rounded-lg font-medium shadow-lg transition-all duration-200"
+                  className="inline-flex items-center gap-2 bg-primary hover:bg-primary-hover text-white px-6 py-3 rounded-lg font-medium shadow-lg transition-all duration-200"
                   onClick={() => document.getElementById('kontakt')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   <HelpCircle className="w-4 h-4" />
