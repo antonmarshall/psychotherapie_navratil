@@ -129,7 +129,7 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-[#fff8ed] text-[#222222];
+    @apply bg-bg-creme text-text-primary;
   }
 
   html, body {
