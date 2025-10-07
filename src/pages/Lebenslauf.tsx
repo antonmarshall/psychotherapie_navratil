@@ -126,7 +126,7 @@ const Lebenslauf = () => {
               </div>
               <div className="grid md:grid-cols-2 gap-4">
                 {qualifications.map((qual, index) => (
-                  <div key={index} className="flex items-start gap-3 bg-gradient-to-r from-bg-creme to-primary/5 p-4 rounded-lg border border-primary/10 hover:border-primary/20 transition-colors">
+                  <div key={index} className="flex items-start gap-3 bg-white p-4 rounded-lg border border-primary/10 hover:border-primary/20 transition-colors">
                     <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0 shadow-sm"></div>
                     <span className="text-gray-700 text-sm">{qual}</span>
                   </div>
@@ -144,7 +144,7 @@ const Lebenslauf = () => {
               </div>
               <div className="grid md:grid-cols-2 gap-4">
                 {trustBadges.map((badge, index) => (
-                  <div key={index} className="flex items-start gap-3 bg-gradient-to-r from-bg-creme to-primary/5 p-4 rounded-lg border border-primary/10 hover:border-primary/20 transition-colors">
+                  <div key={index} className="flex items-start gap-3 bg-white p-4 rounded-lg border border-primary/10 hover:border-primary/20 transition-colors">
                     <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0 shadow-sm"></div>
                     <span className="text-gray-700 text-sm">{badge}</span>
                   </div>
@@ -162,7 +162,7 @@ const Lebenslauf = () => {
               </div>
               <div className="grid md:grid-cols-2 gap-4">
                 {methods.map((method, index) => (
-                  <div key={index} className="flex items-start gap-3 bg-gradient-to-r from-bg-creme to-primary/5 p-4 rounded-lg border border-primary/10 hover:border-primary/20 transition-colors">
+                  <div key={index} className="flex items-start gap-3 bg-white p-4 rounded-lg border border-primary/10 hover:border-primary/20 transition-colors">
                     <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0 shadow-sm"></div>
                     <span className="text-gray-700 text-sm">{method}</span>
                   </div>
@@ -185,7 +185,7 @@ const Lebenslauf = () => {
                       <h3 className="font-semibold text-accent2-custom mb-4 text-lg text-center">{group.title}</h3>
                       <div className="space-y-3">
                         {group.aspects.map((aspect, aspectIndex) => (
-                          <div key={aspectIndex} className="flex items-start gap-3 bg-gradient-to-r from-bg-creme to-primary/5 p-3 rounded-lg border border-primary/10">
+                          <div key={aspectIndex} className="flex items-start gap-3 bg-gradient-to-r bg-white p-3 rounded-lg border border-primary/10">
                             <div className="w-2 h-2 bg-primary rounded-full mt-1.5 flex-shrink-0 shadow-sm"></div>
                             <div>
                               <div className="font-medium text-gray-800 text-sm">{aspect.label}</div>
@@ -210,7 +210,7 @@ const Lebenslauf = () => {
               </div>
               <div className="grid md:grid-cols-2 gap-4">
                 {workStations.map((station, index) => (
-                  <div key={index} className="flex items-start gap-3 bg-gradient-to-r from-bg-creme to-primary/5 p-4 rounded-lg border border-primary/10 hover:border-primary/20 transition-colors">
+                  <div key={index} className="flex items-start gap-3 bg-white p-4 rounded-lg border border-primary/10 hover:border-primary/20 transition-colors">
                     <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0 shadow-sm"></div>
                     <span className="text-gray-700 text-sm">{station}</span>
                   </div>
@@ -228,7 +228,7 @@ const Lebenslauf = () => {
               </div>
               <div className="grid md:grid-cols-3 gap-6">
                 {teaching.map((item, index) => (
-                  <div key={index} className="flex items-start gap-3 bg-gradient-to-r from-bg-creme to-primary/5 p-4 rounded-lg border border-primary/10 hover:border-primary/20 transition-colors">
+                  <div key={index} className="flex items-start gap-3 bg-white p-4 rounded-lg border border-primary/10 hover:border-primary/20 transition-colors">
                     <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0 shadow-sm"></div>
                     <span className="text-gray-700 text-sm">{item}</span>
                   </div>
@@ -246,7 +246,7 @@ const Lebenslauf = () => {
               </div>
               <div className="grid md:grid-cols-2 gap-4">
                 {memberships.map((member, index) => (
-                  <div key={index} className="flex items-start gap-3 bg-gradient-to-r from-bg-creme to-primary/5 p-4 rounded-lg border border-primary/10 hover:border-primary/20 transition-colors">
+                  <div key={index} className="flex items-start gap-3 bg-white p-4 rounded-lg border border-primary/10 hover:border-primary/20 transition-colors">
                     <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0 shadow-sm"></div>
                     <span className="text-gray-700 text-sm">{member}</span>
                   </div>
