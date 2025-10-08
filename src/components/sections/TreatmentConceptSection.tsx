@@ -153,7 +153,7 @@ const TreatmentConceptSection = () => {
             const IconSrc = concept.icon;
             const IconAlt = concept.iconAlt;
             // Label-Position: dynamisch für Pentagon
-            const labelStyle = {
+            const labelStyle: React.CSSProperties = {
               left: x,
               width: 200,
               transform: 'translateX(-50%)',
@@ -248,132 +248,55 @@ const TreatmentConceptSection = () => {
           })}
         </div>
 
-        {/* Mobile (interaktives Pentagon mit Tooltips) */}
-        <div className="block md:hidden w-full mx-auto relative px-3">
-          {/* SVG-Linien */}
-          <svg
-            width={svgWidth}
-            height={svgHeight}
-            viewBox={`0 0 ${svgWidth} ${svgHeight}`}
-            className="w-full h-auto"
-            preserveAspectRatio="xMidYMid meet"
-          >
-            {/* Pentagon-Linien */}
-            <line x1={nodePositions[0].x} y1={nodePositions[0].y} x2={nodePositions[1].x} y2={nodePositions[1].y} stroke={PENTAGON_COLORS[0]} strokeWidth="4" />
-            <line x1={nodePositions[1].x} y1={nodePositions[1].y} x2={nodePositions[2].x} y2={nodePositions[2].y} stroke={PENTAGON_COLORS[1]} strokeWidth="4" />
-            <line x1={nodePositions[2].x} y1={nodePositions[2].y} x2={nodePositions[3].x} y2={nodePositions[3].y} stroke={PENTAGON_COLORS[2]} strokeWidth="4" />
-            <line x1={nodePositions[3].x} y1={nodePositions[3].y} x2={nodePositions[4].x} y2={nodePositions[4].y} stroke={PENTAGON_COLORS[3]} strokeWidth="4" />
-            <line x1={nodePositions[4].x} y1={nodePositions[4].y} x2={nodePositions[0].x} y2={nodePositions[0].y} stroke={PENTAGON_COLORS[4]} strokeWidth="4" />
-            {/* Verbindungslinien zur Mitte */}
-            <line x1={nodePositions[0].x} y1={nodePositions[0].y} x2={centerX} y2={centerY} stroke={`${PENTAGON_COLORS[0]}22`} strokeWidth="2" />
-            <line x1={nodePositions[1].x} y1={nodePositions[1].y} x2={centerX} y2={centerY} stroke={`${PENTAGON_COLORS[1]}22`} strokeWidth="2" />
-            <line x1={nodePositions[2].x} y1={nodePositions[2].y} x2={centerX} y2={centerY} stroke={`${PENTAGON_COLORS[2]}22`} strokeWidth="2" />
-            <line x1={nodePositions[3].x} y1={nodePositions[3].y} x2={centerX} y2={centerY} stroke={`${PENTAGON_COLORS[3]}22`} strokeWidth="2" />
-            <line x1={nodePositions[4].x} y1={nodePositions[4].y} x2={centerX} y2={centerY} stroke={`${PENTAGON_COLORS[4]}22`} strokeWidth="2" />
-          </svg>
-          
-          {/* Mobile Kreise und Labels - absolut positioniert mit korrekter Skalierung */}
-          <div className="absolute inset-0">
-            {concepts.map((concept, idx) => {
-              const { x, y } = nodePositions[idx];
-              // Responsive Skalierung basierend auf Container-Breite (mehr horizontaler Platz)
-              const winW = typeof window !== 'undefined' ? window.innerWidth : 360;
-              const containerWidth = Math.min(winW - 24, 460); // nutze nahezu volle Breite, Cap bei 460px
-              const scaleFactor = containerWidth / svgWidth;
-              const actualX = x * scaleFactor;
-              const actualY = y * scaleFactor;
-              const actualRadius = circleRadius * scaleFactor * 0.8; // Etwas kleiner für Mobile
-              
-              return (
-                <div key={concept.key}>
-                  {/* Label mit mehr Platz und Zeilenumbrüchen */}
-                  <div
-                    style={{
-                      position: 'absolute',
-                      left: `${(x / svgWidth) * 100}%`,
-                      width: '200px',
-                      transform: 'translateX(-50%)',
-                      top: idx === 0 || idx === 1 || idx === 4
-                        ? `${((y - circleRadius - 85) / svgHeight) * 100}%`
-                        : `${((y + circleRadius + 40) / svgHeight) * 100}%`,
-                      zIndex: 3,
-                    }}
-                    className="font-semibold text-sm text-gray-800 text-center leading-tight select-none pointer-events-none"
-                  >
-                    {concept.title.includes('Tiefenpsychologische') ? (
-                      <div className="flex flex-col items-center">
-                        <div>Tiefenpsychologische</div>
-                        <div className="text-center">Therapie</div>
-                      </div>
-                    ) : concept.title.includes('Neuropsychologische') ? (
-                      <div className="flex flex-col items-center">
-                        <div>Neuropsychologische</div>
-                        <div className="text-center">Therapie</div>
-                      </div>
-                    ) : (
-                      concept.title
-                    )}
-                  </div>
-                  
-                  {/* Kreis mit Tap-Event - größer und besser positioniert */}
-                  <div
-                    style={{
-                      position: 'absolute',
-                      left: `${(x / svgWidth) * 100}%`,
-                      top: `${(y / svgHeight) * 100}%`,
-                      width: `${72 * scaleFactor * 1.05}px`,
-                      height: `${72 * scaleFactor * 1.05}px`,
-                      transform: 'translate(-50%, -50%)',
-                      borderRadius: '50%',
-                      cursor: 'pointer',
-                      zIndex: 5,
-                      backgroundColor: BRAND_COLORS.white
-                    }}
-                    data-concept-touch
-                    className={`${concept.color} border-4 shadow-lg transition-all duration-200 ${hovered === concept.key ? 'scale-110' : ''}`}
-                    onClick={() => setHovered(hovered === concept.key ? null : concept.key)}
-                    onTouchStart={(e) => {
-                      e.preventDefault();
-                      setHovered(concept.key);
-                      openMetaRef.current = { y: window.scrollY, t: Date.now() };
-                    }}
-                  >
+        {/* Mobile (Card-Liste statt Pentagon) */}
+        <div className="block md:hidden space-y-4">
+          {concepts.map((concept) => {
+            const isActive = hovered === concept.key;
+            
+            return (
+              <div
+                key={concept.key}
+                className={`relative bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 ${
+                  isActive ? 'ring-4 ring-primary' : ''
+                }`}
+                onClick={() => setHovered(isActive ? null : concept.key)}
+              >
+                <div className="flex items-center gap-4 p-4">
+                  {/* Icon Circle */}
+                  <div className={`flex-shrink-0 w-20 h-20 rounded-full ${concept.color} border-4 overflow-hidden shadow-md`}>
                     <img
                       src={concept.icon}
                       alt={concept.iconAlt}
-                      className="w-full h-full object-cover rounded-full"
+                      className="w-full h-full object-cover"
                     />
                   </div>
                   
-                  {/* Mobile Tooltip - intelligent positioniert */}
-                  {hovered === concept.key && (
-                    <div 
-                      style={{
-                        position: 'absolute',
-                        left: idx === 1 || idx === 2 ? '20px' : // rechte Seite: links positionieren
-                              idx === 3 || idx === 4 ? 'calc(100% - 320px)' : // linke Seite: rechts positionieren  
-                              '50%', // oben: mittig
-                        top: idx === 0 ? `${((y + circleRadius + 110) / svgHeight) * 100}%` :
-                             idx === 2 || idx === 3 ? `${((y - 150) / svgHeight) * 100}%` :
-                             `${((y - 70) / svgHeight) * 100}%`,
-                        transform: idx === 0 ? 'translateX(-50%)' : 'none',
-                        width: '320px',
-                        maxWidth: 'calc(100vw - 40px)',
-                        zIndex: 20,
-                        backgroundColor: BRAND_COLORS.white,
-                        backdropFilter: 'blur(10px)'
-                      }}
-                      data-tooltip
-                      className="border border-gray-200 rounded-2xl shadow-xl p-4 text-gray-800 text-sm animate-fade-in"
-                    >
-                      <div className="font-semibold mb-2 text-base">{concept.title}</div>
-                      <div>{concept.description}</div>
-                    </div>
-                  )}
+                  {/* Title */}
+                  <div className="flex-1">
+                    <h3 className="text-base font-semibold text-gray-900">
+                      {concept.title}
+                    </h3>
+                  </div>
+                  
+                  {/* Expand indicator */}
+                  <div className={`flex-shrink-0 transition-transform duration-300 ${isActive ? 'rotate-180' : ''}`}>
+                    <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
                 </div>
-              );
-            })}
-          </div>
+                
+                {/* Expandable Description */}
+                {isActive && (
+                  <div className="px-4 pb-4 pt-0 animate-fade-in">
+                    <div className="text-sm text-gray-700 leading-relaxed pt-2 border-t border-gray-100">
+                      {concept.description}
+                    </div>
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

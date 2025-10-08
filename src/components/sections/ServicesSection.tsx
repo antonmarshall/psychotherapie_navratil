@@ -102,14 +102,14 @@ const ServicesSection = () => {
                       
                       {/* Semi-transparent overlay with text (on tap) */}
                       <div 
-                        className={`absolute inset-0 bg-black/75 backdrop-blur-sm flex flex-col items-center justify-center p-4 transition-opacity duration-300 ${
+                        className={`absolute inset-0 bg-bg-creme/95 backdrop-blur-sm flex flex-col items-center justify-center p-4 transition-opacity duration-300 ${
                           isActive ? 'opacity-100' : 'opacity-0 pointer-events-none'
                         }`}
                       >
-                        <h3 className="text-white text-base sm:text-lg font-semibold text-center mb-3">
+                        <h3 className="text-gray-900 text-base sm:text-lg font-semibold text-center mb-3">
                           {service.title}
                         </h3>
-                        <p className="text-white/90 text-xs sm:text-sm leading-relaxed text-center">
+                        <p className="text-gray-700 text-xs sm:text-sm leading-relaxed text-center">
                           {service.description}
                         </p>
                       </div>
