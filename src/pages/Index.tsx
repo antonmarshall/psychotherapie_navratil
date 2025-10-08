@@ -18,7 +18,7 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <Navigation />
-      <div className="pt-16"> {/* Add top padding for fixed navigation */}
+      <div className="pt-4 md:pt-16"> {/* Add top padding for fixed navigation */}
         <HeroSection />
         <WelcomeSection />
         

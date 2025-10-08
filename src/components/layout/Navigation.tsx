@@ -272,8 +272,8 @@ const Navigation = () => {
     >
       {/* Semi-transparent Overlay für bessere Lesbarkeit - darf keine Klicks abfangen */}
       <div className="absolute inset-0 bg-white/5 pointer-events-none"></div>
-      <div className="w-full px-4 sm:px-6 flex items-center justify-between h-12 md:h-16 relative z-10 pointer-events-auto">
-        <div className="relative z-20 flex items-center justify-between w-full h-12 md:h-16">
+      <div className="w-full px-4 sm:px-6 flex items-center justify-between h-16 relative z-10 pointer-events-auto">
+        <div className="relative z-20 flex items-center justify-between w-full h-16">
           {/* Logo entfernt */}
           <div className="flex items-center cursor-pointer select-none" onClick={() => scrollToSection('willkommen')}>
           </div>
@@ -311,7 +311,7 @@ const Navigation = () => {
               onMouseLeave={() => handleMouseLeave(0)}
               onFocus={() => handleMouseEnter(0)}
               onBlur={() => handleMouseLeave(0)}
-              className={`relative bg-transparent border-none outline-none shadow-none text-base font-medium px-6 h-12 md:h-16 flex items-center focus:outline-none z-10`}
+              className={`relative bg-transparent border-none outline-none shadow-none text-base font-medium px-6 h-16 flex items-center focus:outline-none z-10`}
               tabIndex={0}
             >
               <span ref={el => linkTextRefs.current[0] = el} className={`relative flex items-center transition-colors duration-200 ${isTextWhite(0) ? 'text-white font-semibold' : 'text-gray-800'}`}>Über mich</span>
@@ -330,7 +330,7 @@ const Navigation = () => {
                 onMouseLeave={() => { handleMouseLeave(1); closeDropdown(); }}
                 onFocus={() => handleMouseEnter(1)}
                 onBlur={() => handleMouseLeave(1)}
-                className={`relative flex items-center bg-transparent border-none outline-none shadow-none text-base font-medium px-6 h-12 md:h-16 focus:outline-none z-10`}
+                className={`relative flex items-center bg-transparent border-none outline-none shadow-none text-base font-medium px-6 h-16 focus:outline-none z-10`}
                 tabIndex={0}
               >
                 <span
@@ -374,7 +374,7 @@ const Navigation = () => {
                 onMouseLeave={() => { handleMouseLeave(2); closeDropdown(); }}
                 onFocus={() => handleMouseEnter(2)}
                 onBlur={() => handleMouseLeave(2)}
-                className={`relative flex items-center bg-transparent border-none outline-none shadow-none text-base font-medium px-6 h-12 md:h-16 focus:outline-none z-10`}
+                className={`relative flex items-center bg-transparent border-none outline-none shadow-none text-base font-medium px-6 h-16 focus:outline-none z-10`}
                 tabIndex={0}
               >
                 <span
@@ -405,7 +405,7 @@ const Navigation = () => {
               onMouseLeave={() => handleMouseLeave(3)}
               onFocus={() => handleMouseEnter(3)}
               onBlur={() => handleMouseLeave(3)}
-              className={`relative bg-transparent border-none outline-none shadow-none text-base font-medium px-6 h-12 md:h-16 flex items-center focus:outline-none z-10`}
+              className={`relative bg-transparent border-none outline-none shadow-none text-base font-medium px-6 h-16 flex items-center focus:outline-none z-10`}
               tabIndex={0}
             >
               <span ref={el => linkTextRefs.current[3] = el} className={`relative flex items-center transition-colors duration-200 ${isBoxOnIdx(3) ? 'text-white font-semibold' : 'text-gray-800'}`}>FAQ</span>
