@@ -116,9 +116,8 @@ const MethodsSection = () => {
               key={index}
               className={`group rounded-xl md:rounded-3xl p-4 md:p-8 shadow-lg border-2 ${category.borderColor} hover:shadow-xl transition-all duration-300 md:hover:-translate-y-1
               ${isOpen ? 'md:relative md:z-10 md:scale-105 col-span-2' : ''} 
-              ${isAdjacent ? 'md:block hidden' : ''}`}
+              ${isAdjacent ? 'md:block hidden' : ''} bg-section-light`}
               style={{
-                backgroundColor: BRAND_COLORS.white,
                 ...(isAdjacent && { 
                   borderLeft: `4px solid ${category.borderColor.replace('border-', '')}`
                 })

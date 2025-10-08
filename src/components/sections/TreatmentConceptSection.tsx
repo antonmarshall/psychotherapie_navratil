@@ -256,7 +256,7 @@ const TreatmentConceptSection = () => {
             return (
               <button
                 key={concept.key}
-                className={`w-full relative bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 ${
+                className={`w-full relative bg-section-light rounded-xl shadow-lg overflow-hidden transition-all duration-300 ${
                   isActive ? 'ring-4 ring-primary' : ''
                 }`}
                 onClick={(e) => {

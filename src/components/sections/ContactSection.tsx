@@ -36,7 +36,7 @@ const ContactSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Kontakt-Informationen */}
           <div>
-            <Card className="bg-white shadow-lg border-0">
+            <Card className="bg-section-light shadow-lg border-0">
               <CardHeader>
                 <CardTitle className="text-2xl text-gray-800">
                   Psychotherapeutische Praxis
@@ -90,7 +90,7 @@ const ContactSection = () => {
 
           {/* Kontakt-Formular */}
           <div>
-            <Card className="bg-white shadow-lg border-0">
+            <Card className="bg-section-light shadow-lg border-0">
               <CardHeader>
                 <CardTitle className="text-xl text-gray-800">
                   Nachricht senden
