@@ -254,12 +254,15 @@ const TreatmentConceptSection = () => {
             const isActive = hovered === concept.key;
             
             return (
-              <div
+              <button
                 key={concept.key}
-                className={`relative bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 ${
+                className={`w-full relative bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 ${
                   isActive ? 'ring-4 ring-primary' : ''
                 }`}
-                onClick={() => setHovered(isActive ? null : concept.key)}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setHovered(isActive ? null : concept.key);
+                }}
               >
                 <div className="flex items-center gap-4 p-4">
                   {/* Icon Circle */}
@@ -289,12 +292,12 @@ const TreatmentConceptSection = () => {
                 {/* Expandable Description */}
                 {isActive && (
                   <div className="px-4 pb-4 pt-0 animate-fade-in">
-                    <div className="text-sm text-gray-700 leading-relaxed pt-2 border-t border-gray-100">
+                    <div className="text-sm text-gray-700 leading-relaxed pt-2 border-t border-gray-100 text-left">
                       {concept.description}
                     </div>
                   </div>
                 )}
-              </div>
+              </button>
             );
           })}
         </div>

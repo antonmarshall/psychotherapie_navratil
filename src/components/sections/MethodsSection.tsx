@@ -124,11 +124,11 @@ const MethodsSection = () => {
                 })
               }}
             >
-              <div className={`${isOpen ? 'text-left' : 'text-center'} mb-6 md:mb-8`}>
-                <div className={`${isOpen ? 'mx-0' : 'mx-auto'} mb-3 md:mb-6 p-3 md:p-4 rounded-full w-fit ${category.bgColor} shadow-md md:group-hover:scale-110 transition-transform duration-300`}>
+              <div className="text-center mb-6 md:mb-8">
+                <div className={`mx-auto mb-3 md:mb-6 p-3 md:p-4 rounded-full w-fit ${category.bgColor} shadow-md md:group-hover:scale-110 transition-transform duration-300 ${isOpen ? 'md:block hidden' : ''}`}>
                   <category.icon className={`w-7 h-7 md:w-8 md:h-8 ${category.iconColor}`} />
                 </div>
-                <h3 className={`font-semibold text-gray-800 ${isOpen ? 'text-base' : 'text-base'} md:text-xl ${isOpen ? 'mb-2' : 'mb-3 md:mb-4'}`}>
+                <h3 className="font-semibold text-gray-800 text-base md:text-xl mb-3 md:mb-4">
                   {category.title}
                 </h3>
               </div>
