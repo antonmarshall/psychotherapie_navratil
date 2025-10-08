@@ -1,10 +1,10 @@
 import { AlertTriangle, Phone, ArrowLeft } from "lucide-react";
-import { Link } from "react-router-dom";
-import Navigation from "../components/layout/Navigation";
-import Footer from "../components/layout/Footer";
+import { useNavigate } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const Notfallkontakte = () => {
+  const navigate = useNavigate();
   const regionalContacts = [
     {
       region: "Kreis Münster",
@@ -108,43 +108,44 @@ const Notfallkontakte = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <Navigation />
-      <div className="pt-24 pb-16">
-        <div className="container mx-auto px-6 max-w-6xl">
+    <div className="min-h-screen bg-section-dark">
+      <div className="container mx-auto px-6 py-8">
+        <div className="max-w-6xl mx-auto">
           {/* Header */}
-          <div className="mb-8">
-            <Link 
-              to="/psychotherapie_navratil/"
-              className="inline-flex items-center gap-2 text-primary hover:text-primary-hover transition-colors mb-6"
+          <div className="flex items-center gap-4 mb-8">
+            <Button 
+              variant="ghost" 
+              onClick={() => navigate('/')}
+              className="text-primary hover:text-primary-hover hover:bg-primary/10"
             >
-              <ArrowLeft className="w-4 h-4" />
+              <ArrowLeft className="w-4 h-4 mr-2" />
               Zurück zur Startseite
-            </Link>
-            
-            <div className="flex items-center gap-4 mb-4">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-red-100">
-                <AlertTriangle className="w-8 h-8 text-red-600" />
-              </div>
-              <div>
-                <h1 className="text-4xl font-bold text-gray-900">Notfall-Kontakte</h1>
-                <p className="text-lg text-gray-600 mt-2">
-                  Wichtige Telefonnummern für psychische Notfälle
-                </p>
-              </div>
+            </Button>
+          </div>
+
+          {/* Hauptüberschrift */}
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-red-100 mb-4">
+              <AlertTriangle className="w-8 h-8 text-red-600" />
             </div>
+            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Notfall-Kontakte
+            </h1>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Wichtige Telefonnummern für psychische Notfälle
+            </p>
           </div>
 
           {/* Wichtiger Hinweis */}
-          <Card className="bg-red-50 border-2 border-red-300 mb-8 shadow-lg">
-            <CardContent className="p-6">
+          <Card className="bg-red-50 border-2 border-red-300 mb-12 shadow-lg">
+            <CardContent className="p-8">
               <div className="flex items-start gap-3">
                 <AlertTriangle className="w-6 h-6 text-red-600 flex-shrink-0 mt-1" />
-                <div>
+                <div className="flex-1">
                   <h3 className="text-xl font-bold text-red-900 mb-2">
                     In akuten Notfällen
                   </h3>
-                  <p className="text-red-800 mb-3">
+                  <p className="text-red-800 mb-4">
                     Bei akuter Selbst- oder Fremdgefährdung wählen Sie bitte sofort:
                   </p>
                   <div className="flex flex-wrap gap-4">
@@ -169,75 +170,83 @@ const Notfallkontakte = () => {
           </Card>
 
           {/* Allgemeine Hilfs- und Beratungskontakte */}
-          <section className="mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">
-              Hilfs- und Beratungs-Kontakte
-            </h2>
-            <div className="grid md:grid-cols-2 gap-4">
-              {generalEmergencyContacts.map((contact, index) => (
-                <Card 
-                  key={index} 
-                  className={`shadow-lg hover:shadow-xl transition-all duration-300 ${
-                    contact.isEmergency ? 'border-2 border-red-400 bg-red-50' : 'bg-white'
-                  }`}
-                >
-                  <CardContent className="p-6">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <h3 className={`font-semibold text-lg ${
-                          contact.isEmergency ? 'text-red-900' : 'text-gray-900'
-                        }`}>
-                          {contact.name}
-                        </h3>
-                      </div>
-                      <a 
-                        href={`tel:${contact.phone.replace(/\s/g, '').replace(/\(|\)/g, '')}`}
-                        className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg font-bold transition-all duration-200 ${
-                          contact.isEmergency 
-                            ? 'bg-red-600 hover:bg-red-700 text-white' 
-                            : 'bg-primary hover:bg-primary-hover text-white'
-                        }`}
-                      >
-                        <Phone className="w-4 h-4" />
-                        {contact.phone}
-                      </a>
+          <Card className="bg-white shadow-lg border-0 mb-16">
+            <CardContent className="p-8">
+              <div className="text-center mb-8">
+                <h2 className="text-2xl font-semibold text-gray-900 mb-2">Hilfs- und Beratungs-Kontakte</h2>
+                <p className="text-gray-600">Weitere wichtige Anlaufstellen</p>
+              </div>
+              <div className="grid md:grid-cols-2 gap-4">
+                {generalEmergencyContacts.map((contact, index) => (
+                  <div 
+                    key={index} 
+                    className={`flex items-center justify-between gap-3 p-4 rounded-lg border transition-all duration-300 ${
+                      contact.isEmergency 
+                        ? 'bg-red-50 border-red-300 hover:border-red-400' 
+                        : 'bg-white border-primary/10 hover:border-primary/20'
+                    }`}
+                  >
+                    <div className="flex items-start gap-3">
+                      <div className={`w-2 h-2 rounded-full mt-2 flex-shrink-0 shadow-sm ${
+                        contact.isEmergency ? 'bg-red-600' : 'bg-primary'
+                      }`}></div>
+                      <span className={`font-semibold ${
+                        contact.isEmergency ? 'text-red-900' : 'text-gray-900'
+                      }`}>
+                        {contact.name}
+                      </span>
                     </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </section>
+                    <a 
+                      href={`tel:${contact.phone.replace(/\s/g, '').replace(/\(|\)/g, '')}`}
+                      className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg font-bold transition-all duration-200 whitespace-nowrap ${
+                        contact.isEmergency 
+                          ? 'bg-red-600 hover:bg-red-700 text-white' 
+                          : 'bg-primary hover:bg-primary-hover text-white'
+                      }`}
+                    >
+                      <Phone className="w-4 h-4" />
+                      {contact.phone}
+                    </a>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
 
           {/* Regionale Psychiatrische Kliniken */}
-          <section>
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl font-semibold text-gray-900 mb-2">
               Psychiatrische Kliniken nach Region
             </h2>
-            <div className="space-y-8">
+            <p className="text-gray-600">Notfall-Anlaufstellen in Ihrer Region</p>
+          </div>
+          
+          <div className="space-y-6">
               {regionalContacts.map((region, regionIndex) => (
-                <Card key={regionIndex} className="shadow-lg bg-white overflow-hidden">
-                  <CardHeader className="bg-gradient-to-r from-primary to-primary-hover text-white">
-                    <CardTitle className="text-2xl">{region.region}</CardTitle>
+                <Card key={regionIndex} className="shadow-lg bg-white border-0 overflow-hidden">
+                  <CardHeader className="bg-gradient-to-r from-primary to-primary-hover text-white p-6">
+                    <CardTitle className="text-xl md:text-2xl font-semibold">{region.region}</CardTitle>
                   </CardHeader>
-                  <CardContent className="p-6">
+                  <CardContent className="p-8">
                     <div className="space-y-6">
                       {region.contacts.map((contactGroup, groupIndex) => (
                         <div key={groupIndex}>
-                          <h4 className="font-semibold text-gray-900 mb-3 text-lg">
+                          <h4 className="font-semibold text-accent2-custom mb-4 text-base">
                             {contactGroup.group}
                           </h4>
-                          <div className="space-y-3 ml-4">
+                          <div className="space-y-3">
                             {contactGroup.entries.map((entry, entryIndex) => (
                               <div 
                                 key={entryIndex} 
-                                className="flex flex-col sm:flex-row sm:items-center sm:justify-between p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+                                className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 p-4 bg-white rounded-lg border border-primary/10 hover:border-primary/20 transition-colors"
                               >
-                                <div className="mb-2 sm:mb-0">
-                                  <p className="font-medium text-gray-900">{entry.place}</p>
+                                <div className="flex items-start gap-3">
+                                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0 shadow-sm"></div>
+                                  <span className="font-medium text-gray-900 text-sm">{entry.place}</span>
                                 </div>
                                 <a 
                                   href={`tel:${entry.phone.replace(/\s/g, '').replace(/\(|\)/g, '')}`}
-                                  className="inline-flex items-center gap-2 bg-primary hover:bg-primary-hover text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 w-fit"
+                                  className="inline-flex items-center gap-2 bg-primary hover:bg-primary-hover text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 w-fit text-sm"
                                 >
                                   <Phone className="w-4 h-4" />
                                   {entry.phone}
@@ -252,11 +261,10 @@ const Notfallkontakte = () => {
                 </Card>
               ))}
             </div>
-          </section>
 
           {/* Hinweis am Ende */}
-          <Card className="mt-12 bg-blue-50 border-2 border-blue-300 shadow-lg">
-            <CardContent className="p-6">
+          <Card className="mt-16 bg-blue-50 border-2 border-blue-300 shadow-lg">
+            <CardContent className="p-8">
               <h3 className="text-xl font-bold text-blue-900 mb-2">
                 Hinweis
               </h3>
@@ -267,9 +275,18 @@ const Notfallkontakte = () => {
               </p>
             </CardContent>
           </Card>
+
+          {/* Zurück-Button */}
+          <div className="text-center mt-16">
+            <Button 
+              onClick={() => navigate('/')}
+              className="bg-primary hover:bg-primary-hover text-white px-8 py-3 rounded-full text-lg font-semibold shadow-lg"
+            >
+              Zurück zur Startseite
+            </Button>
+          </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };
