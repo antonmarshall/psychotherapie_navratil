@@ -41,7 +41,7 @@ const MethodsSection = () => {
       bgColor: "bg-secondary-light",
       borderColor: "border-primary",
       iconColor: "text-secondary-dark",
-      bulletColor: "bg-primary-dark",
+      bulletColor: "bg-primary",
       methods: [
         "Kognitive Umstrukturierung",
         "PC-gestütztes kognitives Training",
