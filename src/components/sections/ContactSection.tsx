@@ -33,16 +33,16 @@ const ContactSection = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto items-stretch">
           {/* Kontakt-Informationen */}
-          <div>
-            <Card className="bg-section-light shadow-lg border-0">
+          <div className="flex">
+            <Card className="bg-section-light shadow-lg border-0 flex-1 flex flex-col">
               <CardHeader>
                 <CardTitle className="text-2xl text-gray-800">
                   Psychotherapeutische Praxis
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-6">
+              <CardContent className="space-y-6 flex-1">
                 <div>
                   <h3 className="font-semibold text-lg text-gray-800 mb-4">
                     Dipl.-Psych. Christiane Navrátil
@@ -89,15 +89,15 @@ const ContactSection = () => {
           </div>
 
           {/* Kontakt-Formular */}
-          <div>
-            <Card className="bg-section-light shadow-lg border-0">
+          <div className="flex">
+            <Card className="bg-section-light shadow-lg border-0 flex-1 flex flex-col">
               <CardHeader>
                 <CardTitle className="text-xl text-gray-800">
                   Nachricht senden
                 </CardTitle>
               </CardHeader>
-              <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-4">
+              <CardContent className="flex-1">
+                <form onSubmit={handleSubmit} className="space-y-4 h-full flex flex-col">
                   <div className="grid md:grid-cols-2 gap-4">
                     <Input
                       type="text"
@@ -129,11 +129,11 @@ const ContactSection = () => {
                     value={formData.message}
                     onChange={(e) => setFormData({...formData, message: e.target.value})}
                     required
-                    className="bg-section-dark border-gray-300 focus:border-primary resize-none"
+                    className="bg-section-dark border-gray-300 focus:border-primary resize-none flex-1"
                   />
                   <Button 
                     type="submit" 
-                    className="w-full bg-primary hover:bg-primary-hover text-white py-3 rounded-lg transition-colors duration-300"
+                    className="w-full bg-primary hover:bg-primary-hover text-white py-3 rounded-lg transition-colors duration-300 mt-auto"
                   >
                     Nachricht senden
                   </Button>
