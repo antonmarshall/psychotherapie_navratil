@@ -32,7 +32,7 @@ const MapSection = () => {
           </div>
           
           <div className="mt-4 md:mt-6 text-center">
-            <div className="bg-white rounded-xl p-4 md:p-6 shadow-md">
+            <div className="bg-section-light rounded-xl p-4 md:p-6 shadow-md">
               <h3 className="text-base md:text-lg font-semibold text-gray-800 mb-2 md:mb-3">Anfahrt</h3>
               <p className="text-gray-600 text-sm md:text-base">
                 Die Praxis befindet sich zentral in Münster und ist gut mit öffentlichen Verkehrsmitteln 

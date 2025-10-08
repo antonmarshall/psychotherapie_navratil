@@ -13,7 +13,7 @@ const HeroSection = () => {
     >
       {/* Weißer Kasten mit Inhalt */}
       <div className="relative z-10 container mx-auto px-6 flex flex-col items-center justify-center">
-        <div className="bg-[#fff8ed]/95 rounded-3xl shadow-xl p-6 md:p-12 max-w-2xl mx-auto flex flex-col items-start gap-4 md:gap-6 mt-14 md:mt-16 mb-8 md:mb-12 relative">
+        <div className="bg-section-light/95 rounded-3xl shadow-xl p-6 md:p-12 max-w-2xl mx-auto flex flex-col items-start gap-4 md:gap-6 mt-14 md:mt-16 mb-8 md:mb-12 relative">
           {/* Profilbild */}
           <img
             src={import.meta.env.BASE_URL + 'profil.jpg'}

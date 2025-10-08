@@ -256,6 +256,7 @@ const TreatmentConceptSection = () => {
             return (
               <div
                 key={concept.key}
+                data-concept-touch
                 className={`w-full relative bg-section-light rounded-xl shadow-lg overflow-hidden transition-all duration-300 cursor-pointer ${
                   isActive ? 'ring-4 ring-primary' : ''
                 }`}
