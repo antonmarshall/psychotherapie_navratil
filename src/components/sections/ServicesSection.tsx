@@ -1,6 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useState } from "react";
-import { Plus, X } from "lucide-react";
 
 const ServicesSection = () => {
   const services = [
@@ -38,7 +37,7 @@ const ServicesSection = () => {
     }
   ];
 
-  const [expandedCard, setExpandedCard] = useState<number | null>(null);
+  const [activeMobileCard, setActiveMobileCard] = useState<number | null>(null);
 
   return (
     <section id="angebot" className="py-20 bg-section-light">
@@ -54,21 +53,20 @@ const ServicesSection = () => {
             </p>
           </div>
 
-          {/* Services Grid - Mobile-first Design */}
-          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
+          {/* Services Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {services.map((service, index) => {
-              const isExpanded = expandedCard === index;
+              const isActive = activeMobileCard === index;
 
               return (
                 <div
                   key={index}
                   className="relative"
                 >
-                  {/* Main Card */}
+                  {/* Desktop Card (md and up) - unchanged */}
                   <Card
-                    className={`group ${service.bgColor} ${service.borderColor} shadow-lg hover:shadow-xl transition-all duration-300 border-2 overflow-hidden rounded-xl md:rounded-2xl h-full`}
+                    className={`hidden md:block group ${service.bgColor} ${service.borderColor} shadow-lg hover:shadow-xl transition-all duration-300 border-2 overflow-hidden rounded-2xl h-full`}
                   >
-                    {/* Mobile & Desktop Content */}
                     <div className="aspect-square overflow-hidden">
                       <img
                         src={service.image}
@@ -77,65 +75,46 @@ const ServicesSection = () => {
                       />
                     </div>
 
-                    <CardHeader className="pb-3 md:pb-4">
-                      <CardTitle className="text-sm sm:text-base md:text-xl font-semibold text-gray-900 text-center">
+                    <CardHeader className="pb-4">
+                      <CardTitle className="text-xl font-semibold text-gray-900 text-center">
                         {service.title}
                       </CardTitle>
                     </CardHeader>
 
                     <CardContent className="pt-0">
-                      <p className="text-gray-700 leading-relaxed text-xs sm:text-sm md:text-base text-center">
+                      <p className="text-gray-700 leading-relaxed text-base text-center">
                         {service.description}
                       </p>
                     </CardContent>
-
-                    {/* Mobile Expand Button */}
-                    <div className="md:hidden absolute top-2 right-2">
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setExpandedCard(isExpanded ? null : index);
-                        }}
-                        className="w-8 h-8 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-lg"
-                        aria-label={isExpanded ? "Schließen" : "Mehr erfahren"}
-                      >
-                        {isExpanded ? (
-                          <X className="w-4 h-4 text-gray-700" />
-                        ) : (
-                          <Plus className="w-4 h-4 text-gray-700" />
-                        )}
-                      </button>
-                    </div>
                   </Card>
 
-                  {/* Mobile Expanded Overlay */}
-                  {isExpanded && (
-                    <div className="md:hidden absolute inset-0 z-10 pointer-events-none">
-                      <Card className="absolute inset-0 border-4 border-primary shadow-2xl pointer-events-auto">
-                        <CardContent className="p-6 h-full flex flex-col justify-center">
-                          <div className="text-center">
-                            <div className="mb-4">
-                              <img
-                                src={service.image}
-                                alt={service.title}
-                                className="w-16 h-16 mx-auto mb-3 rounded-full object-cover"
-                              />
-                              <h3 className="text-xl font-semibold text-gray-900 mb-4">{service.title}</h3>
-                            </div>
-                            <p className="text-gray-700 leading-relaxed text-sm mb-4">
-                              {service.description}
-                            </p>
-                            <button
-                              onClick={() => setExpandedCard(null)}
-                              className="w-full bg-primary hover:bg-primary-dark text-white py-2 px-4 rounded-lg transition-colors"
-                            >
-                              Verstanden
-                            </button>
-                          </div>
-                        </CardContent>
-                      </Card>
+                  {/* Mobile Card (only image with tap overlay) */}
+                  <div 
+                    className="md:hidden relative overflow-hidden rounded-xl shadow-lg cursor-pointer"
+                    onClick={() => setActiveMobileCard(isActive ? null : index)}
+                  >
+                    <div className={`relative aspect-square border-4 ${service.borderColor} rounded-xl overflow-hidden`}>
+                      <img
+                        src={service.image}
+                        alt={service.title}
+                        className="w-full h-full object-cover"
+                      />
+                      
+                      {/* Semi-transparent overlay with text (on tap) */}
+                      <div 
+                        className={`absolute inset-0 bg-black/75 backdrop-blur-sm flex flex-col items-center justify-center p-4 transition-opacity duration-300 ${
+                          isActive ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                        }`}
+                      >
+                        <h3 className="text-white text-base sm:text-lg font-semibold text-center mb-3">
+                          {service.title}
+                        </h3>
+                        <p className="text-white/90 text-xs sm:text-sm leading-relaxed text-center">
+                          {service.description}
+                        </p>
+                      </div>
                     </div>
-                  )}
+                  </div>
                 </div>
               );
             })}
