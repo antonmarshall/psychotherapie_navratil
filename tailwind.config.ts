@@ -32,6 +32,7 @@ export default {
 					DEFAULT: 'var(--color-primary)',     // #F6A81A
 					hover: 'var(--color-primary-hover)', // #F6C544
 					light: 'var(--color-primary-light)', // #F9E79F
+					dark: '#D4A017',                     // Dunkleres Gold
 					foreground: '#222222',
 				},
 				

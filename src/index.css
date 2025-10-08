@@ -46,7 +46,7 @@ All colors MUST be HSL.
     --color-primary-light: #F9E79F;     /* Gelb Hell */
     
     /* Hintergrundfarben - Abschnitte */
-    --section-bg-light: #fdfbf7;        /* Hellerer Ton - Warmes Leinen-Weiß */
+    --section-bg-light: #E8DED0;        /* Hellerer Ton - Warmer heller Beige */
     --section-bg-dark: #D4C4B0;         /* Dunklerer Ton - Warmer Sand/Beige */
     
     /* Hintergrundfarben - Komponenten */
