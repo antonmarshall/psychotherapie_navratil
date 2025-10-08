@@ -105,7 +105,7 @@ const ContactSection = () => {
                       value={formData.name}
                       onChange={(e) => setFormData({...formData, name: e.target.value})}
                       required
-                      className="border-gray-300 focus:border-primary"
+                      className="bg-section-dark border-gray-300 focus:border-primary"
                     />
                     <Input
                       type="email"
@@ -113,7 +113,7 @@ const ContactSection = () => {
                       value={formData.email}
                       onChange={(e) => setFormData({...formData, email: e.target.value})}
                       required
-                      className="border-gray-300 focus:border-primary"
+                      className="bg-section-dark border-gray-300 focus:border-primary"
                     />
                   </div>
                   <Input
@@ -121,7 +121,7 @@ const ContactSection = () => {
                     placeholder="Ihre Telefonnummer (optional)"
                     value={formData.phone}
                     onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                    className="border-gray-300 focus:border-primary"
+                    className="bg-section-dark border-gray-300 focus:border-primary"
                   />
                   <Textarea
                     placeholder="Ihre Nachricht"
@@ -129,7 +129,7 @@ const ContactSection = () => {
                     value={formData.message}
                     onChange={(e) => setFormData({...formData, message: e.target.value})}
                     required
-                    className="border-gray-300 focus:border-primary resize-none"
+                    className="bg-section-dark border-gray-300 focus:border-primary resize-none"
                   />
                   <Button 
                     type="submit" 

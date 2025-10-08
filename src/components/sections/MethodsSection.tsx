@@ -128,7 +128,11 @@ const MethodsSection = () => {
                   <category.icon className={`w-7 h-7 md:w-8 md:h-8 ${category.iconColor}`} />
                 </div>
                 <h3 className="font-semibold text-gray-800 text-base md:text-xl mb-3 md:mb-4">
-                  {category.title}
+                  {category.title === "Verhaltenstherapie" ? (
+                    <>Verhaltens-<br />therapie</>
+                  ) : (
+                    category.title
+                  )}
                 </h3>
               </div>
 

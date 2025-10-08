@@ -93,16 +93,16 @@ const ServicesSection = () => {
                     className="md:hidden relative overflow-hidden rounded-xl shadow-lg cursor-pointer"
                     onClick={() => setActiveMobileCard(isActive ? null : index)}
                   >
-                    <div className={`relative aspect-square border-4 ${service.borderColor} rounded-xl overflow-hidden`}>
+                    <div className={`relative w-full h-48 border-4 ${service.borderColor} rounded-xl overflow-hidden`}>
                       <img
                         src={service.image}
                         alt={service.title}
                         className="w-full h-full object-cover"
                       />
                       
-                      {/* Semi-transparent overlay with text (on tap) */}
+                      {/* Full color overlay with text (on tap) */}
                       <div 
-                        className={`absolute inset-0 bg-section-light/95 backdrop-blur-md flex flex-col items-center justify-center p-4 transition-opacity duration-300 ${
+                        className={`absolute inset-0 bg-section-light flex flex-col items-center justify-center p-4 transition-opacity duration-300 ${
                           isActive ? 'opacity-100' : 'opacity-0 pointer-events-none'
                         }`}
                       >

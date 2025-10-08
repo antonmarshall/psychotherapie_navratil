@@ -54,10 +54,10 @@ const FAQSection = () => {
             {faqs.map((faq, index) => (
               <Card 
                 key={index} 
-                className="bg-white shadow-lg hover:shadow-xl transition-all duration-300 border-0 overflow-hidden"
+                className="bg-section-dark shadow-lg hover:shadow-xl transition-all duration-300 border-0 overflow-hidden"
               >
                 <CardHeader 
-                  className="cursor-pointer hover:bg-gray-50 transition-colors p-6"
+                  className="cursor-pointer hover:bg-section-dark/80 transition-colors p-6"
                   onClick={() => setOpenIndex(openIndex === index ? null : index)}
                 >
                   <CardTitle className="flex justify-between items-center text-left">
