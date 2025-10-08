@@ -125,7 +125,7 @@ const Footer = () => {
                 <AlertTriangle className="w-4 h-4 text-red-400" />
                 <h4 className="text-red-400 font-medium text-sm">Notfall-Kontakte</h4>
               </div>
-              <div className="space-y-2">
+              <div className="space-y-2 mb-3">
                 {emergencyContacts.map((contact, index) => (
                   <div key={index} className="text-xs">
                     <p className="text-gray-300 font-medium">{contact.group}</p>
@@ -136,6 +136,13 @@ const Footer = () => {
                   </div>
                 ))}
               </div>
+              <a 
+                href="/psychotherapie_navratil/notfallkontakte" 
+                className="inline-flex items-center justify-center gap-2 w-full bg-red-600 hover:bg-red-700 text-white px-3 py-2 rounded text-xs font-medium transition-all duration-200"
+              >
+                <AlertTriangle className="w-3 h-3" />
+                Weitere Notfallkontakte
+              </a>
             </div>
           </div>
         </div>

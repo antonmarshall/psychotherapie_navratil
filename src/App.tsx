@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import Lebenslauf from "./pages/Lebenslauf";
 import Impressum from "./pages/Impressum";
 import Datenschutz from "./pages/Datenschutz";
+import Notfallkontakte from "./pages/Notfallkontakte";
 import NotFound from "./pages/NotFound";
 import CookieBanner from "./components/ui/CookieBanner";
 
@@ -23,6 +24,7 @@ const App = () => (
           <Route path="/lebenslauf" element={<Lebenslauf />} />
           <Route path="/impressum" element={<Impressum />} />
           <Route path="/datenschutz" element={<Datenschutz />} />
+          <Route path="/notfallkontakte" element={<Notfallkontakte />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

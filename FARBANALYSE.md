@@ -246,3 +246,4 @@ colors: {
 6. ✅ Neue warme Farbkombi testen
 7. ✅ Dokumentation erstellen
 
+

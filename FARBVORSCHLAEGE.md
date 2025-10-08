@@ -93,3 +93,4 @@ Du kannst die Farben auch in `BRAND_COLORS.sectionLight` und `BRAND_COLORS.secti
 4. Wenn es dir gefällt, übernimm die Farben auch in `tailwind.config.ts` und `colors.ts`
 
 
+

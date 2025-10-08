@@ -24,10 +24,10 @@ const HeroSection = () => {
           <div className="mt-16 md:mt-20 w-full">
             {/* Headline */}
             <div className="text-center mb-2">
-              <h1 className="text-4xl md:text-5xl font-bold text-text-primary">
+              <h1 className="text-3xl md:text-4xl font-semibold text-[#6B5B4D] mb-1">
                 Praxis für Psychotherapie
               </h1>
-              <h2 className="text-2xl md:text-3xl font-bold text-text-primary mt-2">
+              <h2 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-[#D4A574] via-[#B8976A] to-[#8B7355] bg-clip-text text-transparent mt-2">
                 Christiane Navrátil
               </h2>
             </div>
