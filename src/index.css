@@ -47,7 +47,7 @@ All colors MUST be HSL.
     
     /* Hintergrundfarben - Abschnitte */
     --section-bg-light: #fdfbf7;        /* Hellerer Ton - Warmes Leinen-Weiß */
-    --section-bg-dark: #fef5e7;         /* Dunklerer Ton - Warmes Creme (hoffnungsvoll) */
+    --section-bg-dark: #D4C4B0;         /* Dunklerer Ton - Warmer Sand/Beige */
     
     /* Hintergrundfarben - Komponenten */
     --bg-creme: #fff8ed;                /* Legacy Creme (wird ersetzt) */
