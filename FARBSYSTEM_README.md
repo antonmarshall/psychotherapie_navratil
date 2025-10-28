@@ -182,3 +182,7 @@ Bei Fragen zu Farben:
 3. Alle Änderungen in `src/index.css` Zeilen 41-68
 
 
+
+
+
+

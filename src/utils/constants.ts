@@ -43,5 +43,5 @@ export const SEO_DEFAULT = {
 // Animation constants
 export const ANIMATION_DURATION = 180; // ms
 export const SCROLLSPY_TOP = 0.1;
-export const MENU_HEIGHT = 48; // px (mobile: h-12, desktop: h-16)
+export const MENU_HEIGHT = 64; // px
 
