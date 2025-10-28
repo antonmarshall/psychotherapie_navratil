@@ -80,7 +80,7 @@ const PersonHero = () => {
                   <CollapsibleTrigger asChild>
                     <Button 
                       variant="ghost" 
-                      className="w-full justify-between p-4 h-auto bg-white/80 hover:bg-white border-0 shadow-lg"
+                      className="w-full justify-between p-4 h-auto bg-section-light hover:bg-section-light/80 border-0 shadow-lg"
                     >
                       <div className="flex items-center gap-3">
                         <section.icon className="w-5 h-5 text-primary" />
@@ -102,7 +102,7 @@ const PersonHero = () => {
               ))}
 
               {/* Button zum Lebenslauf */}
-              <Card className="mt-8 bg-gradient-to-br from-bg-creme to-white border-0 shadow-lg">
+              <Card className="mt-8 bg-section-light border-0 shadow-lg">
                 <CardContent className="p-6">
                   <div className="flex items-center gap-3 mb-4">
                     <BookOpen className="w-6 h-6 text-primary" />
