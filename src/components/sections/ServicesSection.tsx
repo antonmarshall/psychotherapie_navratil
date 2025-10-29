@@ -22,13 +22,13 @@ const ServicesSection = () => {
       objectPosition: "20% center"
     },
     {
-      image: import.meta.env.BASE_URL + 'behandlung_3.png',
+      image: import.meta.env.BASE_URL + 'behandlung_4.png',
       title: "Behandlung",
       description: "Evidenzbasierte Psychotherapie für Kinder, Jugendliche und Familien.",
       bgColor: "bg-accent-light",
       borderColor: "border-accent",
       iconColor: "text-accent",
-      objectFit: "contain",
+      objectFit: "cover",
       objectPosition: "center"
     },
     {
