@@ -20,7 +20,7 @@ const ServicesSection = () => {
       iconColor: "text-accent2"
     },
     {
-      image: import.meta.env.BASE_URL + 'behandlung_2.png',
+      image: import.meta.env.BASE_URL + 'behandlung_3.png',
       title: "Behandlung",
       description: "Evidenzbasierte Psychotherapie für Kinder, Jugendliche und Familien.",
       bgColor: "bg-accent-light",
