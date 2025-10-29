@@ -12,7 +12,7 @@ const ServicesSection = () => {
       iconColor: "text-primary"
     },
     {
-      image: import.meta.env.BASE_URL + 'beratung_2.png',
+      image: import.meta.env.BASE_URL + 'beratung_3.png',
       title: "Beratung",
       description: "Professionelle Begleitung für Familien, Eltern und Kinder bei Entwicklungsfragen.",
       bgColor: "bg-accent2-light",
