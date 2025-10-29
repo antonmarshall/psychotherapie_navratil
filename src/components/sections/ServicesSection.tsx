@@ -4,7 +4,7 @@ import { useState } from "react";
 const ServicesSection = () => {
   const services = [
     {
-      image: import.meta.env.BASE_URL + 'diagnostik_2.png',
+      image: import.meta.env.BASE_URL + 'diagnostik_3.png',
       title: "Diagnostik",
       description: "Umfassende psychologische Untersuchung zur genauen Erfassung Ihrer individuellen Situation.",
       bgColor: "bg-primary-light",
@@ -28,7 +28,7 @@ const ServicesSection = () => {
       iconColor: "text-accent"
     },
     {
-      image: import.meta.env.BASE_URL + 'berufliche_wiedereingliederung.png',
+      image: import.meta.env.BASE_URL + 'berufliche_wiedereingliederung2.png',
       title: "Berufliche Wiedereingliederung",
       description: "Unterstützung bei der Rückkehr ins Berufsleben nach psychischen Belastungen oder Erkrankungen.",
       bgColor: "bg-primary",
