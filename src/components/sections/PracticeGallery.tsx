@@ -30,7 +30,7 @@ const PracticeGallery = () => {
     },
     {
       id: 5,
-      title: "Therapieraum",
+      title: "Therapieraum für Kinder",
       description: "Ruhiger Raum für Gespräche und Therapie",
       image: import.meta.env.BASE_URL + 'therapieraum.png'
     }

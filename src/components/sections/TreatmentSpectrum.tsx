@@ -106,7 +106,7 @@ const spectrumData = [
     ],
   },
   {
-    title: 'Regulation (Kleinkind)',
+    title: 'Regulation',
     details: [
       'Emotionsregulation im frühen Kindesalter',
       'Trotzverhalten und Wutanfälle',
@@ -159,7 +159,7 @@ const bubbleColors = [
   'bg-accent-light', // Essen & Körper
   'bg-accent2', // Hochsensibilität - Blaugrün
   'bg-accent-light', // Gehirn & Gesundheit
-  'bg-secondary-light', // Regulation (Kleinkind)
+  'bg-secondary-light', // Regulation
   'bg-accent-light', // Schlaf & Träume
   'bg-secondary-light', // Körperliche Beschwerden
   // Belastung & Trauma (Orange/Rot)
