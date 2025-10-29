@@ -5,7 +5,7 @@ const HeroSection = () => {
     <section
       className="relative min-h-[60vh] flex items-center justify-center"
       style={{
-        backgroundImage: `url(${import.meta.env.BASE_URL}hero_hintergrund.png)`,
+        backgroundImage: `url(${import.meta.env.BASE_URL}hero2.png)`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat"
