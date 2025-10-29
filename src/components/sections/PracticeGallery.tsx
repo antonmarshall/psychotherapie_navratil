@@ -24,13 +24,13 @@ const PracticeGallery = () => {
     },
     {
       id: 4,
-      title: "Spielzimmer",
+      title: "Spielzimmer für Kinder",
       description: "Kreativer Raum für Kinder und Jugendliche",
       image: import.meta.env.BASE_URL + 'spielzimmer.png'
     },
     {
       id: 5,
-      title: "Therapieraum für Kinder",
+      title: "Therapieraum",
       description: "Ruhiger Raum für Gespräche und Therapie",
       image: import.meta.env.BASE_URL + 'therapieraum.png'
     }

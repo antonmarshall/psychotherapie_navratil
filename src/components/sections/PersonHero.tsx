@@ -30,12 +30,12 @@ const PersonHero = () => {
         <div className="bg-bg-creme border border-primary/20 rounded-lg p-4">
           <h4 className="font-semibold text-gray-900 mb-3">Alle Qualifikationen im Überblick:</h4>
           <div className="grid grid-cols-2 gap-2 text-sm text-gray-600">
-            <div>• Dipl.-Psychologin</div>
-            <div>• Kinder- und Jugendlichen-Psychotherapeutin</div>
-            <div>• Klinische Neuropsychologin</div>
-            <div>• Heilpraktiker (Psychotherapie)</div>
-            <div>• Montessori-Pädagogin</div>
-            <div>• Krankenschwester</div>
+            <div>• Klinische Neuropsychologie (GNP, PTK RP)</div>
+            <div>• Montessori-Pädagogin (Internationale Montessori Vereinigung, Aachen)</div>
+            <div>• Approbation KJP (VT, APV Münster)</div>
+            <div>• Approbation PP in Vorbereitung (TP, LPP Rinkerode)</div>
+            <div>• Psychotraumatologin (DeGPT, Berlin)</div>
+            <div>• Familien-Therapeutin (Bundeskonferenz für Erziehung, Fürth)</div>
           </div>
         </div>
       )
