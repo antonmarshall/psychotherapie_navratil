@@ -264,7 +264,7 @@ const Navigation = () => {
     <nav
       className="sticky top-0 z-50 w-full border-b border-accent2 shadow-sm pointer-events-auto"
       style={{
-        backgroundImage: `url(${import.meta.env.BASE_URL}navigator_background.png)`,
+        backgroundImage: `url(${import.meta.env.BASE_URL}menu_backround2.png)`,
         backgroundSize: "100% 100%",
         backgroundPosition: "center center",
         backgroundRepeat: "no-repeat"
