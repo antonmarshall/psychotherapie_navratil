@@ -9,7 +9,8 @@ const ServicesSection = () => {
       description: "Umfassende psychologische Untersuchung zur genauen Erfassung Ihrer individuellen Situation.",
       bgColor: "bg-primary-light",
       borderColor: "border-primary",
-      iconColor: "text-primary"
+      iconColor: "text-primary",
+      objectPosition: "center"
     },
     {
       image: import.meta.env.BASE_URL + 'beratung_3.png',
@@ -17,7 +18,8 @@ const ServicesSection = () => {
       description: "Professionelle Begleitung für Familien, Eltern und Kinder bei Entwicklungsfragen.",
       bgColor: "bg-accent2-light",
       borderColor: "border-accent2",
-      iconColor: "text-accent2"
+      iconColor: "text-accent2",
+      objectPosition: "20% center"
     },
     {
       image: import.meta.env.BASE_URL + 'behandlung_3.png',
@@ -25,7 +27,9 @@ const ServicesSection = () => {
       description: "Evidenzbasierte Psychotherapie für Kinder, Jugendliche und Familien.",
       bgColor: "bg-accent-light",
       borderColor: "border-accent",
-      iconColor: "text-accent"
+      iconColor: "text-accent",
+      objectFit: "contain",
+      objectPosition: "center"
     },
     {
       image: import.meta.env.BASE_URL + 'berufliche_wiedereingliederung2.png',
@@ -33,7 +37,8 @@ const ServicesSection = () => {
       description: "Unterstützung bei der Rückkehr ins Berufsleben nach psychischen Belastungen oder Erkrankungen.",
       bgColor: "bg-primary",
       borderColor: "border-primary-dark",
-      iconColor: "text-primary"
+      iconColor: "text-primary",
+      objectPosition: "80% center"
     }
   ];
 
@@ -71,7 +76,11 @@ const ServicesSection = () => {
                       <img
                         src={service.image}
                         alt={service.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        className="w-full h-full group-hover:scale-105 transition-transform duration-300"
+                        style={{
+                          objectFit: service.objectFit || 'cover',
+                          objectPosition: service.objectPosition || 'center'
+                        }}
                       />
                     </div>
 
@@ -97,7 +106,11 @@ const ServicesSection = () => {
                       <img
                         src={service.image}
                         alt={service.title}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full"
+                        style={{
+                          objectFit: service.objectFit || 'cover',
+                          objectPosition: service.objectPosition || 'center'
+                        }}
                       />
                       
                       {/* Full color overlay with text (on tap) */}
