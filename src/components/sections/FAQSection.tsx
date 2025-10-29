@@ -24,11 +24,11 @@ const FAQSection = () => {
     },
     {
       question: "Wie lange dauert eine Therapie?",
-      answer: "Die Dauer ist sehr individuell und hängt von der Art der Problematik ab. In der Regel dauert eine Therapie zwischen 20-50 Sitzungen. Wir besprechen den Verlauf regelmäßig und passen die Therapie an Ihre Fortschritte an."
+      answer: "Die Therapie umfasst in der Regel zwischen 15 und 100 Sitzungen."
     },
     {
       question: "Kann ich auch ohne Überweisung kommen?",
-      answer: "Ja, Sie können auch ohne Überweisung zu mir kommen. Für die Kostenübernahme durch die Krankenkasse ist jedoch eine Überweisung vom Hausarzt oder Kinderarzt erforderlich. Ich helfe Ihnen gerne bei der Klärung der Formalitäten."
+      answer: "Ja, Sie können ohne Überweisung zu mir kommen."
     }
   ];
 

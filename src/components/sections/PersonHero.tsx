@@ -14,13 +14,13 @@ const PersonHero = () => {
       id: "about",
       title: "Über mich",
       icon: User,
-      content: "Diplom-Psychologin und Kinder- und Jugendlichen-Psychotherapeutin mit über 30 Jahren Erfahrung. Mein Weg führte von der Krankenschwester über das Psychologie-Studium zur Psychotherapie. Seit 2009 führe ich meine eigene Praxis in Münster Seit 2009 führe ich meine eigene Praxis in Münster, in der ich verhaltenstherapeutische Verfahren mit systemischen Elementen und tiefenpsychologischen Ansätzen verbinde."
+      content: "Diplom-Psychologin und Kinder- und Jugendlichen-Psychotherapeutin mit über 30 Jahren Erfahrung. Mein Weg führte von der Krankenschwester über das Psychologie-Studium zur Psychotherapie und klinischen Neuropsychologie. Seit 2009 arbeite ich in meiner eigenen Praxis in Münster, in der ich verhaltenstherapeutische und neuropsychologische Verfahren verbinde."
     },
     {
       id: "philosophy", 
       title: "Meine Arbeitsweise",
       icon: Stethoscope,
-      content: "Ich schaffe einen geschützten Raum, in dem Sie offen und ehrlich sein können. Meine Arbeit verbindet unterschiedliche Methoden – von Verhaltenstherapie über kreative Ansätze bis hin zu Körper- und Narrativen Verfahren. So finden Kinder, Jugendliche und Erwachsene jeweils die Unterstützung, die sie brauchen."
+      content: "Ich schaffe einen geschützten Raum, in dem Sie offen und ehrlich sein können. Meine Arbeit verbindet unterschiedliche Methoden – von Verhaltenstherapie über kreative Ansätze bis hin zu Körper- und narrativen Verfahren. So finden Kinder, Jugendliche, Erwachsene und Familien die Unterstützung, die sie brauchen."
     },
     {
       id: "qualifications",
